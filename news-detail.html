@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>News Details | SOBOBO NATION</title>
+
+  <meta
+    name="description"
+    content="Read the latest news, updates and announcements from SOBOBO NATION."
+  >
+
+  <meta name="theme-color" content="#087f23">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5fff7;
+      color: #222;
+      line-height: 1.7;
+    }
+
+    /* TOP BAR */
+    .top-bar {
+      background: #066b1d;
+      color: white;
+      text-align: center;
+      padding: 8px 15px;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: .5px;
+    }
+
+    /* HEADER */
+    header {
+      background: white;
+      border-bottom: 3px solid #087f23;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: auto;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      text-decoration: none;
+      color: #087f23;
+      font-weight: 900;
+      font-size: 24px;
+      line-height: 1.1;
+    }
+
+    .logo span {
+      display: block;
+      color: #444;
+      font-size: 11px;
+      margin-top: 4px;
+      letter-spacing: 1px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    nav a {
+      color: #222;
+      text-decoration: none;
+      padding: 9px 11px;
+      font-weight: bold;
+      font-size: 14px;
+      border-radius: 5px;
+    }
+
+    nav a:hover {
+      background: #087f23;
+      color: white;
+    }
+
+    .menu-btn {
+      display: none;
+      border: none;
+      background: #087f23;
+      color: white;
+      font-size: 25px;
+      padding: 7px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    /* TICKER */
+    .ticker {
+      background: #087f23;
+      color: white;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .ticker-content {
+      display: inline-block;
+      padding: 9px 0;
+      padding-left: 100%;
+      animation: moveTicker 18s linear infinite;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    @keyframes moveTicker {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-100%);
+      }
+    }
+
+    /* PAGE */
+    .page {
+      max-width: 1000px;
+      margin: 35px auto;
+      padding: 0 18px;
+    }
+
+    .back-link {
+      display: inline-block;
+      color: #087f23;
+      text-decoration: none;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    /* ARTICLE */
+    .article {
+      background: white;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 5px 25px rgba(0,0,0,.08);
+    }
+
+    .article-image {
+      width: 100%;
+      max-height: 550px;
+      object-fit: cover;
+      display: block;
+      background: #eee;
+    }
+
+    .article-content {
+      padding: 30px;
+    }
+
+    .category {
+      display: inline-block;
+      background: #087f23;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .article h1 {
+      color: #087f23;
+      font-size: 36px;
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+
+    .date {
+      color: #777;
+      font-size: 14px;
+      margin-bottom: 25px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 18px;
+    }
+
+    .story {
+      font-size: 17px;
+      color: #333;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+
+    /* SHARE */
+    .share-box {
+      margin-top: 35px;
+      padding-top: 25px;
+      border-top: 1px solid #ddd;
+    }
+
+    .share-box h3 {
+      color: #087f23;
+      margin-bottom: 15px;
+    }
+
+    .share-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .share-btn {
+      border: none;
+      padding: 11px 17px;
+      border-radius: 7px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 14px;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .whatsapp {
+      background: #25D366;
+      color: white;
+    }
+
+    .copy {
+      background: #087f23;
+      color: white;
+    }
+
+    .back-btn {
+      background: #333;
+      color: white;
+    }
+
+    .share-btn:hover {
+      opacity: .85;
+    }
+
+    /* NO STORY */
+    .no-story {
+      background: white;
+      padding: 50px 25px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 5px 20px rgba(0,0,0,.07);
+    }
+
+    .no-story h2 {
+      color: #087f23;
+      margin-bottom: 10px;
+    }
+
+    .no-story p {
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    /* FOOTER */
+    footer {
+      margin-top: 50px;
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    footer h3 {
+      color: #36b84a;
+      margin-bottom: 8px;
+    }
+
+    footer p {
+      color: #ccc;
+      font-size: 14px;
+      margin: 5px 0;
+    }
+
+    .footer-links {
+      margin: 15px 0;
+    }
+
+    .footer-links a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 8px;
+      font-size: 13px;
+    }
+
+    .footer-links a:hover {
+      color: #36b84a;
+    }
+
+    /* MOBILE */
+    @media (max-width: 850px) {
+
+      .menu-btn {
+        display: block;
+      }
+
+      nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 10px 15px;
+        box-shadow: 0 8px 20px rgba(0,0,0,.12);
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      nav a {
+        padding: 13px 10px;
+        border-bottom: 1px solid #eee;
+      }
+
+      header {
+        position: relative;
+      }
+
+      .article h1 {
+        font-size: 28px;
+      }
+
+      .article-content {
+        padding: 22px;
+      }
+
+      .story {
+        font-size: 16px;
+      }
+
+      .article-image {
+        max-height: 400px;
+      }
+    }
+
+    @media (max-width: 500px) {
+
+      .logo {
+        font-size: 20px;
+      }
+
+      .logo span {
+        font-size: 9px;
+      }
+
+      .page {
+        margin: 25px auto;
+      }
+
+      .article h1 {
+        font-size: 24px;
+      }
+
+      .article-content {
+        padding: 18px;
+      }
+
+      .share-buttons {
+        flex-direction: column;
+      }
+
+      .share-btn {
+        text-align: center;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    SOBOBO NATION • UNITY • PROGRESS • COMMUNITY
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+
+      <a href="index.html" class="logo">
+        SOBOBO NATION
+        <span>UNITY • PROGRESS • COMMUNITY</span>
+      </a>
+
+      <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+      <nav id="navMenu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="mission.html">Mission</a>
+        <a href="leadership.html">Leadership</a>
+        <a href="programmes.html">Programmes</a>
+        <a href="membership.html">Membership</a>
+        <a href="volunteer.html">Volunteer</a>
+        <a href="news.html">News</a>
+        <a href="events.html">Events</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="video.html">Videos</a>
+        <a href="resources.html">Resources</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- MOVING TICKER -->
+  <div class="ticker">
+    <div class="ticker-content">
+      Welcome to SOBOBO NATION • Unity • Progress • Community • Stay Connected • Get Involved • Together We Build
+    </div>
+  </div>
+
+  <!-- PAGE -->
+  <main class="page">
+
+    <a href="news.html" class="back-link">
+      ← Back to News
+    </a>
+
+    <div id="articleContainer"></div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+
+    <h3>SOBOBO NATION</h3>
+
+    <p>UNITY • PROGRESS • COMMUNITY</p>
+
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="news.html">News</a>
+      <a href="events.html">Events</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <p>
+      © <span id="year"></span> SOBOBO NATION. All Rights Reserved.
+    </p>
+
+    <p>
+      Initiated by Chief Dr. Uloko OJIJI — Founder & CEO, SOBOBO NATION
+    </p>
+
+  </footer>
+
+
+  <script>
+
+    const STORAGE_KEY = "soboboNationNews";
+
+    /* MOBILE MENU */
+    function toggleMenu() {
+      document.getElementById("navMenu").classList.toggle("active");
+    }
+
+    /* ESCAPE HTML */
+    function escapeHTML(value) {
+      if (value === null || value === undefined) {
+        return "";
+      }
+
+      return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    /* GET SELECTED STORY */
+    function getSelectedStory() {
+
+      try {
+
+        const selected =
+          sessionStorage.getItem("selectedSoboboNews");
+
+        if (!selected) {
+          return null;
+        }
+
+        return JSON.parse(selected);
+
+      } catch (error) {
+
+        console.error("Unable to load selected story:", error);
+
+        return null;
+      }
+    }
+
+
+    /* FORMAT DATE */
+    function formatDate(dateString) {
+
+      if (!dateString) {
+        return "";
+      }
+
+      const date = new Date(dateString);
+
+      if (isNaN(date.getTime())) {
+        return dateString;
+      }
+
+      return date.toLocaleDateString("en-NG", {
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+      });
+    }
+
+
+    /* DISPLAY STORY */
+    function displayStory() {
+
+      const container =
+        document.getElementById("articleContainer");
+
+      const story = getSelectedStory();
+
+      if (!story) {
+
+        container.innerHTML = `
+          <div class="no-story">
+
+            <h2>News Story Not Found</h2>
+
+            <p>
+              The selected news story could not be loaded.
+              Please return to the news page and select a story again.
+            </p>
+
+            <a href="news.html"
+               class="share-btn back-btn">
+              ← Return to News
+            </a>
+
+          </div>
+        `;
+
+        return;
+      }
+
+
+      const imageHTML = story.image
+        ? `
+          <img
+            src="${story.image}"
+            alt="${escapeHTML(story.headline)}"
+            class="article-image"
+          >
+        `
+        : "";
+
+
+      container.innerHTML = `
+
+        <article class="article">
+
+          ${imageHTML}
+
+          <div class="article-content">
+
+            <span class="category">
+              ${escapeHTML(story.category || "News")}
+            </span>
+
+            <h1>
+              ${escapeHTML(story.headline)}
+            </h1>
+
+            <div class="date">
+              Published on ${formatDate(story.date)}
+            </div>
+
+            <div class="story">
+              ${escapeHTML(story.content)}
+            </div>
+
+
+            <div class="share-box">
+
+              <h3>Share This Story</h3>
+
+              <div class="share-buttons">
+
+                <a
+                  href="#"
+                  class="share-btn whatsapp"
+                  onclick="shareWhatsApp(); return false;"
+                >
+                  📲 Share on WhatsApp
+                </a>
+
+                <button
+                  class="share-btn copy"
+                  onclick="copyStoryLink()"
+                >
+                  🔗 Copy Link
+                </button>
+
+                <a
+                  href="news.html"
+                  class="share-btn back-btn"
+                >
+                  ← Back to News
+                </a>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </article>
+      `;
+
+      document.title =
+        story.headline + " | SOBOBO NATION";
+    }
+
+
+    /* WHATSAPP SHARE */
+    function shareWhatsApp() {
+
+      const story = getSelectedStory();
+
+      if (!story) {
+        return;
+      }
+
+      const pageURL = window.location.href;
+
+      const text =
+        story.headline +
+        "\n\n" +
+        "Read this story from SOBOBO NATION:" +
+        "\n" +
+        pageURL;
+
+      const whatsappURL =
+        "https://api.whatsapp.com/send?text=" +
+        encodeURIComponent(text);
+
+      window.open(
+        whatsappURL,
+        "_blank"
+      );
+    }
+
+
+    /* COPY LINK */
+    async function copyStoryLink() {
+
+      const pageURL =
+        window.location.href;
+
+      try {
+
+        await navigator.clipboard.writeText(pageURL);
+
+        alert("News link copied successfully!");
+
+      } catch (error) {
+
+        /* FALLBACK */
+        const textArea =
+          document.createElement("textarea");
+
+        textArea.value = pageURL;
+
+        document.body.appendChild(textArea);
+
+        textArea.select();
+
+        document.execCommand("copy");
+
+        document.body.removeChild(textArea);
+
+        alert("News link copied successfully!");
+      }
+    }
+
+
+    /* YEAR */
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+
+    /* LOAD STORY */
+    displayStory();
+
+  </script>
+
+</body>
+</html>
