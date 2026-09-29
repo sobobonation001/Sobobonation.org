@@ -13,6 +13,10 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
@@ -25,14 +29,14 @@
     .topbar {
       background: #087f23;
       color: white;
-      padding: 15px 22px;
+      padding: 15px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       position: sticky;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
     }
 
     .brand {
@@ -46,51 +50,82 @@
       font-size: 10px;
       margin-top: 3px;
       letter-spacing: 1px;
+      opacity: 0.9;
     }
 
-    .back-btn {
+    .top-buttons {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .top-btn {
       background: white;
       color: #087f23;
-      padding: 9px 14px;
+      border: none;
+      padding: 9px 13px;
       border-radius: 6px;
       text-decoration: none;
       font-weight: bold;
       font-size: 13px;
+      cursor: pointer;
+    }
+
+    .top-btn:hover {
+      background: #eaffef;
     }
 
     /* MAIN */
 
     .container {
-      max-width: 1100px;
+      max-width: 1150px;
       margin: auto;
-      padding: 30px 18px;
+      padding: 28px 16px 50px;
     }
 
     .page-title {
       color: #087f23;
-      margin: 0 0 8px;
+      margin: 0 0 6px;
       font-size: 28px;
     }
 
     .intro {
       color: #666;
-      margin-top: 0;
-      margin-bottom: 25px;
+      margin: 0 0 25px;
     }
 
-    /* FORM CARD */
+    /* NOTICE */
 
-    .form-card {
+    .notice {
+      background: white;
+      border-left: 5px solid #087f23;
+      padding: 15px;
+      border-radius: 7px;
+      margin-bottom: 22px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .notice strong {
+      color: #087f23;
+    }
+
+    /* FORM */
+
+    .form-card,
+    .list-card {
       background: white;
       border-radius: 10px;
       padding: 25px;
+      margin-bottom: 25px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-      margin-bottom: 30px;
     }
 
-    .form-card h2 {
+    .form-card h2,
+    .list-card h2 {
+      margin: 0 0 20px;
       color: #087f23;
-      margin-top: 0;
       font-size: 21px;
     }
 
@@ -100,8 +135,8 @@
 
     label {
       display: block;
-      font-weight: bold;
       font-size: 14px;
+      font-weight: bold;
       margin-bottom: 7px;
     }
 
@@ -115,6 +150,7 @@
       font-size: 14px;
       font-family: inherit;
       outline: none;
+      background: white;
     }
 
     input:focus,
@@ -125,23 +161,51 @@
     }
 
     textarea {
-      min-height: 180px;
+      min-height: 190px;
       resize: vertical;
+      line-height: 1.6;
     }
 
     .file-note {
-      font-size: 12px;
       color: #777;
+      font-size: 12px;
       margin-top: 6px;
     }
 
-    .image-preview {
+    /* IMAGE PREVIEW */
+
+    .preview-container {
       display: none;
       margin-top: 15px;
-      max-width: 300px;
+      position: relative;
+      max-width: 500px;
+    }
+
+    .preview-container img {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
       border-radius: 8px;
       border: 2px solid #087f23;
+      display: block;
     }
+
+    .remove-preview {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: #b00020;
+      color: white;
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 17px;
+      font-weight: bold;
+    }
+
+    /* BUTTONS */
 
     .button-row {
       display: flex;
@@ -149,14 +213,20 @@
       flex-wrap: wrap;
     }
 
-    .primary-btn {
-      background: #087f23;
-      color: white;
+    .primary-btn,
+    .secondary-btn,
+    .danger-btn {
       border: none;
-      padding: 12px 20px;
+      padding: 12px 18px;
       border-radius: 6px;
       font-weight: bold;
       cursor: pointer;
+      font-size: 14px;
+    }
+
+    .primary-btn {
+      background: #087f23;
+      color: white;
     }
 
     .primary-btn:hover {
@@ -164,64 +234,241 @@
     }
 
     .secondary-btn {
-      background: #eee;
+      background: #e9e9e9;
       color: #333;
-      border: none;
-      padding: 12px 20px;
+    }
+
+    .secondary-btn:hover {
+      background: #ddd;
+    }
+
+    .danger-btn {
+      background: #b00020;
+      color: white;
+    }
+
+    .danger-btn:hover {
+      background: #8c0019;
+    }
+
+    .cancel-edit {
+      display: none;
+      background: #fff4d6;
+      color: #735500;
+      border: 1px solid #e3c86e;
+      padding: 12px 18px;
       border-radius: 6px;
       font-weight: bold;
       cursor: pointer;
     }
 
-    /* NEWS LIST */
+    /* SEARCH */
+
+    .search-box {
+      margin-bottom: 20px;
+    }
+
+    .search-box input {
+      max-width: 500px;
+    }
+
+    /* NEWS GRID */
+
+    #newsList {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .empty {
+      grid-column: 1 / -1;
+      background: #f5fff7;
+      border: 1px dashed #9bcaa5;
+      padding: 30px;
+      text-align: center;
+      color: #666;
+      border-radius: 8px;
+    }
 
     .news-card {
       background: white;
-      border-radius: 10px;
-      padding: 18px;
-      margin-bottom: 15px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      border: 1px solid #e2e2e2;
+      border-radius: 9px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     }
 
-    .news-card h3 {
+    .news-image {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      display: block;
+      background: #eaffef;
+    }
+
+    .no-image {
+      height: 210px;
+      background: #eaffef;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       color: #087f23;
+      font-size: 45px;
+    }
+
+    .news-body {
+      padding: 18px;
+    }
+
+    .category {
+      display: inline-block;
+      background: #eaffef;
+      color: #087f23;
+      padding: 5px 9px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .news-body h3 {
       margin: 0 0 8px;
+      color: #087f23;
+      font-size: 18px;
+      line-height: 1.35;
     }
 
     .news-date {
       color: #888;
       font-size: 12px;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
-    .news-card p {
+    .news-content {
       color: #555;
-      line-height: 1.6;
-      font-size: 14px;
-    }
-
-    .status {
-      padding: 8px 12px;
-      border-radius: 5px;
-      background: #fff8df;
-      color: #775900;
       font-size: 13px;
-      margin-bottom: 20px;
+      line-height: 1.6;
+      white-space: pre-line;
+      max-height: 100px;
+      overflow: hidden;
+      margin-bottom: 15px;
     }
 
-    @media (max-width: 600px) {
+    .card-buttons {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+    }
 
-      .container {
-        padding: 22px 13px;
-      }
+    .small-btn {
+      border: none;
+      padding: 8px 11px;
+      border-radius: 5px;
+      font-size: 12px;
+      font-weight: bold;
+      cursor: pointer;
+    }
 
-      .form-card {
-        padding: 18px;
-      }
+    .edit-btn {
+      background: #087f23;
+      color: white;
+    }
 
-      .page-title {
-        font-size: 23px;
-      }
+    .view-btn {
+      background: #eaffef;
+      color: #087f23;
+    }
+
+    .delete-btn {
+      background: #ffe7e7;
+      color: #b00020;
+    }
+
+    /* MODAL */
+
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      z-index: 2000;
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    .modal-content {
+      background: white;
+      max-width: 750px;
+      margin: 30px auto;
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      right: 12px;
+      top: 12px;
+      width: 36px;
+      height: 36px;
+      border: none;
+      border-radius: 50%;
+      background: #b00020;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+      z-index: 5;
+    }
+
+    .modal-image {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .modal-body {
+      padding: 25px;
+    }
+
+    .modal-body h2 {
+      color: #087f23;
+      margin-top: 0;
+    }
+
+    .modal-body p {
+      line-height: 1.7;
+      color: #444;
+      white-space: pre-line;
+    }
+
+    /* TOAST */
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 25px;
+      transform: translateX(-50%) translateY(100px);
+      background: #087f23;
+      color: white;
+      padding: 13px 20px;
+      border-radius: 7px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+      z-index: 3000;
+      opacity: 0;
+      transition: all 0.3s ease;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 750px) {
 
       .topbar {
         padding: 13px;
@@ -231,9 +478,43 @@
         font-size: 16px;
       }
 
-      .back-btn {
+      .brand small {
+        font-size: 8px;
+      }
+
+      .top-btn {
+        padding: 8px 9px;
         font-size: 11px;
-        padding: 8px 10px;
+      }
+
+      .container {
+        padding: 22px 12px 40px;
+      }
+
+      .page-title {
+        font-size: 23px;
+      }
+
+      .form-card,
+      .list-card {
+        padding: 18px;
+      }
+
+      #newsList {
+        grid-template-columns: 1fr;
+      }
+
+      .news-image,
+      .no-image {
+        height: 200px;
+      }
+
+      .modal {
+        padding: 10px;
+      }
+
+      .modal-content {
+        margin: 15px auto;
       }
 
     }
@@ -256,12 +537,23 @@
 
     </div>
 
-    <a
-      href="admin.html"
-      class="back-btn"
-    >
-      ← Dashboard
-    </a>
+    <div class="top-buttons">
+
+      <a
+        href="news.html"
+        class="top-btn"
+      >
+        🌐 News Page
+      </a>
+
+      <a
+        href="admin.html"
+        class="top-btn"
+      >
+        ← Dashboard
+      </a>
+
+    </div>
 
   </header>
 
@@ -273,24 +565,27 @@
     </h1>
 
     <p class="intro">
-      Create and manage official SOBOBO NATION news and updates.
+      Create, save, edit and delete SOBOBO NATION news stories.
     </p>
 
 
-    <div class="status">
+    <div class="notice">
 
-      <strong>Current Stage:</strong>
-      News interface is ready. Database publishing will be
-      connected in the next step.
+      <strong>Local Storage Mode:</strong>
+
+      News is currently saved directly in this browser/device.
+      No Supabase connection is required. If you clear your
+      browser data or change devices, these locally saved news
+      items will not automatically move to the new device.
 
     </div>
 
 
-    <!-- ADD NEWS -->
+    <!-- NEWS FORM -->
 
     <div class="form-card">
 
-      <h2>
+      <h2 id="formTitle">
         Add New News
       </h2>
 
@@ -299,13 +594,13 @@
         <div class="form-group">
 
           <label for="headline">
-            News Headline
+            News Headline *
           </label>
 
           <input
             type="text"
             id="headline"
-            placeholder="Enter news headline"
+            placeholder="Enter the news headline"
             required
           >
 
@@ -315,7 +610,7 @@
         <div class="form-group">
 
           <label for="date">
-            Publication Date
+            Publication Date *
           </label>
 
           <input
@@ -373,18 +668,38 @@
           <input
             type="file"
             id="image"
-            accept="image/*"
+            accept="image/jpeg,image/png,image/webp,image/gif"
           >
 
           <div class="file-note">
-            Select a JPG, PNG or WebP image.
+
+            Select an image from your phone.
+            JPG, PNG, WebP or GIF supported.
+
           </div>
 
-          <img
-            id="imagePreview"
-            class="image-preview"
-            alt="News image preview"
+
+          <div
+            class="preview-container"
+            id="previewContainer"
           >
+
+            <img
+              id="imagePreview"
+              src=""
+              alt="News image preview"
+            >
+
+            <button
+              type="button"
+              class="remove-preview"
+              onclick="removeImage()"
+              title="Remove image"
+            >
+              ×
+            </button>
+
+          </div>
 
         </div>
 
@@ -392,12 +707,12 @@
         <div class="form-group">
 
           <label for="content">
-            News Content
+            Full News Story *
           </label>
 
           <textarea
             id="content"
-            placeholder="Write the full news story here..."
+            placeholder="Write the complete news story here..."
             required
           ></textarea>
 
@@ -409,13 +724,24 @@
           <button
             type="submit"
             class="primary-btn"
+            id="saveButton"
           >
             Publish News
           </button>
 
           <button
+            type="button"
+            class="cancel-edit"
+            id="cancelEdit"
+            onclick="cancelEdit()"
+          >
+            Cancel Edit
+          </button>
+
+          <button
             type="reset"
             class="secondary-btn"
+            onclick="clearFormAfterReset()"
           >
             Clear Form
           </button>
@@ -427,45 +753,94 @@
     </div>
 
 
-    <!-- EXISTING NEWS -->
+    <!-- SAVED NEWS -->
 
-    <div class="form-card">
+    <div class="list-card">
 
       <h2>
-        Published News
+        Saved News
       </h2>
 
-      <div id="newsList">
+      <div class="search-box">
 
-        <div class="news-card">
-
-          <h3>
-            No News Published Yet
-          </h3>
-
-          <div class="news-date">
-            SOBOBO NATION
-          </div>
-
-          <p>
-            Published news stories will appear here after the
-            database connection is completed.
-          </p>
-
-        </div>
+        <input
+          type="search"
+          id="searchInput"
+          placeholder="🔎 Search news by headline, category or content..."
+          oninput="displayNews()"
+        >
 
       </div>
+
+
+      <div id="newsList"></div>
 
     </div>
 
   </main>
 
 
+  <!-- VIEW NEWS MODAL -->
+
+  <div
+    class="modal"
+    id="viewModal"
+    onclick="closeModal(event)"
+  >
+
+    <div class="modal-content">
+
+      <button
+        class="modal-close"
+        onclick="closeViewModal()"
+      >
+        ×
+      </button>
+
+      <img
+        id="modalImage"
+        class="modal-image"
+        src=""
+        alt="News image"
+        style="display:none;"
+      >
+
+      <div class="modal-body">
+
+        <span
+          id="modalCategory"
+          class="category"
+        ></span>
+
+        <h2 id="modalHeadline"></h2>
+
+        <div
+          id="modalDate"
+          class="news-date"
+        ></div>
+
+        <p id="modalContent"></p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- TOAST -->
+
+  <div
+    class="toast"
+    id="toast"
+  ></div>
+
+
   <script>
 
-    /* ==============================
+    /* =====================================
        LOGIN PROTECTION
-       ============================== */
+       ===================================== */
 
     if (
       sessionStorage.getItem("soboboAdminLoggedIn")
@@ -478,17 +853,31 @@
     }
 
 
-    /* ==============================
-       SET TODAY'S DATE
-       ============================== */
+    /* =====================================
+       STORAGE
+       ===================================== */
 
-    document.getElementById("date").value =
-      new Date().toISOString().split("T")[0];
+    const STORAGE_KEY =
+      "soboboNationNews";
 
 
-    /* ==============================
-       IMAGE PREVIEW
-       ============================== */
+    let newsItems =
+      JSON.parse(
+        localStorage.getItem(STORAGE_KEY)
+      ) || [];
+
+
+    let editingId = null;
+
+    let selectedImageData = "";
+
+
+    /* =====================================
+       ELEMENTS
+       ===================================== */
+
+    const newsForm =
+      document.getElementById("newsForm");
 
     const imageInput =
       document.getElementById("image");
@@ -496,27 +885,48 @@
     const imagePreview =
       document.getElementById("imagePreview");
 
+    const previewContainer =
+      document.getElementById("previewContainer");
+
+    const formTitle =
+      document.getElementById("formTitle");
+
+    const saveButton =
+      document.getElementById("saveButton");
+
+    const cancelEditButton =
+      document.getElementById("cancelEdit");
+
+
+    /* =====================================
+       TODAY'S DATE
+       ===================================== */
+
+    document.getElementById("date").value =
+      new Date().toISOString().split("T")[0];
+
+
+    /* =====================================
+       IMAGE UPLOAD
+       ===================================== */
 
     imageInput.addEventListener(
       "change",
       function() {
 
-        const file = this.files[0];
+        const file =
+          this.files[0];
 
         if (!file) {
-
-          imagePreview.style.display =
-            "none";
-
-          imagePreview.src = "";
-
           return;
-
         }
+
 
         if (!file.type.startsWith("image/")) {
 
-          alert("Please select an image file.");
+          showToast(
+            "Please select a valid image."
+          );
 
           this.value = "";
 
@@ -524,18 +934,43 @@
 
         }
 
+
+        /*
+          Limit image size to 3MB.
+          This prevents the browser's local
+          storage from filling too quickly.
+        */
+
+        if (file.size > 3 * 1024 * 1024) {
+
+          showToast(
+            "Image is too large. Please choose an image below 3MB."
+          );
+
+          this.value = "";
+
+          return;
+
+        }
+
+
         const reader =
           new FileReader();
 
+
         reader.onload = function(event) {
 
-          imagePreview.src =
+          selectedImageData =
             event.target.result;
 
-          imagePreview.style.display =
+          imagePreview.src =
+            selectedImageData;
+
+          previewContainer.style.display =
             "block";
 
         };
+
 
         reader.readAsDataURL(file);
 
@@ -543,53 +978,697 @@
     );
 
 
-    /* ==============================
-       FORM
-       ============================== */
+    /* =====================================
+       REMOVE IMAGE
+       ===================================== */
 
-    document
-      .getElementById("newsForm")
-      .addEventListener(
-        "submit",
-        function(event) {
+    function removeImage() {
 
-          event.preventDefault();
+      selectedImageData = "";
 
-          alert(
-            "The news form is working. " +
-            "The next step is connecting it to Supabase " +
-            "so the news can be permanently saved and " +
-            "displayed on news.html."
+      imageInput.value = "";
+
+      imagePreview.src = "";
+
+      previewContainer.style.display =
+        "none";
+
+    }
+
+
+    /* =====================================
+       SAVE NEWS
+       ===================================== */
+
+    newsForm.addEventListener(
+      "submit",
+      function(event) {
+
+        event.preventDefault();
+
+
+        const headline =
+          document.getElementById("headline")
+            .value.trim();
+
+        const date =
+          document.getElementById("date")
+            .value;
+
+        const category =
+          document.getElementById("category")
+            .value;
+
+        const content =
+          document.getElementById("content")
+            .value.trim();
+
+
+        if (!headline || !date || !content) {
+
+          showToast(
+            "Please complete all required fields."
+          );
+
+          return;
+
+        }
+
+
+        /* EDIT EXISTING NEWS */
+
+        if (editingId !== null) {
+
+          const index =
+            newsItems.findIndex(
+              item => item.id === editingId
+            );
+
+
+          if (index !== -1) {
+
+            newsItems[index].headline =
+              headline;
+
+            newsItems[index].date =
+              date;
+
+            newsItems[index].category =
+              category;
+
+            newsItems[index].content =
+              content;
+
+
+            /*
+              Only replace the image if
+              the user selected a new one.
+            */
+
+            if (selectedImageData !== "") {
+
+              newsItems[index].image =
+                selectedImageData;
+
+            }
+
+            saveNews();
+
+            showToast(
+              "News updated successfully."
+            );
+
+          }
+
+        }
+
+
+        /* CREATE NEW NEWS */
+
+        else {
+
+          const newNews = {
+
+            id:
+              Date.now(),
+
+            headline:
+              headline,
+
+            date:
+              date,
+
+            category:
+              category,
+
+            content:
+              content,
+
+            image:
+              selectedImageData || "",
+
+            createdAt:
+              new Date().toISOString()
+
+          };
+
+
+          newsItems.unshift(newNews);
+
+          saveNews();
+
+
+          showToast(
+            "News published and saved successfully."
           );
 
         }
+
+
+        resetForm();
+
+        displayNews();
+
+      }
+    );
+
+
+    /* =====================================
+       SAVE TO LOCAL STORAGE
+       ===================================== */
+
+    function saveNews() {
+
+      try {
+
+        localStorage.setItem(
+          STORAGE_KEY,
+          JSON.stringify(newsItems)
+        );
+
+      } catch (error) {
+
+        alert(
+          "The news could not be saved. " +
+          "The image may be too large. " +
+          "Please use a smaller image."
+        );
+
+      }
+
+    }
+
+
+    /* =====================================
+       DISPLAY NEWS
+       ===================================== */
+
+    function displayNews() {
+
+      const list =
+        document.getElementById("newsList");
+
+      const search =
+        document.getElementById("searchInput")
+          .value
+          .toLowerCase()
+          .trim();
+
+
+      let filtered =
+        newsItems.filter(function(item) {
+
+          return (
+
+            item.headline
+              .toLowerCase()
+              .includes(search)
+
+            ||
+
+            item.category
+              .toLowerCase()
+              .includes(search)
+
+            ||
+
+            item.content
+              .toLowerCase()
+              .includes(search)
+
+          );
+
+        });
+
+
+      if (filtered.length === 0) {
+
+        list.innerHTML = `
+
+          <div class="empty">
+
+            <div style="font-size:40px;">
+              📰
+            </div>
+
+            <h3>
+              No News Found
+            </h3>
+
+            <p>
+              Add your first news story using
+              the form above.
+            </p>
+
+          </div>
+
+        `;
+
+        return;
+
+      }
+
+
+      list.innerHTML =
+        filtered.map(function(item) {
+
+          const imageHTML =
+            item.image
+
+              ? `
+                <img
+                  class="news-image"
+                  src="${item.image}"
+                  alt="${escapeHTML(item.headline)}"
+                >
+              `
+
+              : `
+                <div class="no-image">
+                  📰
+                </div>
+              `;
+
+
+          return `
+
+            <article class="news-card">
+
+              ${imageHTML}
+
+              <div class="news-body">
+
+                <span class="category">
+                  ${escapeHTML(item.category)}
+                </span>
+
+                <h3>
+                  ${escapeHTML(item.headline)}
+                </h3>
+
+                <div class="news-date">
+                  ${formatDate(item.date)}
+                </div>
+
+                <div class="news-content">
+                  ${escapeHTML(item.content)}
+                </div>
+
+                <div class="card-buttons">
+
+                  <button
+                    class="small-btn view-btn"
+                    onclick="viewNews(${item.id})"
+                  >
+                    👁 View
+                  </button>
+
+                  <button
+                    class="small-btn edit-btn"
+                    onclick="editNews(${item.id})"
+                  >
+                    ✏️ Edit
+                  </button>
+
+                  <button
+                    class="small-btn delete-btn"
+                    onclick="deleteNews(${item.id})"
+                  >
+                    🗑 Delete
+                  </button>
+
+                </div>
+
+              </div>
+
+            </article>
+
+          `;
+
+        }).join("");
+
+    }
+
+
+    /* =====================================
+       EDIT NEWS
+       ===================================== */
+
+    function editNews(id) {
+
+      const item =
+        newsItems.find(
+          news => news.id === id
+        );
+
+
+      if (!item) {
+        return;
+      }
+
+
+      editingId = id;
+
+
+      document.getElementById("headline").value =
+        item.headline;
+
+      document.getElementById("date").value =
+        item.date;
+
+      document.getElementById("category").value =
+        item.category;
+
+      document.getElementById("content").value =
+        item.content;
+
+
+      selectedImageData =
+        item.image || "";
+
+
+      if (selectedImageData) {
+
+        imagePreview.src =
+          selectedImageData;
+
+        previewContainer.style.display =
+          "block";
+
+      } else {
+
+        previewContainer.style.display =
+          "none";
+
+      }
+
+
+      formTitle.textContent =
+        "Edit News";
+
+      saveButton.textContent =
+        "Update News";
+
+      cancelEditButton.style.display =
+        "inline-block";
+
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+    }
+
+
+    /* =====================================
+       CANCEL EDIT
+       ===================================== */
+
+    function cancelEdit() {
+
+      resetForm();
+
+      showToast(
+        "Edit cancelled."
       );
 
+    }
 
-    /* ==============================
-       CLEAR IMAGE PREVIEW
-       ============================== */
 
-    document
-      .getElementById("newsForm")
-      .addEventListener(
-        "reset",
-        function() {
+    /* =====================================
+       RESET FORM
+       ===================================== */
 
-          setTimeout(function() {
+    function resetForm() {
 
-            imagePreview.style.display =
-              "none";
+      newsForm.reset();
 
-            imagePreview.src = "";
+      editingId = null;
 
-            document.getElementById("date").value =
-              new Date().toISOString().split("T")[0];
+      selectedImageData = "";
 
-          }, 50);
+      formTitle.textContent =
+        "Add New News";
 
+      saveButton.textContent =
+        "Publish News";
+
+      cancelEditButton.style.display =
+        "none";
+
+      previewContainer.style.display =
+        "none";
+
+      imagePreview.src = "";
+
+      imageInput.value = "";
+
+      document.getElementById("date").value =
+        new Date().toISOString().split("T")[0];
+
+    }
+
+
+    function clearFormAfterReset() {
+
+      setTimeout(function() {
+
+        resetForm();
+
+      }, 20);
+
+    }
+
+
+    /* =====================================
+       DELETE NEWS
+       ===================================== */
+
+    function deleteNews(id) {
+
+      const item =
+        newsItems.find(
+          news => news.id === id
+        );
+
+
+      if (!item) {
+        return;
+      }
+
+
+      const confirmed =
+        confirm(
+          "Delete this news story?\n\n" +
+          item.headline +
+          "\n\nThis action cannot be undone."
+        );
+
+
+      if (!confirmed) {
+        return;
+      }
+
+
+      newsItems =
+        newsItems.filter(
+          news => news.id !== id
+        );
+
+
+      saveNews();
+
+      displayNews();
+
+
+      showToast(
+        "News deleted successfully."
+      );
+
+    }
+
+
+    /* =====================================
+       VIEW NEWS
+       ===================================== */
+
+    function viewNews(id) {
+
+      const item =
+        newsItems.find(
+          news => news.id === id
+        );
+
+
+      if (!item) {
+        return;
+      }
+
+
+      document.getElementById("modalHeadline")
+        .textContent =
+        item.headline;
+
+
+      document.getElementById("modalCategory")
+        .textContent =
+        item.category;
+
+
+      document.getElementById("modalDate")
+        .textContent =
+        formatDate(item.date);
+
+
+      document.getElementById("modalContent")
+        .textContent =
+        item.content;
+
+
+      const modalImage =
+        document.getElementById("modalImage");
+
+
+      if (item.image) {
+
+        modalImage.src =
+          item.image;
+
+        modalImage.style.display =
+          "block";
+
+      } else {
+
+        modalImage.src = "";
+
+        modalImage.style.display =
+          "none";
+
+      }
+
+
+      document.getElementById("viewModal")
+        .style.display =
+        "block";
+
+
+      document.body.style.overflow =
+        "hidden";
+
+    }
+
+
+    /* =====================================
+       CLOSE MODAL
+       ===================================== */
+
+    function closeViewModal() {
+
+      document.getElementById("viewModal")
+        .style.display =
+        "none";
+
+      document.body.style.overflow =
+        "";
+
+    }
+
+
+    function closeModal(event) {
+
+      if (
+        event.target.id === "viewModal"
+      ) {
+
+        closeViewModal();
+
+      }
+
+    }
+
+
+    /* =====================================
+       FORMAT DATE
+       ===================================== */
+
+    function formatDate(dateString) {
+
+      if (!dateString) {
+        return "";
+      }
+
+
+      const date =
+        new Date(dateString + "T00:00:00");
+
+
+      return date.toLocaleDateString(
+        "en-NG",
+        {
+          day: "numeric",
+          month: "long",
+          year: "numeric"
         }
       );
+
+    }
+
+
+    /* =====================================
+       HTML SECURITY
+       ===================================== */
+
+    function escapeHTML(value) {
+
+      return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+    }
+
+
+    /* =====================================
+       TOAST MESSAGE
+       ===================================== */
+
+    let toastTimer;
+
+
+    function showToast(message) {
+
+      const toast =
+        document.getElementById("toast");
+
+
+      toast.textContent =
+        message;
+
+
+      toast.classList.add("show");
+
+
+      clearTimeout(toastTimer);
+
+
+      toastTimer =
+        setTimeout(function() {
+
+          toast.classList.remove("show");
+
+        }, 3000);
+
+    }
+
+
+    /* =====================================
+       INITIAL DISPLAY
+       ===================================== */
+
+    displayNews();
 
   </script>
 
