@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>FAQ | SOBOBO NATION</title>
+
+  <meta
+    name="description"
+    content="Frequently Asked Questions about SOBOBO NATION, its activities, membership, programmes and community engagement."
+  >
+
+  <meta name="theme-color" content="#087f23">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5fff7;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    .top-bar {
+      background: #087f23;
+      color: white;
+      text-align: center;
+      padding: 8px 15px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    header {
+      background: white;
+      padding: 18px 20px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .logo {
+      color: #087f23;
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .tagline {
+      color: #555;
+      font-size: 13px;
+      margin-top: 3px;
+      letter-spacing: 1px;
+    }
+
+    .menu-btn {
+      display: none;
+      width: 100%;
+      background: #066b1d;
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    nav {
+      background: #066b1d;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 5px;
+      padding: 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 9px 12px;
+      border-radius: 5px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      background: #087f23;
+    }
+
+    .ticker {
+      background: #087f23;
+      color: white;
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 10px 0;
+      font-weight: bold;
+    }
+
+    .ticker-text {
+      display: inline-block;
+      padding-left: 100%;
+      animation: moveTicker 18s linear infinite;
+    }
+
+    @keyframes moveTicker {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    .hero {
+      background: #087f23;
+      color: white;
+      text-align: center;
+      padding: 55px 20px;
+    }
+
+    .hero h1 {
+      font-size: 38px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      max-width: 750px;
+      margin: auto;
+      font-size: 17px;
+    }
+
+    main {
+      max-width: 900px;
+      margin: auto;
+      padding: 45px 20px;
+    }
+
+    .intro {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .intro h2 {
+      color: #087f23;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .faq-container {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .faq-item {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+      overflow: hidden;
+      border-left: 4px solid #087f23;
+    }
+
+    .question {
+      width: 100%;
+      border: none;
+      background: white;
+      color: #087f23;
+      padding: 20px;
+      text-align: left;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .question:hover {
+      background: #f0fff3;
+    }
+
+    .symbol {
+      font-size: 22px;
+      min-width: 25px;
+      text-align: center;
+    }
+
+    .answer {
+      display: none;
+      padding: 0 20px 20px;
+      color: #555;
+      background: white;
+    }
+
+    .answer.active {
+      display: block;
+    }
+
+    .info-box {
+      background: white;
+      margin-top: 40px;
+      padding: 30px;
+      border-left: 5px solid #087f23;
+      border-radius: 8px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+    }
+
+    .info-box h2 {
+      color: #087f23;
+      margin-bottom: 12px;
+    }
+
+    .cta {
+      text-align: center;
+      margin-top: 40px;
+      padding: 35px 20px;
+      background: #087f23;
+      color: white;
+      border-radius: 12px;
+    }
+
+    .cta h2 {
+      margin-bottom: 10px;
+    }
+
+    .cta p {
+      margin-bottom: 20px;
+    }
+
+    .cta a {
+      display: inline-block;
+      background: white;
+      color: #087f23;
+      text-decoration: none;
+      padding: 12px 22px;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    .cta a:hover {
+      background: #e8f7eb;
+    }
+
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 45px;
+    }
+
+    footer p {
+      margin: 7px 0;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: #8cff9d;
+      text-decoration: none;
+      margin: 0 7px;
+    }
+
+    @media (max-width: 850px) {
+
+      .menu-btn {
+        display: block;
+      }
+
+      nav {
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      nav a {
+        text-align: center;
+        padding: 11px;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .hero {
+        padding: 40px 15px;
+      }
+
+      .hero h1 {
+        font-size: 30px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      main {
+        padding: 35px 15px;
+      }
+
+      .logo {
+        font-size: 24px;
+      }
+
+      .question {
+        font-size: 15px;
+        padding: 17px;
+      }
+
+      .answer {
+        padding: 0 17px 17px;
+      }
+
+      .info-box {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="top-bar">
+    SOBOBO NATION • UNITY • PROGRESS • COMMUNITY
+  </div>
+
+  <header>
+    <div class="logo">SOBOBO NATION</div>
+    <div class="tagline">UNITY • PROGRESS • COMMUNITY</div>
+  </header>
+
+  <button class="menu-btn" onclick="toggleMenu()">☰ Menu</button>
+
+  <nav id="navMenu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="mission.html">Mission</a>
+    <a href="leadership.html">Leadership</a>
+    <a href="programmes.html">Programmes</a>
+    <a href="membership.html">Membership</a>
+    <a href="volunteer.html">Volunteer</a>
+    <a href="news.html">News</a>
+    <a href="events.html">Events</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="video.html">Videos</a>
+    <a href="resources.html">Resources</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <div class="ticker">
+    <div class="ticker-text">
+      Welcome to SOBOBO NATION • Unity • Progress • Community • Stay Connected • Get Involved • Together We Build
+    </div>
+  </div>
+
+  <section class="hero">
+    <h1>Frequently Asked Questions</h1>
+    <p>
+      Find answers to common questions about SOBOBO NATION,
+      membership, volunteering, programmes and activities.
+    </p>
+  </section>
+
+  <main>
+
+    <section class="intro">
+      <h2>How Can We Help?</h2>
+      <p>
+        Below are some frequently asked questions about SOBOBO NATION.
+        Select a question to view the answer.
+      </p>
+    </section>
+
+    <section class="faq-container">
+
+      <div class="faq-item">
+        <button class="question" onclick="toggleFAQ(this)">
+          <span>What is SOBOBO NATION?</span>
+          <span class="symbol">+</span>
+        </button>
+
+        <div class="answer">
+          SOBOBO NATION is a community-focused platform that promotes
+          unity, progress, participation, information sharing and
+          community development.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="question" onclick="toggleFAQ(this)">
+          <span>Who founded SOBOBO NATION?</span>
+          <span class="symbol">+</span>
+        </button>
+
+        <div class="answer">
+          SOBOBO NATION was initiated and founded by
+          <strong>Chief Dr. Uloko OJIJI</strong>, Founder and CEO of
+          SOBOBO NATION.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="question" onclick="toggleFAQ(this)">
+          <span>How can I become a member?</span>
+          <span class="symbol">+</span>
+        </button>
+
+        <div class="answer">
+          You can visit the Membership page and complete the membership
+          registration form. Membership participation will be organised
+          according to the available registration process.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="question" onclick="toggleFAQ(this)">
+          <span>Can I volunteer?</span>
+          <span class="symbol">+</span>
+        </button>
+
+        <div class="answer">
+          Yes. Visit the Volunteer page to learn about areas where you
+          may be able to contribute your time, skills, ideas and support.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="question" onclick="toggleFAQ(this)">
+          <span>What kind of programmes does SOBOBO NATION organise?</span>
+          <span class="symbol">+</span>
+        </button>
+
+        <div class="answer">
+          Programmes may include community engagement, information and
+          awareness activities, community development, events,
+          networking, ideas and innovation, and other initiatives.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="question" onclick="toggleFAQ(this)">
+          <span>Can organisations partner with SOBOBO NATION?</span>
+          <span class="symbol">+</span>
+        </button>
+
+        <div class="answer">
+          Organisations and individuals interested in supporting
+          community-focused activities can contact SOBOBO NATION to
+          discuss possible areas of collaboration or support.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="question" onclick="toggleFAQ(this)">
+          <span>Where can I find SOBOBO NATION news and updates?</span>
+          <span class="symbol">+</span>
+        </button>
+
+        <div class="answer">
+          News and official updates can be found on the News page.
+          Visitors are encouraged to check the website regularly for
+          new information.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="question" onclick="toggleFAQ(this)">
+          <span>How can I contact SOBOBO NATION?</span>
+          <span class="symbol">+</span>
+        </button>
+
+        <div class="answer">
+          Visit the Contact page to access the available communication
+          channels and send an enquiry or message.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="question" onclick="toggleFAQ(this)">
+          <span>Can new information be added to the website?</span>
+          <span class="symbol">+</span>
+        </button>
+
+        <div class="answer">
+          Yes. The website can be expanded with new announcements,
+          events, programmes, resources, videos, gallery content and
+          other official information as the platform develops.
+        </div>
+      </div>
+
+    </section>
+
+    <div class="info-box">
+      <h2>Need More Information?</h2>
+      <p>
+        If your question is not answered here, you can contact
+        SOBOBO NATION directly for further information and enquiries.
+      </p>
+    </div>
+
+    <section class="cta">
+      <h2>Stay Connected With SOBOBO NATION</h2>
+
+      <p>
+        Become part of the community and stay informed about activities,
+        programmes and opportunities.
+      </p>
+
+      <a href="contact.html">Contact Us</a>
+    </section>
+
+  </main>
+
+  <footer>
+
+    <p><strong>SOBOBO NATION</strong></p>
+
+    <p>
+      Initiator, Founder & CEO: Chief Dr. Uloko OJIJI
+    </p>
+
+    <p>
+      UNITY • PROGRESS • COMMUNITY
+    </p>
+
+    <p>
+      <a href="privacy.html">Privacy Policy</a>
+      |
+      <a href="terms.html">Terms & Conditions</a>
+    </p>
+
+    <p>
+      © <span id="year"></span> SOBOBO NATION. All Rights Reserved.
+    </p>
+
+  </footer>
+
+  <script>
+
+    function toggleMenu() {
+      document.getElementById("navMenu").classList.toggle("active");
+    }
+
+    function toggleFAQ(button) {
+
+      const answer = button.nextElementSibling;
+      const symbol = button.querySelector(".symbol");
+
+      answer.classList.toggle("active");
+
+      if (answer.classList.contains("active")) {
+        symbol.textContent = "−";
+      } else {
+        symbol.textContent = "+";
+      }
+    }
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+  </script>
+
+</body>
+</html>
