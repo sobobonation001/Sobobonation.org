@@ -8,7 +8,7 @@
 
   <meta
     name="description"
-    content="Leadership structure and leadership information of SOBOBO NATION."
+    content="Meet the leadership of SOBOBO NATION, led by Chief Dr. Uloko OJIJI, Founder and CEO."
   >
 
   <meta name="theme-color" content="#087f23">
@@ -16,25 +16,28 @@
   <style>
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      margin: 0;
       font-family: Arial, Helvetica, sans-serif;
       background: #f5fff7;
       color: #222;
-      line-height: 1.7;
+      line-height: 1.6;
     }
 
-    .top-bar {
+    /* TOP BAR */
+    .topbar {
       background: #087f23;
       color: white;
       text-align: center;
-      padding: 8px 10px;
+      padding: 8px 12px;
       font-size: 13px;
       font-weight: bold;
     }
 
+    /* HEADER */
     header {
       background: white;
       border-bottom: 1px solid #ddd;
@@ -44,262 +47,298 @@
     }
 
     .header-inner {
-      max-width: 1150px;
+      max-width: 1200px;
       margin: auto;
-      padding: 18px 20px;
+      padding: 15px 20px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      gap: 15px;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo-area {
+      display: flex;
+      flex-direction: column;
     }
 
     .logo {
       color: #087f23;
       font-size: 24px;
-      font-weight: bold;
-      text-decoration: none;
+      font-weight: 900;
+      letter-spacing: 1px;
     }
 
     .tagline {
+      color: #666;
       font-size: 11px;
-      color: #555;
-      margin-top: 2px;
       font-weight: bold;
+      letter-spacing: 1px;
     }
 
+    /* NAVIGATION */
     nav {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      gap: 8px;
+      align-items: center;
+      gap: 14px;
     }
 
     nav a {
       text-decoration: none;
       color: #222;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: bold;
-      padding: 7px 9px;
-      border-radius: 5px;
+      white-space: nowrap;
     }
 
     nav a:hover {
-      background: #087f23;
-      color: white;
+      color: #087f23;
+    }
+
+    .admin-link {
+      color: #087f23 !important;
+      border: 1px solid #087f23;
+      padding: 7px 10px;
+      border-radius: 6px;
     }
 
     .menu-btn {
       display: none;
+      border: none;
       background: #087f23;
       color: white;
-      border: none;
-      padding: 10px 15px;
-      border-radius: 5px;
-      font-size: 15px;
+      font-size: 24px;
+      padding: 6px 11px;
+      border-radius: 6px;
       cursor: pointer;
     }
 
+    /* TICKER */
     .ticker {
+      overflow: hidden;
       background: #066b1d;
       color: white;
-      overflow: hidden;
       white-space: nowrap;
-      padding: 9px 0;
+    }
+
+    .ticker-content {
+      display: inline-block;
+      padding: 8px 0;
+      padding-left: 100%;
+      animation: tickerMove 18s linear infinite;
       font-size: 14px;
       font-weight: bold;
     }
 
-    .ticker span {
-      display: inline-block;
-      padding-left: 100%;
-      animation: moveTicker 18s linear infinite;
-    }
-
-    @keyframes moveTicker {
+    @keyframes tickerMove {
       from {
         transform: translateX(0);
       }
+
       to {
         transform: translateX(-100%);
       }
     }
 
-    .hero {
-      background: #087f23;
+    /* PAGE HEADER */
+    .page-header {
+      background:
+        linear-gradient(
+          rgba(0, 128, 0, 0.92),
+          rgba(0, 80, 20, 0.92)
+        );
       color: white;
       text-align: center;
-      padding: 65px 20px;
+      padding: 60px 20px;
     }
 
-    .hero h1 {
-      margin: 0 0 10px;
-      font-size: 42px;
+    .page-header h1 {
+      font-size: 40px;
+      margin-bottom: 10px;
     }
 
-    .hero p {
-      margin: 0;
-      font-size: 18px;
+    .page-header p {
+      max-width: 750px;
+      margin: auto;
+      font-size: 16px;
     }
 
+    /* CONTENT */
     .container {
-      max-width: 1050px;
+      max-width: 1100px;
       margin: auto;
       padding: 50px 20px;
     }
 
-    .intro {
-      text-align: center;
-      max-width: 800px;
-      margin: 0 auto 40px;
-    }
-
-    .intro h2 {
-      color: #087f23;
-      font-size: 30px;
-      margin-bottom: 10px;
-    }
-
-    .intro p {
-      color: #555;
-      font-size: 16px;
-    }
-
+    /* LEADER CARD */
     .leader-card {
       background: white;
-      max-width: 700px;
-      margin: 0 auto 45px;
-      padding: 35px 25px;
-      border-radius: 12px;
-      box-shadow: 0 5px 18px rgba(0,0,0,0.10);
-      text-align: center;
-      border-top: 5px solid #087f23;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.10);
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      margin-bottom: 40px;
     }
 
-    .president-photo {
-      width: 250px;
-      height: 250px;
+    .leader-image {
+      width: 100%;
+      height: 100%;
+      min-height: 480px;
       object-fit: cover;
-      border-radius: 50%;
-      border: 6px solid #087f23;
       display: block;
-      margin: 0 auto 25px;
-      box-shadow: 0 5px 18px rgba(0,0,0,0.15);
     }
 
-    .leader-card h2 {
+    .leader-content {
+      padding: 45px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .leader-content .label {
+      display: inline-block;
+      width: fit-content;
+      background: #e8f7ec;
       color: #087f23;
-      margin: 10px 0 5px;
-      font-size: 28px;
+      padding: 7px 13px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 15px;
     }
 
-    .leader-title {
-      font-weight: bold;
+    .leader-content h2 {
+      color: #087f23;
+      font-size: 30px;
+      margin-bottom: 5px;
+    }
+
+    .leader-content h3 {
       color: #555;
+      font-size: 17px;
       margin-bottom: 20px;
     }
 
-    .leader-card p {
+    .leader-content p {
       color: #444;
-      margin-bottom: 0;
+      margin-bottom: 15px;
+      font-size: 15px;
     }
 
+    /* LEADERSHIP VALUES */
     .section-title {
       text-align: center;
+      margin: 20px 0 30px;
+    }
+
+    .section-title h2 {
       color: #087f23;
       font-size: 28px;
-      margin: 50px 0 25px;
+      margin-bottom: 8px;
     }
 
-    .grid {
+    .section-title p {
+      color: #666;
+    }
+
+    .values {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
     }
 
-    .card {
+    .value-card {
       background: white;
-      padding: 25px;
-      border-radius: 10px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-    }
-
-    .card h3 {
-      color: #087f23;
-      margin-top: 0;
-      font-size: 20px;
-    }
-
-    .card p {
-      color: #555;
-      margin-bottom: 0;
-    }
-
-    .info-box {
-      margin-top: 45px;
-      background: #eaffef;
-      border-left: 5px solid #087f23;
-      padding: 25px;
-      border-radius: 8px;
-    }
-
-    .info-box h3 {
-      color: #087f23;
-      margin-top: 0;
-    }
-
-    .cta {
+      padding: 30px 22px;
+      border-radius: 14px;
+      box-shadow: 0 5px 18px rgba(0,0,0,0.07);
       text-align: center;
+      border-top: 4px solid #087f23;
+    }
+
+    .value-icon {
+      font-size: 35px;
+      margin-bottom: 12px;
+    }
+
+    .value-card h3 {
+      color: #087f23;
+      margin-bottom: 10px;
+    }
+
+    .value-card p {
+      color: #666;
+      font-size: 14px;
+    }
+
+    /* CTA */
+    .cta {
       margin-top: 45px;
+      background: #087f23;
+      color: white;
+      padding: 40px 25px;
+      border-radius: 16px;
+      text-align: center;
+    }
+
+    .cta h2 {
+      margin-bottom: 10px;
+      font-size: 28px;
+    }
+
+    .cta p {
+      max-width: 700px;
+      margin: auto auto 20px;
     }
 
     .cta a {
       display: inline-block;
-      background: #087f23;
-      color: white;
+      background: white;
+      color: #087f23;
       text-decoration: none;
-      padding: 13px 25px;
-      border-radius: 6px;
+      padding: 12px 22px;
+      border-radius: 7px;
       font-weight: bold;
     }
 
     .cta a:hover {
-      background: #066b1d;
+      background: #eee;
     }
 
+    /* FOOTER */
     footer {
       background: #111;
       color: white;
       text-align: center;
       padding: 30px 20px;
-      margin-top: 30px;
+      margin-top: 20px;
     }
 
     footer p {
-      margin: 7px 0;
+      margin: 5px 0;
       font-size: 14px;
     }
 
-    footer a {
-      color: #8cffaa;
-      text-decoration: none;
+    footer strong {
+      color: #3dcc62;
     }
 
-    @media (max-width: 850px) {
-      .header-inner {
-        flex-wrap: wrap;
-      }
-
-      .menu-btn {
-        display: block;
-        margin-left: auto;
-      }
+    /* MOBILE */
+    @media (max-width: 1050px) {
 
       nav {
         display: none;
-        width: 100%;
-        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
         background: white;
-        padding: 10px 0;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 15px 20px;
+        box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        max-height: 80vh;
+        overflow-y: auto;
       }
 
       nav.active {
@@ -307,36 +346,68 @@
       }
 
       nav a {
-        width: 100%;
-        padding: 10px;
+        padding: 10px 0;
         border-bottom: 1px solid #eee;
       }
 
-      .grid {
+      .menu-btn {
+        display: block;
+      }
+
+      .leader-card {
         grid-template-columns: 1fr;
       }
 
-      .hero h1 {
-        font-size: 34px;
+      .leader-image {
+        height: 450px;
+        min-height: 0;
+      }
+
+      .values {
+        grid-template-columns: 1fr 1fr;
       }
     }
 
-    @media (max-width: 500px) {
-      .president-photo {
-        width: 210px;
-        height: 210px;
+    @media (max-width: 600px) {
+
+      .header-inner {
+        padding: 13px 15px;
       }
 
-      .hero {
-        padding: 50px 15px;
+      .logo {
+        font-size: 20px;
       }
 
-      .hero h1 {
-        font-size: 30px;
+      .page-header {
+        padding: 42px 15px;
+      }
+
+      .page-header h1 {
+        font-size: 31px;
       }
 
       .container {
-        padding: 40px 15px;
+        padding: 30px 15px;
+      }
+
+      .leader-image {
+        height: 360px;
+      }
+
+      .leader-content {
+        padding: 28px 22px;
+      }
+
+      .leader-content h2 {
+        font-size: 25px;
+      }
+
+      .values {
+        grid-template-columns: 1fr;
+      }
+
+      .cta {
+        padding: 32px 20px;
       }
     }
   </style>
@@ -344,21 +415,33 @@
 
 <body>
 
-  <div class="top-bar">
+  <!-- TOP BAR -->
+  <div class="topbar">
     SOBOBO NATION • UNITY • PROGRESS • COMMUNITY
   </div>
 
+  <!-- HEADER -->
   <header>
+
     <div class="header-inner">
 
-      <div>
-        <a href="index.html" class="logo">SOBOBO NATION</a>
-        <div class="tagline">UNITY • PROGRESS • COMMUNITY</div>
+      <div class="logo-area">
+        <div class="logo">SOBOBO NATION</div>
+        <div class="tagline">
+          UNITY • PROGRESS • COMMUNITY
+        </div>
       </div>
 
-      <button class="menu-btn" onclick="toggleMenu()">☰ Menu</button>
+      <button
+        class="menu-btn"
+        onclick="toggleMenu()"
+        aria-label="Open navigation menu"
+      >
+        ☰
+      </button>
 
       <nav id="navMenu">
+
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="mission.html">Mission</a>
@@ -373,147 +456,175 @@
         <a href="resources.html">Resources</a>
         <a href="faq.html">FAQ</a>
         <a href="contact.html">Contact</a>
+
+        <a
+          href="admin-login.html"
+          class="admin-link"
+        >
+          🔐 Admin Login
+        </a>
+
       </nav>
 
     </div>
+
   </header>
 
+  <!-- TICKER -->
   <div class="ticker">
-    <span>
-      Welcome to SOBOBO NATION • Unity • Progress • Community • Stay Connected • Get Involved • Together We Build
-    </span>
+
+    <div class="ticker-content">
+      Welcome to SOBOBO NATION • Unity • Progress • Community •
+      Stay Connected • Get Involved • Together We Build
+    </div>
+
   </div>
 
-  <section class="hero">
-    <h1>Leadership</h1>
-    <p>Leadership, vision and direction of SOBOBO NATION</p>
+  <!-- PAGE HEADER -->
+  <section class="page-header">
+
+    <h1>Our Leadership</h1>
+
+    <p>
+      Meet the leadership guiding SOBOBO NATION
+      towards unity, progress and meaningful
+      community engagement.
+    </p>
+
   </section>
 
+  <!-- MAIN CONTENT -->
   <main class="container">
 
-    <div class="intro">
-      <h2>Our Leadership</h2>
-      <p>
-        SOBOBO NATION is guided by leadership committed to unity,
-        community participation, progress and positive development.
-      </p>
-    </div>
-
-    <div class="leader-card">
+    <!-- FOUNDER -->
+    <section class="leader-card">
 
       <img
-        class="president-photo"
-        src="https://i.ibb.co/pBpgHc9g/file-00000000c6a481f4ab98fe0bd19f3919.png"
-        alt="President of SOBOBO NATION"
+        class="leader-image"
+        src="https://i.ibb.co/wG6jkr1/IMG-20260929-WA0241.jpg"
+        alt="Chief Dr. Uloko OJIJI - Founder and CEO of SOBOBO NATION"
       >
 
-      <h2>Chief Dr. Uloko OJIJI</h2>
+      <div class="leader-content">
 
-      <div class="leader-title">
-        Initiator, Founder & CEO — SOBOBO NATION
+        <span class="label">
+          FOUNDER & CEO
+        </span>
+
+        <h2>
+          Chief Dr. Uloko OJIJI
+        </h2>
+
+        <h3>
+          Initiator, Founder & CEO
+        </h3>
+
+        <p>
+          Chief Dr. Uloko OJIJI is the Initiator,
+          Founder and Chief Executive Officer of
+          SOBOBO NATION.
+        </p>
+
+        <p>
+          Through SOBOBO NATION, the organisation
+          promotes unity, progress, community
+          participation and constructive engagement
+          among its members and communities.
+        </p>
+
+        <p>
+          The leadership vision is centred on building
+          stronger communities through cooperation,
+          participation and shared responsibility.
+        </p>
+
       </div>
 
+    </section>
+
+    <!-- VALUES -->
+    <div class="section-title">
+
+      <h2>Leadership Values</h2>
+
       <p>
-        Chief Dr. Uloko OJIJI is the initiator, founder and CEO of
-        SOBOBO NATION. His leadership provides direction for the
-        organisation and supports its commitment to unity, progress,
-        community participation and positive engagement.
+        Principles that guide the work and activities
+        of SOBOBO NATION.
       </p>
 
     </div>
 
-    <h2 class="section-title">Leadership Approach</h2>
+    <section class="values">
 
-    <div class="grid">
+      <div class="value-card">
 
-      <div class="card">
+        <div class="value-icon">
+          🤝
+        </div>
+
         <h3>Unity</h3>
+
         <p>
-          Encouraging people to work together, build understanding
-          and strengthen community relationships.
+          Promoting cooperation, togetherness and
+          mutual respect within our communities.
         </p>
+
       </div>
 
-      <div class="card">
-        <h3>Community Participation</h3>
-        <p>
-          Creating opportunities for individuals and communities
-          to participate in activities, programmes and initiatives.
-        </p>
-      </div>
+      <div class="value-card">
 
-      <div class="card">
+        <div class="value-icon">
+          📈
+        </div>
+
         <h3>Progress</h3>
+
         <p>
-          Supporting constructive ideas, initiatives and activities
-          that contribute to positive community development.
+          Supporting initiatives that contribute to
+          meaningful social and community development.
         </p>
+
       </div>
 
-      <div class="card">
-        <h3>Responsible Leadership</h3>
+      <div class="value-card">
+
+        <div class="value-icon">
+          🏘️
+        </div>
+
+        <h3>Community</h3>
+
         <p>
-          Promoting responsible participation, communication,
-          cooperation and respect among members and stakeholders.
+          Encouraging members to participate actively
+          in community activities and development.
         </p>
+
       </div>
 
-    </div>
+    </section>
 
-    <h2 class="section-title">Leadership Responsibilities</h2>
+    <!-- CTA -->
+    <section class="cta">
 
-    <div class="grid">
-
-      <div class="card">
-        <h3>Strategic Direction</h3>
-        <p>
-          Providing overall direction and helping to guide the
-          organisation's goals and activities.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Community Engagement</h3>
-        <p>
-          Supporting communication and engagement between SOBOBO
-          NATION and the communities it serves.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Programme Development</h3>
-        <p>
-          Supporting the development of programmes and initiatives
-          that align with the organisation's objectives.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Partnership & Collaboration</h3>
-        <p>
-          Encouraging constructive relationships with members,
-          organisations, volunteers and community stakeholders.
-        </p>
-      </div>
-
-    </div>
-
-    <div class="info-box">
-      <h3>Growing Leadership Structure</h3>
+      <h2>
+        Be Part of SOBOBO NATION
+      </h2>
 
       <p>
-        As SOBOBO NATION continues to develop, additional leadership
-        roles, coordinators, committees and community representatives
-        can be added to this page as they are officially established.
+        Connect with the organisation, participate
+        in activities and contribute to building
+        stronger communities.
       </p>
-    </div>
 
-    <div class="cta">
-      <a href="contact.html">Contact SOBOBO NATION</a>
-    </div>
+      <a href="membership.html">
+        Become a Member
+      </a>
+
+    </section>
 
   </main>
 
+  <!-- FOOTER -->
   <footer>
 
     <p>
@@ -525,28 +636,29 @@
     </p>
 
     <p>
-      Initiator, Founder & CEO: Chief Dr. Uloko OJIJI
-    </p>
-
-    <p>
-      © <span id="year"></span> SOBOBO NATION. All Rights Reserved.
-    </p>
-
-    <p>
-      <a href="privacy.html">Privacy Policy</a>
-      &nbsp; | &nbsp;
-      <a href="terms.html">Terms & Conditions</a>
+      &copy;
+      <span id="year"></span>
+      SOBOBO NATION. All Rights Reserved.
     </p>
 
   </footer>
 
   <script>
+
     function toggleMenu() {
-      document.getElementById("navMenu").classList.toggle("active");
+
+      document
+        .getElementById("navMenu")
+        .classList
+        .toggle("active");
+
     }
 
-    document.getElementById("year").textContent =
+    document
+      .getElementById("year")
+      .textContent =
       new Date().getFullYear();
+
   </script>
 
 </body>
