@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Membership Management | SOBOBO NATION</title>
+
+  <meta name="theme-color" content="#087f23">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4fff6;
+      color: #222;
+    }
+
+    .topbar {
+      height: 65px;
+      background: #087f23;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 25px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+    }
+
+    .brand {
+      font-size: 21px;
+      font-weight: bold;
+    }
+
+    .brand span {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+
+    .logout-btn {
+      border: none;
+      background: white;
+      color: #087f23;
+      padding: 9px 15px;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .sidebar {
+      width: 245px;
+      background: #063f13;
+      color: white;
+      position: fixed;
+      top: 65px;
+      bottom: 0;
+      left: 0;
+      padding: 20px 12px;
+      overflow-y: auto;
+      z-index: 900;
+    }
+
+    .sidebar-title {
+      color: #8df09e;
+      font-size: 12px;
+      font-weight: bold;
+      margin: 5px 12px 15px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .sidebar a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 13px 14px;
+      margin-bottom: 5px;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    .sidebar a:hover,
+    .sidebar a.active {
+      background: #087f23;
+    }
+
+    .main {
+      margin-left: 245px;
+      padding: 95px 30px 40px;
+    }
+
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .page-header h1 {
+      color: #087f23;
+      font-size: 30px;
+    }
+
+    .page-header p {
+      color: #666;
+      margin-top: 4px;
+    }
+
+    .total-box {
+      background: white;
+      border-left: 5px solid #087f23;
+      padding: 15px 20px;
+      border-radius: 8px;
+      box-shadow: 0 3px 12px rgba(0,0,0,.06);
+      min-width: 150px;
+      text-align: center;
+    }
+
+    .total-box strong {
+      display: block;
+      color: #087f23;
+      font-size: 30px;
+    }
+
+    .total-box span {
+      color: #777;
+      font-size: 12px;
+    }
+
+    .toolbar {
+      background: white;
+      padding: 18px;
+      border-radius: 10px;
+      box-shadow: 0 3px 12px rgba(0,0,0,.06);
+      margin-bottom: 20px;
+    }
+
+    .search {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #ccc;
+      border-radius: 7px;
+      font-size: 15px;
+      outline: none;
+    }
+
+    .search:focus {
+      border-color: #087f23;
+    }
+
+    .applications {
+      display: grid;
+      gap: 15px;
+    }
+
+    .member-card {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 3px 15px rgba(0,0,0,.06);
+      border-left: 4px solid #087f23;
+    }
+
+    .member-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      align-items: flex-start;
+      margin-bottom: 15px;
+    }
+
+    .member-header h2 {
+      color: #087f23;
+      font-size: 20px;
+    }
+
+    .member-date {
+      color: #888;
+      font-size: 12px;
+    }
+
+    .member-info {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .info-item {
+      background: #f5fff7;
+      padding: 10px;
+      border-radius: 6px;
+    }
+
+    .info-item strong {
+      display: block;
+      color: #555;
+      font-size: 11px;
+      text-transform: uppercase;
+      margin-bottom: 3px;
+    }
+
+    .info-item span {
+      font-size: 14px;
+      word-break: break-word;
+    }
+
+    .message {
+      background: #fafafa;
+      border: 1px solid #eee;
+      padding: 12px;
+      border-radius: 7px;
+      margin-bottom: 15px;
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-size: 14px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      border: none;
+      padding: 10px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 13px;
+    }
+
+    .delete-btn {
+      background: #c62828;
+      color: white;
+    }
+
+    .delete-btn:hover {
+      background: #a51f1f;
+    }
+
+    .call-btn {
+      background: #087f23;
+      color: white;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .email-btn {
+      background: #333;
+      color: white;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .empty {
+      background: white;
+      padding: 50px 20px;
+      text-align: center;
+      border-radius: 10px;
+      color: #777;
+      box-shadow: 0 3px 15px rgba(0,0,0,.06);
+    }
+
+    .empty h2 {
+      color: #087f23;
+      margin-bottom: 8px;
+    }
+
+    .mobile-menu {
+      display: none;
+      border: none;
+      background: white;
+      color: #087f23;
+      font-size: 24px;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+
+    @media (max-width: 850px) {
+
+      .mobile-menu {
+        display: block;
+      }
+
+      .sidebar {
+        transform: translateX(-100%);
+        transition: .3s;
+      }
+
+      .sidebar.active {
+        transform: translateX(0);
+      }
+
+      .main {
+        margin-left: 0;
+        padding: 90px 18px 30px;
+      }
+
+      .page-header {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .total-box {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .topbar {
+        padding: 0 12px;
+      }
+
+      .brand {
+        font-size: 16px;
+      }
+
+      .member-info {
+        grid-template-columns: 1fr;
+      }
+
+      .member-header {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+
+  <header class="topbar">
+
+    <div style="display:flex; align-items:center; gap:12px;">
+
+      <button
+        class="mobile-menu"
+        onclick="toggleSidebar()"
+      >
+        ☰
+      </button>
+
+      <div class="brand">
+        SOBOBO NATION
+        <span>MEMBERSHIP MANAGEMENT</span>
+      </div>
+
+    </div>
+
+    <button
+      class="logout-btn"
+      onclick="logout()"
+    >
+      Logout
+    </button>
+
+  </header>
+
+
+  <!-- SIDEBAR -->
+
+  <aside class="sidebar" id="sidebar">
+
+    <div class="sidebar-title">
+      Administration
+    </div>
+
+    <a href="admin.html">
+      🏠 Dashboard
+    </a>
+
+    <a href="admin-news.html">
+      📰 News Management
+    </a>
+
+    <a href="admin-members.html" class="active">
+      👥 Membership
+    </a>
+
+    <a href="admin-volunteers.html">
+      🤝 Volunteers
+    </a>
+
+    <a href="news.html">
+      🌐 View News
+    </a>
+
+    <a href="membership.html">
+      📝 Membership Form
+    </a>
+
+    <a href="volunteer.html">
+      📋 Volunteer Form
+    </a>
+
+    <a href="index.html">
+      🌐 Visit Website
+    </a>
+
+  </aside>
+
+
+  <!-- MAIN -->
+
+  <main class="main">
+
+    <div class="page-header">
+
+      <div>
+
+        <h1>Membership Applications</h1>
+
+        <p>
+          View and manage membership applications submitted through the website.
+        </p>
+
+      </div>
+
+      <div class="total-box">
+
+        <strong id="totalMembers">
+          0
+        </strong>
+
+        <span>
+          Total Members
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <!-- SEARCH -->
+
+    <div class="toolbar">
+
+      <input
+        type="search"
+        id="searchInput"
+        class="search"
+        placeholder="Search by name, phone, email, location or interest..."
+        oninput="displayMembers()"
+      >
+
+    </div>
+
+
+    <!-- APPLICATIONS -->
+
+    <div
+      id="applications"
+      class="applications"
+    ></div>
+
+  </main>
+
+
+  <script>
+
+    /* LOGIN PROTECTION */
+
+    const loggedIn =
+      sessionStorage.getItem("soboboAdminLoggedIn");
+
+    if (loggedIn !== "true") {
+
+      window.location.href =
+        "admin-login.html";
+
+    }
+
+
+    const STORAGE_KEY =
+      "soboboNationMembers";
+
+
+    /* MOBILE SIDEBAR */
+
+    function toggleSidebar() {
+
+      document
+        .getElementById("sidebar")
+        .classList.toggle("active");
+
+    }
+
+
+    /* LOGOUT */
+
+    function logout() {
+
+      sessionStorage.removeItem(
+        "soboboAdminLoggedIn"
+      );
+
+      window.location.href =
+        "admin-login.html";
+
+    }
+
+
+    /* GET MEMBERS */
+
+    function getMembers() {
+
+      try {
+
+        const saved =
+          localStorage.getItem(STORAGE_KEY);
+
+        if (!saved) {
+          return [];
+        }
+
+        const members =
+          JSON.parse(saved);
+
+        return Array.isArray(members)
+          ? members
+          : [];
+
+      } catch (error) {
+
+        return [];
+
+      }
+
+    }
+
+
+    /* ESCAPE HTML */
+
+    function escapeHTML(value) {
+
+      if (
+        value === null ||
+        value === undefined
+      ) {
+        return "";
+      }
+
+      return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+    }
+
+
+    /* FORMAT DATE */
+
+    function formatDate(dateString) {
+
+      if (!dateString) {
+        return "Date not available";
+      }
+
+      const date =
+        new Date(dateString);
+
+      if (isNaN(date.getTime())) {
+        return dateString;
+      }
+
+      return date.toLocaleDateString(
+        "en-NG",
+        {
+          year: "numeric",
+          month: "long",
+          day: "numeric"
+        }
+      );
+
+    }
+
+
+    /* DISPLAY MEMBERS */
+
+    function displayMembers() {
+
+      const container =
+        document.getElementById("applications");
+
+      const search =
+        document
+          .getElementById("searchInput")
+          .value
+          .toLowerCase()
+          .trim();
+
+
+      const members =
+        getMembers();
+
+
+      document.getElementById(
+        "totalMembers"
+      ).textContent =
+        members.length;
+
+
+      const filtered =
+        members.filter(function(member) {
+
+          const text = [
+
+            member.fullName,
+            member.phone,
+            member.email,
+            member.location,
+            member.interest,
+            member.message
+
+          ]
+          .join(" ")
+          .toLowerCase();
+
+          return text.includes(search);
+
+        });
+
+
+      if (filtered.length === 0) {
+
+        container.innerHTML = `
+
+          <div class="empty">
+
+            <h2>
+              ${members.length === 0
+                ? "No Membership Applications Yet"
+                : "No Matching Applications"}
+            </h2>
+
+            <p>
+              ${members.length === 0
+                ? "Membership applications will appear here when visitors submit the membership form."
+                : "Try another search term."}
+            </p>
+
+          </div>
+
+        `;
+
+        return;
+      }
+
+
+      /*
+        SHOW NEWEST FIRST
+      */
+
+      filtered.sort(function(a, b) {
+
+        return (
+          Number(b.id || 0) -
+          Number(a.id || 0)
+        );
+
+      });
+
+
+      container.innerHTML =
+        filtered.map(function(member) {
+
+          const phone =
+            escapeHTML(member.phone);
+
+          const email =
+            escapeHTML(member.email);
+
+
+          return `
+
+            <div class="member-card">
+
+              <div class="member-header">
+
+                <div>
+
+                  <h2>
+                    ${escapeHTML(member.fullName)}
+                  </h2>
+
+                  <div class="member-date">
+                    Applied:
+                    ${formatDate(member.submittedAt)}
+                  </div>
+
+                </div>
+
+              </div>
+
+
+              <div class="member-info">
+
+                <div class="info-item">
+
+                  <strong>Phone</strong>
+
+                  <span>
+                    ${phone || "Not provided"}
+                  </span>
+
+                </div>
+
+
+                <div class="info-item">
+
+                  <strong>Email</strong>
+
+                  <span>
+                    ${email || "Not provided"}
+                  </span>
+
+                </div>
+
+
+                <div class="info-item">
+
+                  <strong>Location</strong>
+
+                  <span>
+                    ${escapeHTML(member.location)}
+                  </span>
+
+                </div>
+
+
+                <div class="info-item">
+
+                  <strong>Area of Interest</strong>
+
+                  <span>
+                    ${escapeHTML(member.interest)}
+                  </span>
+
+                </div>
+
+              </div>
+
+
+              ${
+                member.message
+                ? `
+                  <div class="message">
+                    <strong>Additional Information:</strong><br>
+                    ${escapeHTML(member.message)}
+                  </div>
+                `
+                : ""
+              }
+
+
+              <div class="actions">
+
+                ${
+                  member.phone
+                  ? `
+                    <a
+                      class="btn call-btn"
+                      href="tel:${encodeURIComponent(member.phone)}"
+                    >
+                      📞 Call
+                    </a>
+                  `
+                  : ""
+                }
+
+
+                ${
+                  member.email
+                  ? `
+                    <a
+                      class="btn email-btn"
+                      href="mailto:${encodeURIComponent(member.email)}"
+                    >
+                      ✉️ Email
+                    </a>
+                  `
+                  : ""
+                }
+
+
+                <button
+                  class="btn delete-btn"
+                  onclick="deleteMember(${Number(member.id)})"
+                >
+                  🗑️ Delete
+                </button>
+
+              </div>
+
+            </div>
+
+          `;
+
+        }).join("");
+
+    }
+
+
+    /* DELETE MEMBER */
+
+    function deleteMember(id) {
+
+      const confirmed =
+        confirm(
+          "Are you sure you want to delete this membership application?"
+        );
+
+
+      if (!confirmed) {
+        return;
+      }
+
+
+      const members =
+        getMembers();
+
+
+      const updated =
+        members.filter(function(member) {
+
+          return Number(member.id) !==
+            Number(id);
+
+        });
+
+
+      localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify(updated)
+      );
+
+
+      displayMembers();
+
+    }
+
+
+    /* FIRST LOAD */
+
+    displayMembers();
+
+
+    /*
+      REFRESH AUTOMATICALLY
+      IF A NEW APPLICATION IS SUBMITTED
+    */
+
+    setInterval(
+      displayMembers,
+      3000
+    );
+
+  </script>
+
+</body>
+</html>
