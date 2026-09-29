@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Admin - Volunteers | SOBOBO NATION</title>
+
+  <meta
+    name="description"
+    content="SOBOBO NATION volunteer management dashboard."
+  >
+
+  <meta name="theme-color" content="#087f23">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5fff7;
+      color: #222;
+    }
+
+    .topbar {
+      background: #087f23;
+      color: white;
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .brand {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .brand small {
+      display: block;
+      font-size: 11px;
+      font-weight: normal;
+      margin-top: 3px;
+      opacity: 0.9;
+    }
+
+    .top-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .top-actions a,
+    .top-actions button {
+      text-decoration: none;
+      border: none;
+      background: white;
+      color: #087f23;
+      padding: 9px 13px;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .layout {
+      display: flex;
+      min-height: calc(100vh - 65px);
+    }
+
+    .sidebar {
+      width: 245px;
+      background: #066b1d;
+      color: white;
+      padding: 20px 12px;
+      flex-shrink: 0;
+    }
+
+    .sidebar h3 {
+      padding: 10px 12px 15px;
+      font-size: 16px;
+    }
+
+    .sidebar a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 12px;
+      border-radius: 6px;
+      margin-bottom: 5px;
+      font-size: 14px;
+    }
+
+    .sidebar a:hover,
+    .sidebar a.active {
+      background: #087f23;
+    }
+
+    .main {
+      flex: 1;
+      padding: 25px;
+      max-width: 1200px;
+      margin: auto;
+      width: 100%;
+    }
+
+    .page-header {
+      margin-bottom: 20px;
+    }
+
+    .page-header h1 {
+      color: #087f23;
+      margin-bottom: 6px;
+      font-size: 28px;
+    }
+
+    .page-header p {
+      color: #666;
+    }
+
+    .summary {
+      background: white;
+      border-left: 5px solid #087f23;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+    }
+
+    .summary span {
+      display: block;
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    .summary strong {
+      font-size: 30px;
+      color: #087f23;
+    }
+
+    .controls {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+    }
+
+    .search-box {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #ccc;
+      border-radius: 7px;
+      font-size: 15px;
+      outline: none;
+    }
+
+    .search-box:focus {
+      border-color: #087f23;
+    }
+
+    .volunteer-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .volunteer-card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 3px 14px rgba(0,0,0,0.07);
+      border-top: 4px solid #087f23;
+    }
+
+    .volunteer-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+
+    .volunteer-name {
+      color: #087f23;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .date {
+      color: #777;
+      font-size: 12px;
+      margin-top: 5px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 15px;
+    }
+
+    .info-box {
+      background: #f5fff7;
+      padding: 12px;
+      border-radius: 7px;
+    }
+
+    .info-box strong {
+      display: block;
+      font-size: 12px;
+      color: #087f23;
+      margin-bottom: 5px;
+    }
+
+    .info-box span {
+      font-size: 14px;
+      word-break: break-word;
+    }
+
+    .message-box {
+      margin-top: 15px;
+      padding: 13px;
+      background: #fafafa;
+      border-radius: 7px;
+      border-left: 3px solid #087f23;
+    }
+
+    .message-box strong {
+      display: block;
+      color: #087f23;
+      font-size: 12px;
+      margin-bottom: 5px;
+    }
+
+    .message-box p {
+      line-height: 1.6;
+      font-size: 14px;
+      white-space: pre-wrap;
+    }
+
+    .actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .action-btn {
+      display: inline-block;
+      text-decoration: none;
+      border: none;
+      padding: 9px 13px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 13px;
+    }
+
+    .call-btn {
+      background: #087f23;
+      color: white;
+    }
+
+    .email-btn {
+      background: #e8f5eb;
+      color: #087f23;
+    }
+
+    .delete-btn {
+      background: #ffe8e8;
+      color: #b00020;
+    }
+
+    .empty {
+      background: white;
+      padding: 45px 20px;
+      text-align: center;
+      border-radius: 12px;
+      color: #666;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+    }
+
+    .empty h3 {
+      color: #087f23;
+      margin-bottom: 8px;
+    }
+
+    .notice {
+      margin-top: 25px;
+      background: #fffbea;
+      border-left: 4px solid #d6a700;
+      padding: 14px;
+      border-radius: 6px;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .mobile-menu {
+      display: none;
+      width: 100%;
+      background: #066b1d;
+      padding: 10px;
+    }
+
+    .mobile-menu button {
+      width: 100%;
+      background: white;
+      color: #087f23;
+      border: none;
+      padding: 11px;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    @media (max-width: 800px) {
+      .layout {
+        display: block;
+      }
+
+      .sidebar {
+        width: 100%;
+        display: none;
+      }
+
+      .sidebar.open {
+        display: block;
+      }
+
+      .mobile-menu {
+        display: block;
+      }
+
+      .main {
+        padding: 18px 12px;
+      }
+
+      .topbar {
+        padding: 12px;
+      }
+
+      .top-actions a,
+      .top-actions button {
+        padding: 8px 9px;
+        font-size: 12px;
+      }
+
+      .brand {
+        font-size: 17px;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .volunteer-header {
+        display: block;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="topbar">
+    <div class="brand">
+      SOBOBO NATION
+      <small>Admin • Volunteer Management</small>
+    </div>
+
+    <div class="top-actions">
+      <a href="volunteer.html">Volunteer Form</a>
+      <a href="admin.html">Dashboard</a>
+    </div>
+  </header>
+
+  <div class="mobile-menu">
+    <button onclick="toggleSidebar()">☰ Admin Menu</button>
+  </div>
+
+  <div class="layout">
+
+    <aside class="sidebar" id="sidebar">
+
+      <h3>ADMIN MENU</h3>
+
+      <a href="admin.html">
+        Dashboard
+      </a>
+
+      <a href="admin-news.html">
+        News Management
+      </a>
+
+      <a href="news.html">
+        View News
+      </a>
+
+      <a href="events.html">
+        Events
+      </a>
+
+      <a href="gallery.html">
+        Gallery
+      </a>
+
+      <a href="admin-members.html">
+        Membership
+      </a>
+
+      <a href="admin-volunteers.html" class="active">
+        Volunteers
+      </a>
+
+      <a href="membership.html">
+        Membership Form
+      </a>
+
+      <a href="volunteer.html">
+        Volunteer Form
+      </a>
+
+      <a href="contact.html">
+        Contact
+      </a>
+
+      <a href="index.html">
+        Visit Website
+      </a>
+
+    </aside>
+
+    <main class="main">
+
+      <section class="page-header">
+        <h1>Volunteer Management</h1>
+        <p>
+          View and manage people who have submitted the SOBOBO NATION volunteer form.
+        </p>
+      </section>
+
+      <section class="summary">
+        <span>Total Volunteer Applications</span>
+        <strong id="totalVolunteers">0</strong>
+      </section>
+
+      <section class="controls">
+        <input
+          type="search"
+          id="searchInput"
+          class="search-box"
+          placeholder="Search by name, phone, email, location, skill or availability..."
+          oninput="displayVolunteers()"
+        >
+      </section>
+
+      <section id="volunteerList" class="volunteer-list"></section>
+
+      <div class="notice">
+        <strong>Important:</strong>
+        Volunteer applications are currently stored in this browser/device using
+        localStorage. They are not yet connected to a central online database.
+        This means applications saved on another phone or computer will not
+        automatically appear here.
+      </div>
+
+    </main>
+
+  </div>
+
+  <script>
+
+    /* ==============================
+       LOGIN PROTECTION
+    ============================== */
+
+    const loggedIn =
+      sessionStorage.getItem("soboboAdminLoggedIn");
+
+    if (loggedIn !== "true") {
+      window.location.href = "admin-login.html";
+    }
+
+
+    /* ==============================
+       STORAGE
+    ============================== */
+
+    const STORAGE_KEY = "soboboNationVolunteers";
+
+
+    /* ==============================
+       HTML SECURITY
+    ============================== */
+
+    function escapeHTML(value) {
+
+      if (value === null || value === undefined) {
+        return "";
+      }
+
+      return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+
+    /* ==============================
+       LOAD VOLUNTEERS
+    ============================== */
+
+    function getVolunteers() {
+
+      try {
+
+        const data =
+          JSON.parse(localStorage.getItem(STORAGE_KEY));
+
+        return Array.isArray(data) ? data : [];
+
+      } catch (error) {
+
+        return [];
+
+      }
+    }
+
+
+    /* ==============================
+       DISPLAY VOLUNTEERS
+    ============================== */
+
+    function displayVolunteers() {
+
+      const list =
+        document.getElementById("volunteerList");
+
+      const searchInput =
+        document.getElementById("searchInput");
+
+      const search =
+        (searchInput.value || "").toLowerCase().trim();
+
+      let volunteers = getVolunteers();
+
+      document.getElementById("totalVolunteers").textContent =
+        volunteers.length;
+
+
+      volunteers.sort(function(a, b) {
+
+        return (b.id || 0) - (a.id || 0);
+
+      });
+
+
+      if (search) {
+
+        volunteers = volunteers.filter(function(volunteer) {
+
+          const searchableText = [
+
+            volunteer.fullName,
+            volunteer.phone,
+            volunteer.email,
+            volunteer.location,
+            volunteer.skill,
+            volunteer.availability,
+            volunteer.message
+
+          ]
+          .join(" ")
+          .toLowerCase();
+
+          return searchableText.includes(search);
+
+        });
+
+      }
+
+
+      if (volunteers.length === 0) {
+
+        list.innerHTML = `
+          <div class="empty">
+
+            <h3>
+              ${
+                search
+                ? "No Matching Volunteers"
+                : "No Volunteer Applications Yet"
+              }
+            </h3>
+
+            <p>
+              ${
+                search
+                ? "Try another search term."
+                : "Volunteer applications will appear here when people submit the volunteer form."
+              }
+            </p>
+
+          </div>
+        `;
+
+        return;
+      }
+
+
+      list.innerHTML = volunteers.map(function(volunteer) {
+
+        const date = volunteer.submittedAt
+          ? new Date(volunteer.submittedAt).toLocaleString()
+          : "Date not available";
+
+
+        const phone =
+          volunteer.phone || "Not provided";
+
+        const email =
+          volunteer.email || "Not provided";
+
+        const location =
+          volunteer.location || "Not provided";
+
+        const skill =
+          volunteer.skill || "Not provided";
+
+        const availability =
+          volunteer.availability || "Not provided";
+
+        const message =
+          volunteer.message || "No additional information provided.";
+
+
+        const cleanPhone =
+          String(phone).replace(/[^\d+]/g, "");
+
+
+        return `
+
+          <article class="volunteer-card">
+
+            <div class="volunteer-header">
+
+              <div>
+
+                <div class="volunteer-name">
+                  ${escapeHTML(volunteer.fullName || "Unnamed Volunteer")}
+                </div>
+
+                <div class="date">
+                  Applied: ${escapeHTML(date)}
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="info-grid">
+
+              <div class="info-box">
+                <strong>PHONE</strong>
+                <span>${escapeHTML(phone)}</span>
+              </div>
+
+
+              <div class="info-box">
+                <strong>EMAIL</strong>
+                <span>${escapeHTML(email)}</span>
+              </div>
+
+
+              <div class="info-box">
+                <strong>LOCATION</strong>
+                <span>${escapeHTML(location)}</span>
+              </div>
+
+
+              <div class="info-box">
+                <strong>AREA / SKILL</strong>
+                <span>${escapeHTML(skill)}</span>
+              </div>
+
+
+              <div class="info-box">
+                <strong>AVAILABILITY</strong>
+                <span>${escapeHTML(availability)}</span>
+              </div>
+
+            </div>
+
+
+            <div class="message-box">
+
+              <strong>WHY THEY WANT TO VOLUNTEER</strong>
+
+              <p>
+                ${escapeHTML(message)}
+              </p>
+
+            </div>
+
+
+            <div class="actions">
+
+              ${
+                cleanPhone
+                ? `
+                  <a
+                    class="action-btn call-btn"
+                    href="tel:${escapeHTML(cleanPhone)}"
+                  >
+                    📞 Call
+                  </a>
+                `
+                : ""
+              }
+
+
+              ${
+                volunteer.email
+                ? `
+                  <a
+                    class="action-btn email-btn"
+                    href="mailto:${escapeHTML(volunteer.email)}"
+                  >
+                    ✉ Email
+                  </a>
+                `
+                : ""
+              }
+
+
+              <button
+                class="action-btn delete-btn"
+                onclick="deleteVolunteer(${Number(volunteer.id)})"
+              >
+                🗑 Delete
+              </button>
+
+            </div>
+
+          </article>
+
+        `;
+
+      }).join("");
+
+    }
+
+
+    /* ==============================
+       DELETE VOLUNTEER
+    ============================== */
+
+    function deleteVolunteer(id) {
+
+      const confirmed =
+        confirm(
+          "Are you sure you want to delete this volunteer application?"
+        );
+
+      if (!confirmed) {
+        return;
+      }
+
+
+      const volunteers = getVolunteers();
+
+      const updated =
+        volunteers.filter(function(volunteer) {
+
+          return Number(volunteer.id) !== Number(id);
+
+        });
+
+
+      localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify(updated)
+      );
+
+
+      displayVolunteers();
+
+    }
+
+
+    /* ==============================
+       MOBILE SIDEBAR
+    ============================== */
+
+    function toggleSidebar() {
+
+      document
+        .getElementById("sidebar")
+        .classList.toggle("open");
+
+    }
+
+
+    /* ==============================
+       INITIAL LOAD
+    ============================== */
+
+    displayVolunteers();
+
+
+    /* ==============================
+       AUTO REFRESH
+    ============================== */
+
+    setInterval(function() {
+
+      displayVolunteers();
+
+    }, 3000);
+
+  </script>
+
+</body>
+</html>
