@@ -1,0 +1,1577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Admin - Gallery Management | SOBOBO NATION</title>
+
+  <meta
+    name="description"
+    content="SOBOBO NATION admin gallery management."
+  >
+
+  <meta name="theme-color" content="#087f23">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5fff7;
+      color: #222;
+    }
+
+    .topbar {
+      background: #087f23;
+      color: white;
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .brand {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .brand small {
+      display: block;
+      font-size: 11px;
+      font-weight: normal;
+      margin-top: 3px;
+      opacity: .9;
+    }
+
+    .top-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .top-actions a {
+      text-decoration: none;
+      background: white;
+      color: #087f23;
+      padding: 9px 13px;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 13px;
+    }
+
+    .layout {
+      display: flex;
+      min-height: calc(100vh - 65px);
+    }
+
+    .sidebar {
+      width: 245px;
+      background: #066b1d;
+      color: white;
+      padding: 20px 12px;
+      flex-shrink: 0;
+    }
+
+    .sidebar h3 {
+      padding: 10px 12px 15px;
+      font-size: 16px;
+    }
+
+    .sidebar a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 12px;
+      border-radius: 6px;
+      margin-bottom: 5px;
+      font-size: 14px;
+    }
+
+    .sidebar a:hover,
+    .sidebar a.active {
+      background: #087f23;
+    }
+
+    .main {
+      flex: 1;
+      width: 100%;
+      max-width: 1200px;
+      margin: auto;
+      padding: 25px;
+    }
+
+    .page-header {
+      margin-bottom: 20px;
+    }
+
+    .page-header h1 {
+      color: #087f23;
+      font-size: 28px;
+      margin-bottom: 6px;
+    }
+
+    .page-header p {
+      color: #666;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 3px 14px rgba(0,0,0,.07);
+    }
+
+    .card h2 {
+      color: #087f23;
+      font-size: 20px;
+      margin-bottom: 18px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-size: 13px;
+      font-weight: bold;
+      color: #444;
+      margin-bottom: 7px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 7px;
+      font-size: 14px;
+      font-family: inherit;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #087f23;
+    }
+
+    .help {
+      font-size: 12px;
+      color: #777;
+      margin-top: 6px;
+      line-height: 1.5;
+    }
+
+    .preview {
+      display: none;
+      margin-top: 12px;
+    }
+
+    .preview img {
+      width: 100%;
+      max-width: 350px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 9px;
+      border: 2px solid #e2eee4;
+    }
+
+    .form-actions {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      border: none;
+      padding: 11px 17px;
+      border-radius: 7px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 13px;
+    }
+
+    .btn-primary {
+      background: #087f23;
+      color: white;
+    }
+
+    .btn-secondary {
+      background: #e8f5eb;
+      color: #087f23;
+    }
+
+    .btn-danger {
+      background: #ffe8e8;
+      color: #b00020;
+    }
+
+    .message {
+      display: none;
+      padding: 12px;
+      border-radius: 7px;
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+
+    .message.success {
+      display: block;
+      background: #e8f7eb;
+      color: #087f23;
+    }
+
+    .message.error {
+      display: block;
+      background: #ffecec;
+      color: #b00020;
+    }
+
+    .gallery-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+
+    .count {
+      background: #e8f5eb;
+      color: #087f23;
+      padding: 9px 13px;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .search-box {
+      width: 100%;
+      margin-bottom: 18px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .gallery-card {
+      background: white;
+      border-radius: 11px;
+      overflow: hidden;
+      box-shadow: 0 3px 14px rgba(0,0,0,.08);
+      border-top: 4px solid #087f23;
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      background: #e8f5eb;
+      cursor: pointer;
+    }
+
+    .gallery-body {
+      padding: 15px;
+    }
+
+    .gallery-caption {
+      color: #087f23;
+      font-weight: bold;
+      font-size: 15px;
+      line-height: 1.4;
+      margin-bottom: 7px;
+    }
+
+    .gallery-date {
+      color: #777;
+      font-size: 11px;
+      margin-bottom: 13px;
+    }
+
+    .gallery-actions {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+    }
+
+    .empty {
+      background: white;
+      padding: 50px 20px;
+      text-align: center;
+      border-radius: 12px;
+      color: #666;
+      grid-column: 1 / -1;
+    }
+
+    .empty-icon {
+      font-size: 50px;
+      margin-bottom: 12px;
+    }
+
+    .empty h3 {
+      color: #087f23;
+      margin-bottom: 8px;
+    }
+
+    .notice {
+      background: #fffbea;
+      border-left: 4px solid #d6a700;
+      padding: 14px;
+      border-radius: 6px;
+      font-size: 13px;
+      line-height: 1.6;
+      margin-top: 20px;
+    }
+
+    .mobile-menu {
+      display: none;
+      width: 100%;
+      background: #066b1d;
+      padding: 10px;
+    }
+
+    .mobile-menu button {
+      width: 100%;
+      background: white;
+      color: #087f23;
+      border: none;
+      padding: 11px;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* LIGHTBOX */
+
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.92);
+      z-index: 5000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 95%;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 7px;
+    }
+
+    .close-lightbox {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      color: white;
+      background: #087f23;
+      border: none;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 950px) {
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .sidebar {
+        width: 100%;
+        display: none;
+      }
+
+      .sidebar.open {
+        display: block;
+      }
+
+      .layout {
+        display: block;
+      }
+
+      .mobile-menu {
+        display: block;
+      }
+
+      .main {
+        padding: 18px 12px;
+      }
+
+    }
+
+    @media (max-width: 650px) {
+
+      .topbar {
+        padding: 12px;
+      }
+
+      .brand {
+        font-size: 17px;
+      }
+
+      .top-actions a {
+        padding: 8px 9px;
+        font-size: 11px;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .field.full {
+        grid-column: auto;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-card img {
+        height: 230px;
+      }
+
+      .gallery-header {
+        display: block;
+      }
+
+      .count {
+        display: inline-block;
+        margin-top: 8px;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+
+  <header class="topbar">
+
+    <div class="brand">
+      SOBOBO NATION
+      <small>Admin • Gallery Management</small>
+    </div>
+
+    <div class="top-actions">
+      <a href="gallery.html">View Gallery</a>
+      <a href="admin.html">Dashboard</a>
+    </div>
+
+  </header>
+
+
+  <!-- MOBILE MENU -->
+
+  <div class="mobile-menu">
+    <button onclick="toggleSidebar()">
+      ☰ Admin Menu
+    </button>
+  </div>
+
+
+  <div class="layout">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar" id="sidebar">
+
+      <h3>ADMIN MENU</h3>
+
+      <a href="admin.html">
+        Dashboard
+      </a>
+
+      <a href="admin-news.html">
+        News Management
+      </a>
+
+      <a href="news.html">
+        View News
+      </a>
+
+      <a href="admin-events.html">
+        Events Management
+      </a>
+
+      <a href="events.html">
+        View Events
+      </a>
+
+      <a href="admin-gallery.html" class="active">
+        Gallery Management
+      </a>
+
+      <a href="gallery.html">
+        View Gallery
+      </a>
+
+      <a href="admin-members.html">
+        Membership
+      </a>
+
+      <a href="admin-volunteers.html">
+        Volunteers
+      </a>
+
+      <a href="membership.html">
+        Membership Form
+      </a>
+
+      <a href="volunteer.html">
+        Volunteer Form
+      </a>
+
+      <a href="contact.html">
+        Contact
+      </a>
+
+      <a href="index.html">
+        Visit Website
+      </a>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="main">
+
+      <section class="page-header">
+
+        <h1>
+          Gallery Management
+        </h1>
+
+        <p>
+          Upload and manage photos displayed in the SOBOBO NATION gallery.
+        </p>
+
+      </section>
+
+
+      <!-- UPLOAD FORM -->
+
+      <section class="card">
+
+        <h2 id="formTitle">
+          Upload New Gallery Photo
+        </h2>
+
+        <div id="message" class="message"></div>
+
+        <form id="galleryForm">
+
+          <div class="form-grid">
+
+            <div class="field full">
+
+              <label for="galleryImage">
+                Select Photo *
+              </label>
+
+              <input
+                type="file"
+                id="galleryImage"
+                accept="image/jpeg,image/png,image/webp,image/gif"
+                required
+              >
+
+              <div class="help">
+                Supported formats: JPG, PNG, WebP and GIF.
+                Maximum image size: 3MB.
+              </div>
+
+              <div
+                class="preview"
+                id="imagePreview"
+              >
+
+                <img
+                  id="previewImage"
+                  src=""
+                  alt="Image preview"
+                >
+
+              </div>
+
+            </div>
+
+
+            <div class="field full">
+
+              <label for="galleryCaption">
+                Photo Caption *
+              </label>
+
+              <input
+                type="text"
+                id="galleryCaption"
+                placeholder="Example: SOBOBO NATION Community Meeting"
+                required
+              >
+
+            </div>
+
+          </div>
+
+
+          <div class="form-actions">
+
+            <button
+              type="submit"
+              class="btn btn-primary"
+              id="saveBtn"
+            >
+              Upload Photo
+            </button>
+
+            <button
+              type="button"
+              class="btn btn-secondary"
+              id="cancelBtn"
+              onclick="cancelEdit()"
+              style="display:none;"
+            >
+              Cancel Edit
+            </button>
+
+          </div>
+
+        </form>
+
+      </section>
+
+
+      <!-- GALLERY LIST -->
+
+      <section class="card">
+
+        <div class="gallery-header">
+
+          <div>
+
+            <h2 style="margin-bottom:4px;">
+              Gallery Photos
+            </h2>
+
+            <p style="color:#666;font-size:13px;">
+              Photos currently saved on this device.
+            </p>
+
+          </div>
+
+          <div class="count">
+            Total:
+            <span id="galleryCount">0</span>
+          </div>
+
+        </div>
+
+
+        <input
+          type="search"
+          id="searchInput"
+          class="search-box"
+          placeholder="Search gallery captions..."
+          oninput="displayGallery()"
+        >
+
+
+        <div
+          id="galleryGrid"
+          class="gallery-grid"
+        ></div>
+
+      </section>
+
+
+      <div class="notice">
+
+        <strong>Important:</strong>
+        Gallery photos are currently stored in this browser/device
+        using localStorage. Because images are stored inside the browser,
+        avoid uploading very large images. A central online image/database
+        system can be connected later when you are ready.
+
+      </div>
+
+    </main>
+
+  </div>
+
+
+  <!-- LIGHTBOX -->
+
+  <div
+    class="lightbox"
+    id="lightbox"
+    onclick="closeLightbox(event)"
+  >
+
+    <button
+      class="close-lightbox"
+      onclick="closeLightbox()"
+      aria-label="Close image"
+    >
+      ×
+    </button>
+
+    <img
+      id="lightboxImage"
+      src=""
+      alt="Gallery image"
+    >
+
+  </div>
+
+
+  <script>
+
+    /* =================================
+       LOGIN PROTECTION
+    ================================= */
+
+    const loggedIn =
+      sessionStorage.getItem("soboboAdminLoggedIn");
+
+    if (loggedIn !== "true") {
+
+      window.location.href =
+        "admin-login.html";
+
+    }
+
+
+    /* =================================
+       STORAGE
+    ================================= */
+
+    const STORAGE_KEY =
+      "soboboNationGallery";
+
+
+    let editingId = null;
+
+    let selectedImageData = "";
+
+
+    /* =================================
+       SECURITY
+    ================================= */
+
+    function escapeHTML(value) {
+
+      if (
+        value === null ||
+        value === undefined
+      ) {
+        return "";
+      }
+
+      return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+    }
+
+
+    /* =================================
+       GET GALLERY
+    ================================= */
+
+    function getGallery() {
+
+      try {
+
+        const data =
+          JSON.parse(
+            localStorage.getItem(STORAGE_KEY)
+          );
+
+        return Array.isArray(data)
+          ? data
+          : [];
+
+      } catch (error) {
+
+        return [];
+
+      }
+
+    }
+
+
+    /* =================================
+       MESSAGE
+    ================================= */
+
+    function showMessage(
+      text,
+      type
+    ) {
+
+      const message =
+        document.getElementById("message");
+
+      message.textContent =
+        text;
+
+      message.className =
+        "message " + type;
+
+      setTimeout(function() {
+
+        message.className =
+          "message";
+
+      }, 4000);
+
+    }
+
+
+    /* =================================
+       IMAGE SELECT
+    ================================= */
+
+    document
+      .getElementById("galleryImage")
+      .addEventListener(
+        "change",
+        function(event) {
+
+          const file =
+            event.target.files[0];
+
+          if (!file) {
+            return;
+          }
+
+
+          if (
+            file.size >
+            3 * 1024 * 1024
+          ) {
+
+            alert(
+              "This image is larger than 3MB. Please choose a smaller image."
+            );
+
+            event.target.value = "";
+
+            return;
+
+          }
+
+
+          const reader =
+            new FileReader();
+
+
+          reader.onload =
+            function(e) {
+
+              selectedImageData =
+                e.target.result;
+
+
+              document
+                .getElementById(
+                  "previewImage"
+                )
+                .src =
+                selectedImageData;
+
+
+              document
+                .getElementById(
+                  "imagePreview"
+                )
+                .style.display =
+                "block";
+
+            };
+
+
+          reader.readAsDataURL(file);
+
+        }
+      );
+
+
+    /* =================================
+       SAVE / UPDATE PHOTO
+    ================================= */
+
+    document
+      .getElementById("galleryForm")
+      .addEventListener(
+        "submit",
+        function(event) {
+
+          event.preventDefault();
+
+
+          const caption =
+            document
+              .getElementById(
+                "galleryCaption"
+              )
+              .value
+              .trim();
+
+
+          if (!caption) {
+
+            showMessage(
+              "Please enter a caption.",
+              "error"
+            );
+
+            return;
+
+          }
+
+
+          /*
+            New photo requires an image.
+            During editing, the existing image
+            can remain unchanged.
+          */
+
+          if (
+            editingId === null &&
+            !selectedImageData
+          ) {
+
+            showMessage(
+              "Please select a photo.",
+              "error"
+            );
+
+            return;
+
+          }
+
+
+          const gallery =
+            getGallery();
+
+
+          if (editingId !== null) {
+
+            const index =
+              gallery.findIndex(
+                function(item) {
+
+                  return Number(item.id) ===
+                    Number(editingId);
+
+                }
+              );
+
+
+            if (index !== -1) {
+
+              gallery[index].caption =
+                caption;
+
+
+              if (selectedImageData) {
+
+                gallery[index].image =
+                  selectedImageData;
+
+              }
+
+
+              gallery[index].updatedAt =
+                new Date().toISOString();
+
+            }
+
+
+            localStorage.setItem(
+              STORAGE_KEY,
+              JSON.stringify(gallery)
+            );
+
+
+            showMessage(
+              "Gallery photo updated successfully.",
+              "success"
+            );
+
+          } else {
+
+            const newPhoto = {
+
+              id: Date.now(),
+
+              image:
+                selectedImageData,
+
+              caption:
+                caption,
+
+              createdAt:
+                new Date().toISOString()
+
+            };
+
+
+            gallery.unshift(
+              newPhoto
+            );
+
+
+            localStorage.setItem(
+              STORAGE_KEY,
+              JSON.stringify(gallery)
+            );
+
+
+            showMessage(
+              "Photo uploaded successfully.",
+              "success"
+            );
+
+          }
+
+
+          resetForm();
+
+          displayGallery();
+
+        }
+      );
+
+
+    /* =================================
+       DISPLAY GALLERY
+    ================================= */
+
+    function displayGallery() {
+
+      const grid =
+        document.getElementById(
+          "galleryGrid"
+        );
+
+
+      const search =
+        (
+          document
+            .getElementById(
+              "searchInput"
+            )
+            .value || ""
+        )
+        .toLowerCase()
+        .trim();
+
+
+      let gallery =
+        getGallery();
+
+
+      document
+        .getElementById(
+          "galleryCount"
+        )
+        .textContent =
+        gallery.length;
+
+
+      gallery.sort(
+        function(a, b) {
+
+          return (
+            Number(b.id || 0) -
+            Number(a.id || 0)
+          );
+
+        }
+      );
+
+
+      if (search) {
+
+        gallery =
+          gallery.filter(
+            function(item) {
+
+              return String(
+                item.caption || ""
+              )
+              .toLowerCase()
+              .includes(search);
+
+            }
+          );
+
+      }
+
+
+      if (gallery.length === 0) {
+
+        grid.innerHTML = `
+
+          <div class="empty">
+
+            <div class="empty-icon">
+              🖼️
+            </div>
+
+            <h3>
+              ${
+                search
+                  ? "No Matching Photos"
+                  : "No Gallery Photos Yet"
+              }
+            </h3>
+
+            <p>
+              ${
+                search
+                  ? "Try another caption."
+                  : "Upload your first gallery photo using the form above."
+              }
+            </p>
+
+          </div>
+
+        `;
+
+        return;
+
+      }
+
+
+      grid.innerHTML =
+        gallery.map(
+          function(item) {
+
+            const date =
+              item.createdAt
+                ? new Date(
+                    item.createdAt
+                  ).toLocaleDateString()
+                : "";
+
+
+            return `
+
+              <article class="gallery-card">
+
+                <img
+                  src="${item.image}"
+                  alt="${escapeHTML(item.caption)}"
+                  onclick="openLightbox('${escapeHTML(item.image)}')"
+                >
+
+                <div class="gallery-body">
+
+                  <div class="gallery-caption">
+                    ${escapeHTML(item.caption)}
+                  </div>
+
+                  <div class="gallery-date">
+                    Added: ${escapeHTML(date)}
+                  </div>
+
+
+                  <div class="gallery-actions">
+
+                    <button
+                      class="btn btn-secondary"
+                      onclick="editPhoto(${Number(item.id)})"
+                    >
+                      ✏ Edit
+                    </button>
+
+
+                    <button
+                      class="btn btn-danger"
+                      onclick="deletePhoto(${Number(item.id)})"
+                    >
+                      🗑 Delete
+                    </button>
+
+                  </div>
+
+                </div>
+
+              </article>
+
+            `;
+
+          }
+        )
+        .join("");
+
+    }
+
+
+    /* =================================
+       EDIT PHOTO
+    ================================= */
+
+    function editPhoto(id) {
+
+      const gallery =
+        getGallery();
+
+
+      const item =
+        gallery.find(
+          function(photo) {
+
+            return Number(photo.id) ===
+              Number(id);
+
+          }
+        );
+
+
+      if (!item) {
+        return;
+      }
+
+
+      editingId =
+        item.id;
+
+
+      selectedImageData =
+        "";
+
+
+      document
+        .getElementById(
+          "formTitle"
+        )
+        .textContent =
+        "Edit Gallery Photo";
+
+
+      document
+        .getElementById(
+          "galleryCaption"
+        )
+        .value =
+        item.caption || "";
+
+
+      document
+        .getElementById(
+          "previewImage"
+        )
+        .src =
+        item.image;
+
+
+      document
+        .getElementById(
+          "imagePreview"
+        )
+        .style.display =
+        "block";
+
+
+      document
+        .getElementById(
+          "saveBtn"
+        )
+        .textContent =
+        "Update Photo";
+
+
+      document
+        .getElementById(
+          "cancelBtn"
+        )
+        .style.display =
+        "inline-block";
+
+
+      document
+        .getElementById(
+          "galleryImage"
+        )
+        .required =
+        false;
+
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+    }
+
+
+    /* =================================
+       DELETE PHOTO
+    ================================= */
+
+    function deletePhoto(id) {
+
+      const confirmed =
+        confirm(
+          "Are you sure you want to delete this gallery photo?"
+        );
+
+
+      if (!confirmed) {
+        return;
+      }
+
+
+      const gallery =
+        getGallery();
+
+
+      const updated =
+        gallery.filter(
+          function(item) {
+
+            return Number(item.id) !==
+              Number(id);
+
+          }
+        );
+
+
+      localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify(updated)
+      );
+
+
+      if (
+        Number(editingId) ===
+        Number(id)
+      ) {
+
+        resetForm();
+
+      }
+
+
+      displayGallery();
+
+
+      showMessage(
+        "Gallery photo deleted successfully.",
+        "success"
+      );
+
+    }
+
+
+    /* =================================
+       RESET FORM
+    ================================= */
+
+    function resetForm() {
+
+      document
+        .getElementById(
+          "galleryForm"
+        )
+        .reset();
+
+
+      editingId =
+        null;
+
+
+      selectedImageData =
+        "";
+
+
+      document
+        .getElementById(
+          "formTitle"
+        )
+        .textContent =
+        "Upload New Gallery Photo";
+
+
+      document
+        .getElementById(
+          "saveBtn"
+        )
+        .textContent =
+        "Upload Photo";
+
+
+      document
+        .getElementById(
+          "cancelBtn"
+        )
+        .style.display =
+        "none";
+
+
+      document
+        .getElementById(
+          "imagePreview"
+        )
+        .style.display =
+        "none";
+
+
+      document
+        .getElementById(
+          "previewImage"
+        )
+        .src =
+        "";
+
+
+      document
+        .getElementById(
+          "galleryImage"
+        )
+        .required =
+        true;
+
+    }
+
+
+    /* =================================
+       CANCEL EDIT
+    ================================= */
+
+    function cancelEdit() {
+
+      resetForm();
+
+    }
+
+
+    /* =================================
+       LIGHTBOX
+    ================================= */
+
+    function openLightbox(image) {
+
+      document
+        .getElementById(
+          "lightboxImage"
+        )
+        .src =
+        image;
+
+
+      document
+        .getElementById(
+          "lightbox"
+        )
+        .classList
+        .add("active");
+
+    }
+
+
+    function closeLightbox(event) {
+
+      if (
+        event &&
+        event.target &&
+        event.target.id !==
+        "lightbox" &&
+        event.target.className !==
+        "close-lightbox"
+      ) {
+
+        return;
+
+      }
+
+
+      document
+        .getElementById(
+          "lightbox"
+        )
+        .classList
+        .remove("active");
+
+    }
+
+
+    /* =================================
+       MOBILE SIDEBAR
+    ================================= */
+
+    function toggleSidebar() {
+
+      document
+        .getElementById(
+          "sidebar"
+        )
+        .classList
+        .toggle("open");
+
+    }
+
+
+    /* =================================
+       INITIAL LOAD
+    ================================= */
+
+    displayGallery();
+
+
+    /* =================================
+       AUTO REFRESH
+    ================================= */
+
+    setInterval(
+      function() {
+
+        displayGallery();
+
+      },
+      3000
+    );
+
+  </script>
+
+</body>
+</html>
