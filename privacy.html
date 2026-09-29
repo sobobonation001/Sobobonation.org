@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Privacy Policy | SOBOBO NATION</title>
+
+  <meta
+    name="description"
+    content="Privacy Policy for the SOBOBO NATION website."
+  >
+
+  <meta name="theme-color" content="#087f23">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5fff7;
+      color: #222;
+      line-height: 1.7;
+    }
+
+    .top-bar {
+      background: #087f23;
+      color: white;
+      text-align: center;
+      padding: 8px 15px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    header {
+      background: white;
+      padding: 18px 20px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .logo {
+      color: #087f23;
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .tagline {
+      color: #555;
+      font-size: 13px;
+      margin-top: 3px;
+      letter-spacing: 1px;
+    }
+
+    .menu-btn {
+      display: none;
+      width: 100%;
+      background: #066b1d;
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    nav {
+      background: #066b1d;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 5px;
+      padding: 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 9px 12px;
+      border-radius: 5px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      background: #087f23;
+    }
+
+    .ticker {
+      background: #087f23;
+      color: white;
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 10px 0;
+      font-weight: bold;
+    }
+
+    .ticker-text {
+      display: inline-block;
+      padding-left: 100%;
+      animation: moveTicker 18s linear infinite;
+    }
+
+    @keyframes moveTicker {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    .hero {
+      background: #087f23;
+      color: white;
+      text-align: center;
+      padding: 55px 20px;
+    }
+
+    .hero h1 {
+      font-size: 38px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      max-width: 750px;
+      margin: auto;
+      font-size: 17px;
+    }
+
+    main {
+      max-width: 950px;
+      margin: auto;
+      padding: 45px 20px;
+    }
+
+    .intro {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      margin-bottom: 25px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+    }
+
+    .intro strong {
+      color: #087f23;
+    }
+
+    .policy-section {
+      background: white;
+      margin-bottom: 18px;
+      padding: 25px;
+      border-left: 4px solid #087f23;
+      border-radius: 8px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+    }
+
+    .policy-section h2 {
+      color: #087f23;
+      margin-bottom: 10px;
+      font-size: 22px;
+    }
+
+    .policy-section p {
+      color: #444;
+      margin-bottom: 10px;
+    }
+
+    .policy-section ul {
+      margin-left: 22px;
+      color: #444;
+    }
+
+    .policy-section li {
+      margin-bottom: 7px;
+    }
+
+    .notice {
+      background: #e8f7eb;
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 20px;
+      color: #174d24;
+    }
+
+    .cta {
+      text-align: center;
+      margin-top: 40px;
+      padding: 35px 20px;
+      background: #087f23;
+      color: white;
+      border-radius: 12px;
+    }
+
+    .cta h2 {
+      margin-bottom: 10px;
+    }
+
+    .cta p {
+      margin-bottom: 20px;
+    }
+
+    .cta a {
+      display: inline-block;
+      background: white;
+      color: #087f23;
+      text-decoration: none;
+      padding: 12px 22px;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    .cta a:hover {
+      background: #e8f7eb;
+    }
+
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 45px;
+    }
+
+    footer p {
+      margin: 7px 0;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: #8cff9d;
+      text-decoration: none;
+      margin: 0 7px;
+    }
+
+    @media (max-width: 850px) {
+
+      .menu-btn {
+        display: block;
+      }
+
+      nav {
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      nav a {
+        text-align: center;
+        padding: 11px;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .hero {
+        padding: 40px 15px;
+      }
+
+      .hero h1 {
+        font-size: 30px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      main {
+        padding: 30px 15px;
+      }
+
+      .logo {
+        font-size: 24px;
+      }
+
+      .intro,
+      .policy-section {
+        padding: 20px;
+      }
+
+      .policy-section h2 {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="top-bar">
+    SOBOBO NATION • UNITY • PROGRESS • COMMUNITY
+  </div>
+
+  <header>
+    <div class="logo">SOBOBO NATION</div>
+    <div class="tagline">UNITY • PROGRESS • COMMUNITY</div>
+  </header>
+
+  <button class="menu-btn" onclick="toggleMenu()">☰ Menu</button>
+
+  <nav id="navMenu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="mission.html">Mission</a>
+    <a href="leadership.html">Leadership</a>
+    <a href="programmes.html">Programmes</a>
+    <a href="membership.html">Membership</a>
+    <a href="volunteer.html">Volunteer</a>
+    <a href="news.html">News</a>
+    <a href="events.html">Events</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="video.html">Videos</a>
+    <a href="resources.html">Resources</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <div class="ticker">
+    <div class="ticker-text">
+      Welcome to SOBOBO NATION • Unity • Progress • Community • Stay Connected • Get Involved • Together We Build
+    </div>
+  </div>
+
+  <section class="hero">
+    <h1>Privacy Policy</h1>
+
+    <p>
+      Information about how information may be handled when you use
+      the SOBOBO NATION website.
+    </p>
+  </section>
+
+  <main>
+
+    <div class="intro">
+      <p>
+        <strong>Last Updated:</strong>
+        September 2026
+      </p>
+
+      <p>
+        This Privacy Policy provides general information about privacy
+        practices for the SOBOBO NATION website. As website features
+        and information systems develop, this policy may be updated
+        to reflect those changes.
+      </p>
+    </div>
+
+    <section class="policy-section">
+
+      <h2>1. Introduction</h2>
+
+      <p>
+        SOBOBO NATION respects the privacy of visitors, members,
+        volunteers, partners and other individuals who interact with
+        this website.
+      </p>
+
+      <p>
+        This policy explains the types of information that may be
+        collected and how such information may be used.
+      </p>
+
+    </section>
+
+    <section class="policy-section">
+
+      <h2>2. Information We May Collect</h2>
+
+      <p>
+        Depending on the features available on the website, information
+        may include:
+      </p>
+
+      <ul>
+        <li>Name and contact details submitted through forms.</li>
+        <li>Email address and telephone number.</li>
+        <li>Location or other information voluntarily provided.</li>
+        <li>Information submitted through membership or volunteer forms.</li>
+        <li>Messages or enquiries sent through available contact channels.</li>
+      </ul>
+
+      <p>
+        Visitors should only provide information that is necessary
+        for the purpose of the relevant form or enquiry.
+      </p>
+
+    </section>
+
+    <section class="policy-section">
+
+      <h2>3. How Information May Be Used</h2>
+
+      <p>
+        Information voluntarily provided through the website may be
+        used for appropriate organisational purposes, including:
+      </p>
+
+      <ul>
+        <li>Responding to enquiries.</li>
+        <li>Processing membership or volunteer requests.</li>
+        <li>Communicating relevant updates.</li>
+        <li>Organising activities and programmes.</li>
+        <li>Improving website services and user experience.</li>
+      </ul>
+
+    </section>
+
+    <section class="policy-section">
+
+      <h2>4. Information Security</h2>
+
+      <p>
+        Reasonable measures should be taken to protect information
+        submitted through the website from unauthorised access,
+        misuse or disclosure.
+      </p>
+
+      <p>
+        However, no internet-based system can be guaranteed to be
+        completely secure.
+      </p>
+
+    </section>
+
+    <section class="policy-section">
+
+      <h2>5. Sharing of Information</h2>
+
+      <p>
+        Personal information should not be shared unnecessarily.
+        Information may only be disclosed where reasonably required
+        for legitimate organisational purposes, with appropriate
+        permission, or where required by applicable law.
+      </p>
+
+    </section>
+
+    <section class="policy-section">
+
+      <h2>6. Third-Party Services</h2>
+
+      <p>
+        Some website functions may use third-party services or
+        platforms in the future, such as hosting, forms, databases,
+        analytics, communication or media services.
+      </p>
+
+      <p>
+        Such services may have their own privacy policies and terms.
+        Users should review the relevant policies when using those
+        external services.
+      </p>
+
+    </section>
+
+    <section class="policy-section">
+
+      <h2>7. Website Links</h2>
+
+      <p>
+        The website may contain links to external websites or services.
+        SOBOBO NATION is not responsible for the privacy practices,
+        content or security policies of external websites.
+      </p>
+
+    </section>
+
+    <section class="policy-section">
+
+      <h2>8. Children's Privacy</h2>
+
+      <p>
+        Visitors should not submit personal information on behalf of
+        children unless they are authorised to do so and have the
+        appropriate consent where required.
+      </p>
+
+    </section>
+
+    <section class="policy-section">
+
+      <h2>9. Changes to This Policy</h2>
+
+      <p>
+        This Privacy Policy may be updated when website features,
+        services, information systems or organisational practices
+        change.
+      </p>
+
+      <div class="notice">
+        <strong>Website Development Notice:</strong><br>
+        The SOBOBO NATION website is being developed and may introduce
+        additional forms, databases and online services in the future.
+        This policy should be reviewed and updated when those systems
+        are introduced.
+      </div>
+
+    </section>
+
+    <section class="policy-section">
+
+      <h2>10. Contact</h2>
+
+      <p>
+        If you have questions about this Privacy Policy or how
+        information may be handled through the website, please
+        contact SOBOBO NATION through the Contact page.
+      </p>
+
+    </section>
+
+    <section class="cta">
+
+      <h2>Questions About Privacy?</h2>
+
+      <p>
+        Contact SOBOBO NATION if you need further information.
+      </p>
+
+      <a href="contact.html">
+        Contact Us
+      </a>
+
+    </section>
+
+  </main>
+
+  <footer>
+
+    <p><strong>SOBOBO NATION</strong></p>
+
+    <p>
+      Initiator, Founder & CEO: Chief Dr. Uloko OJIJI
+    </p>
+
+    <p>
+      UNITY • PROGRESS • COMMUNITY
+    </p>
+
+    <p>
+      <a href="privacy.html">Privacy Policy</a>
+      |
+      <a href="terms.html">Terms & Conditions</a>
+    </p>
+
+    <p>
+      © <span id="year"></span> SOBOBO NATION. All Rights Reserved.
+    </p>
+
+  </footer>
+
+  <script>
+
+    function toggleMenu() {
+      document.getElementById("navMenu").classList.toggle("active");
+    }
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+  </script>
+
+</body>
+</html>
