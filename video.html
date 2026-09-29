@@ -8,7 +8,7 @@
 
   <meta
     name="description"
-    content="Watch videos, activities, programmes and updates from SOBOBO NATION."
+    content="Watch the latest videos, activities and updates from SOBOBO NATION."
   >
 
   <meta name="theme-color" content="#087f23">
@@ -27,243 +27,299 @@
       line-height: 1.6;
     }
 
-    .top-bar {
-      background: #066b1d;
+    /* TOP BAR */
+    .topbar {
+      background: #087f23;
       color: white;
       text-align: center;
-      padding: 8px 10px;
-      font-size: 14px;
+      padding: 8px 12px;
+      font-size: 13px;
       font-weight: bold;
     }
 
+    /* HEADER */
     header {
-      background: #087f23;
-      color: white;
-      padding: 18px 15px;
-      text-align: center;
+      background: white;
+      border-bottom: 1px solid #ddd;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: auto;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo-area {
+      display: flex;
+      flex-direction: column;
     }
 
     .logo {
-      font-size: 30px;
-      font-weight: bold;
+      color: #087f23;
+      font-size: 24px;
+      font-weight: 900;
       letter-spacing: 1px;
     }
 
     .tagline {
-      margin-top: 5px;
-      font-size: 14px;
+      color: #666;
+      font-size: 11px;
+      font-weight: bold;
       letter-spacing: 1px;
+    }
+
+    /* NAVIGATION */
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #222;
+      font-size: 13px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    nav a:hover {
+      color: #087f23;
+    }
+
+    .admin-link {
+      color: #087f23 !important;
+      border: 1px solid #087f23;
+      padding: 7px 10px;
+      border-radius: 6px;
     }
 
     .menu-btn {
       display: none;
-      margin: 15px auto 0;
-      background: white;
-      color: #087f23;
       border: none;
-      padding: 10px 18px;
-      border-radius: 5px;
-      font-weight: bold;
+      background: #087f23;
+      color: white;
+      font-size: 24px;
+      padding: 6px 11px;
+      border-radius: 6px;
       cursor: pointer;
     }
 
-    nav {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 18px;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      padding: 9px 11px;
-      border-radius: 5px;
-      font-size: 14px;
-      transition: 0.3s;
-    }
-
-    nav a:hover {
-      background: white;
-      color: #087f23;
-    }
-
+    /* TICKER */
     .ticker {
+      overflow: hidden;
       background: #066b1d;
       color: white;
-      overflow: hidden;
       white-space: nowrap;
-      padding: 10px 0;
+    }
+
+    .ticker-content {
+      display: inline-block;
+      padding: 8px 0;
+      padding-left: 100%;
+      animation: tickerMove 18s linear infinite;
+      font-size: 14px;
       font-weight: bold;
     }
 
-    .ticker span {
-      display: inline-block;
-      padding-left: 100%;
-      animation: moveTicker 18s linear infinite;
-    }
-
-    @keyframes moveTicker {
-      0% {
+    @keyframes tickerMove {
+      from {
         transform: translateX(0);
       }
 
-      100% {
+      to {
         transform: translateX(-100%);
       }
     }
 
-    .hero {
-      background: #087f23;
+    /* PAGE HEADER */
+    .page-header {
+      background:
+        linear-gradient(
+          rgba(0, 128, 0, 0.92),
+          rgba(0, 80, 20, 0.92)
+        );
       color: white;
       text-align: center;
-      padding: 55px 20px;
+      padding: 60px 20px;
     }
 
-    .hero h1 {
-      font-size: 38px;
-      margin-bottom: 12px;
+    .page-header h1 {
+      font-size: 40px;
+      margin-bottom: 10px;
     }
 
-    .hero p {
-      font-size: 18px;
+    .page-header p {
       max-width: 750px;
       margin: auto;
+      font-size: 16px;
     }
 
+    /* MAIN */
     .container {
-      width: 92%;
-      max-width: 1100px;
-      margin: 40px auto;
+      max-width: 1200px;
+      margin: auto;
+      padding: 45px 20px;
     }
 
-    .section-title {
-      text-align: center;
-      color: #087f23;
-      font-size: 28px;
-      margin-bottom: 12px;
-    }
-
-    .intro {
-      text-align: center;
-      max-width: 800px;
-      margin: 0 auto 35px;
-    }
-
+    /* VIDEO GRID */
     .video-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 25px;
+      gap: 28px;
     }
 
     .video-card {
       background: white;
-      border-radius: 10px;
+      border-radius: 14px;
       overflow: hidden;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-      border-top: 4px solid #087f23;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
     }
 
-    .video-box {
+    .video-frame {
       width: 100%;
       aspect-ratio: 16 / 9;
-      background: #e8f7ec;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #087f23;
-      font-size: 50px;
-    }
-
-    .video-box iframe {
-      width: 100%;
-      height: 100%;
       border: none;
+      display: block;
+      background: #111;
     }
 
     .video-content {
-      padding: 20px;
+      padding: 22px;
     }
 
-    .video-content h3 {
+    .video-content h2 {
+      color: #087f23;
+      font-size: 21px;
+      margin-bottom: 8px;
+    }
+
+    .video-date {
+      color: #777;
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    .video-description {
+      color: #555;
+      font-size: 14px;
+      white-space: pre-wrap;
+      margin-bottom: 18px;
+    }
+
+    .watch-btn {
+      display: inline-block;
+      background: #087f23;
+      color: white;
+      text-decoration: none;
+      padding: 10px 16px;
+      border-radius: 7px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .watch-btn:hover {
+      background: #066b1d;
+    }
+
+    /* EMPTY STATE */
+    .empty {
+      background: white;
+      border-radius: 14px;
+      padding: 55px 25px;
+      text-align: center;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+    }
+
+    .empty-icon {
+      font-size: 55px;
+      margin-bottom: 10px;
+    }
+
+    .empty h2 {
       color: #087f23;
       margin-bottom: 8px;
     }
 
-    .video-content p {
-      color: #555;
+    .empty p {
+      color: #666;
+      max-width: 600px;
+      margin: auto;
     }
 
-    .notice {
-      margin-top: 40px;
-      background: white;
-      border-left: 5px solid #087f23;
-      padding: 25px;
-      border-radius: 8px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.06);
-    }
-
-    .notice h2 {
-      color: #087f23;
-      margin-bottom: 10px;
-    }
-
-    .cta {
+    /* ADMIN BOX */
+    .admin-box {
+      background: #e8f7ec;
+      border: 1px solid #b9e6c3;
+      border-radius: 12px;
+      padding: 22px;
       text-align: center;
-      margin: 45px 0;
-      padding: 35px 20px;
+      margin-top: 35px;
+    }
+
+    .admin-box h3 {
+      color: #087f23;
+      margin-bottom: 7px;
+    }
+
+    .admin-box p {
+      color: #555;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .admin-box a {
+      display: inline-block;
       background: #087f23;
       color: white;
-      border-radius: 10px;
-    }
-
-    .cta h2 {
-      margin-bottom: 10px;
-    }
-
-    .cta a {
-      display: inline-block;
-      margin-top: 18px;
-      background: white;
-      color: #087f23;
       text-decoration: none;
-      padding: 12px 22px;
-      border-radius: 6px;
+      padding: 10px 17px;
+      border-radius: 7px;
       font-weight: bold;
+      font-size: 13px;
     }
 
+    /* FOOTER */
     footer {
       background: #111;
       color: white;
       text-align: center;
-      padding: 30px 15px;
-      margin-top: 40px;
+      padding: 30px 20px;
+      margin-top: 25px;
     }
 
     footer p {
-      margin: 6px 0;
+      margin: 5px 0;
+      font-size: 14px;
     }
 
-    footer a {
-      color: #8cff9e;
-      text-decoration: none;
-      margin: 0 7px;
+    footer strong {
+      color: #3dcc62;
     }
 
-    @media (max-width: 800px) {
-      .video-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .menu-btn {
-        display: block;
-      }
+    /* MOBILE */
+    @media (max-width: 1050px) {
 
       nav {
         display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
         flex-direction: column;
-        margin-top: 15px;
+        align-items: stretch;
+        padding: 15px 20px;
+        box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        max-height: 80vh;
+        overflow-y: auto;
       }
 
       nav.active {
@@ -271,22 +327,50 @@
       }
 
       nav a {
+        padding: 10px 0;
+        border-bottom: 1px solid #eee;
+      }
+
+      .menu-btn {
         display: block;
-        background: rgba(255,255,255,0.08);
       }
     }
 
-    @media (max-width: 550px) {
+    @media (max-width: 700px) {
+
+      .video-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .page-header {
+        padding: 45px 15px;
+      }
+
+      .page-header h1 {
+        font-size: 32px;
+      }
+
+      .container {
+        padding: 30px 15px;
+      }
+    }
+
+    @media (max-width: 500px) {
+
       .logo {
-        font-size: 24px;
+        font-size: 20px;
       }
 
-      .hero h1 {
-        font-size: 30px;
+      .tagline {
+        font-size: 9px;
       }
 
-      .hero p {
-        font-size: 16px;
+      .video-content {
+        padding: 18px;
+      }
+
+      .video-content h2 {
+        font-size: 19px;
       }
     }
   </style>
@@ -294,187 +378,113 @@
 
 <body>
 
-  <div class="top-bar">
+  <!-- TOP BAR -->
+  <div class="topbar">
     SOBOBO NATION • UNITY • PROGRESS • COMMUNITY
   </div>
 
+  <!-- HEADER -->
   <header>
 
-    <div class="logo">SOBOBO NATION</div>
+    <div class="header-inner">
 
-    <div class="tagline">
-      UNITY • PROGRESS • COMMUNITY
+      <div class="logo-area">
+        <div class="logo">SOBOBO NATION</div>
+
+        <div class="tagline">
+          UNITY • PROGRESS • COMMUNITY
+        </div>
+      </div>
+
+      <button
+        class="menu-btn"
+        onclick="toggleMenu()"
+        aria-label="Open navigation menu"
+      >
+        ☰
+      </button>
+
+      <nav id="navMenu">
+
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="mission.html">Mission</a>
+        <a href="leadership.html">Leadership</a>
+        <a href="programmes.html">Programmes</a>
+        <a href="membership.html">Membership</a>
+        <a href="volunteer.html">Volunteer</a>
+        <a href="news.html">News</a>
+        <a href="events.html">Events</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="video.html">Videos</a>
+        <a href="resources.html">Resources</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+
+        <a
+          href="admin-login.html"
+          class="admin-link"
+        >
+          🔐 Admin Login
+        </a>
+
+      </nav>
+
     </div>
-
-    <button class="menu-btn" onclick="toggleMenu()">
-      ☰ Menu
-    </button>
-
-    <nav id="navMenu">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="mission.html">Mission</a>
-      <a href="leadership.html">Leadership</a>
-      <a href="programmes.html">Programmes</a>
-      <a href="membership.html">Membership</a>
-      <a href="volunteer.html">Volunteer</a>
-      <a href="news.html">News</a>
-      <a href="events.html">Events</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="video.html">Videos</a>
-      <a href="resources.html">Resources</a>
-      <a href="faq.html">FAQ</a>
-      <a href="contact.html">Contact</a>
-    </nav>
 
   </header>
 
+  <!-- TICKER -->
   <div class="ticker">
-    <span>
-      Welcome to SOBOBO NATION • Unity • Progress • Community • Stay Connected • Get Involved • Together We Build
-    </span>
+
+    <div class="ticker-content">
+      Welcome to SOBOBO NATION • Unity • Progress • Community •
+      Stay Connected • Get Involved • Together We Build
+    </div>
+
   </div>
 
-  <section class="hero">
-    <h1>Videos</h1>
+  <!-- PAGE HEADER -->
+  <section class="page-header">
+
+    <h1>Our Videos</h1>
 
     <p>
-      Watch videos and visual updates featuring activities, programmes,
-      events and community engagement.
+      Watch the latest activities, programmes,
+      events and updates from SOBOBO NATION.
     </p>
+
   </section>
 
+  <!-- CONTENT -->
   <main class="container">
 
-    <h2 class="section-title">Video Updates</h2>
+    <div
+      class="video-grid"
+      id="videoGrid"
+    ></div>
 
-    <p class="intro">
-      This page provides a dedicated space for official videos and visual
-      updates from SOBOBO NATION.
-    </p>
+    <!-- ADMIN -->
+    <div class="admin-box">
 
-    <div class="video-grid">
-
-      <article class="video-card">
-
-        <div class="video-box">
-          ▶️
-        </div>
-
-        <div class="video-content">
-
-          <h3>
-            SOBOBO NATION Introduction
-          </h3>
-
-          <p>
-            Introduction to SOBOBO NATION, its purpose, values and commitment
-            to unity, progress and community.
-          </p>
-
-        </div>
-
-      </article>
-
-
-      <article class="video-card">
-
-        <div class="video-box">
-          ▶️
-        </div>
-
-        <div class="video-content">
-
-          <h3>
-            Community Activities
-          </h3>
-
-          <p>
-            Video updates from community activities, engagements and
-            programmes.
-          </p>
-
-        </div>
-
-      </article>
-
-
-      <article class="video-card">
-
-        <div class="video-box">
-          ▶️
-        </div>
-
-        <div class="video-content">
-
-          <h3>
-            Programme Updates
-          </h3>
-
-          <p>
-            Visual updates and presentations relating to SOBOBO NATION
-            programmes and initiatives.
-          </p>
-
-        </div>
-
-      </article>
-
-
-      <article class="video-card">
-
-        <div class="video-box">
-          ▶️
-        </div>
-
-        <div class="video-content">
-
-          <h3>
-            Events & Highlights
-          </h3>
-
-          <p>
-            Highlights from events, meetings and other activities as
-            videos become available.
-          </p>
-
-        </div>
-
-      </article>
-
-    </div>
-
-
-    <div class="notice">
-
-      <h2>Video Updates Coming Soon</h2>
+      <h3>
+        🎥 Video Management
+      </h3>
 
       <p>
-        Official videos can be added to this page from platforms such as
-        YouTube or other supported video services. Video links can be
-        embedded here when they are available.
+        Administrators can add new YouTube videos
+        through the secure admin area.
       </p>
 
-    </div>
-
-
-    <section class="cta">
-
-      <h2>Stay Connected</h2>
-
-      <p>
-        Follow SOBOBO NATION for new videos, announcements and activity
-        updates.
-      </p>
-
-      <a href="news.html">
-        View Latest News
+      <a href="admin-videos.html">
+        🔐 Manage Videos
       </a>
 
-    </section>
+    </div>
 
   </main>
 
+  <!-- FOOTER -->
   <footer>
 
     <p>
@@ -482,32 +492,268 @@
     </p>
 
     <p>
-      Unity • Progress • Community
+      UNITY • PROGRESS • COMMUNITY
     </p>
 
     <p>
-      Initiator, Founder & CEO: Chief Dr. Uloko OJIJI
-    </p>
-
-    <p>
-      <a href="privacy.html">Privacy Policy</a>
-      |
-      <a href="terms.html">Terms & Conditions</a>
-    </p>
-
-    <p>
-      © <span id="year"></span> SOBOBO NATION. All Rights Reserved.
+      &copy;
+      <span id="year"></span>
+      SOBOBO NATION. All Rights Reserved.
     </p>
 
   </footer>
 
+
   <script>
-    function toggleMenu() {
-      document.getElementById("navMenu").classList.toggle("active");
+
+    /* STORAGE KEY */
+    const STORAGE_KEY =
+      "soboboNationVideos";
+
+
+    /* GET VIDEOS */
+    function getVideos() {
+
+      try {
+
+        const saved =
+          localStorage.getItem(STORAGE_KEY);
+
+        const videos =
+          saved ? JSON.parse(saved) : [];
+
+        return Array.isArray(videos)
+          ? videos
+          : [];
+
+      } catch (error) {
+
+        return [];
+
+      }
+
     }
 
-    document.getElementById("year").textContent =
+
+    /* ESCAPE HTML */
+    function escapeHTML(value) {
+
+      return String(value || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+    }
+
+
+    /* GET YOUTUBE ID */
+    function getYouTubeId(url) {
+
+      try {
+
+        const parsed =
+          new URL(url);
+
+        let id = "";
+
+
+        if (
+          parsed.hostname.includes("youtube.com")
+        ) {
+
+          id =
+            parsed.searchParams.get("v") || "";
+
+
+          if (
+            !id &&
+            parsed.pathname.startsWith("/shorts/")
+          ) {
+
+            id =
+              parsed.pathname
+                .split("/shorts/")[1]
+                .split("/")[0];
+
+          }
+
+
+          if (
+            !id &&
+            parsed.pathname.startsWith("/embed/")
+          ) {
+
+            id =
+              parsed.pathname
+                .split("/embed/")[1]
+                .split("/")[0];
+
+          }
+
+        }
+
+
+        if (
+          parsed.hostname === "youtu.be"
+        ) {
+
+          id =
+            parsed.pathname
+              .substring(1)
+              .split("/")[0];
+
+        }
+
+
+        return id;
+
+      } catch (error) {
+
+        return "";
+
+      }
+
+    }
+
+
+    /* DISPLAY VIDEOS */
+    function displayVideos() {
+
+      const container =
+        document.getElementById(
+          "videoGrid"
+        );
+
+
+      const videos =
+        getVideos();
+
+
+      if (videos.length === 0) {
+
+        container.innerHTML = `
+
+          <div class="empty">
+
+            <div class="empty-icon">
+              🎥
+            </div>
+
+            <h2>
+              No Videos Yet
+            </h2>
+
+            <p>
+              Videos from SOBOBO NATION will
+              appear here when they are added
+              through the admin area.
+            </p>
+
+          </div>
+
+        `;
+
+        return;
+
+      }
+
+
+      container.innerHTML =
+        videos.map(video => {
+
+          const youtubeId =
+            video.youtubeId ||
+            getYouTubeId(video.url);
+
+
+          if (!youtubeId) {
+            return "";
+          }
+
+
+          return `
+
+            <article class="video-card">
+
+              <iframe
+                class="video-frame"
+                src="https://www.youtube.com/embed/${encodeURIComponent(youtubeId)}"
+                title="${escapeHTML(video.title)}"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
+
+              <div class="video-content">
+
+                <h2>
+                  ${escapeHTML(video.title)}
+                </h2>
+
+                <div class="video-date">
+                  📅 ${escapeHTML(video.date)}
+                </div>
+
+                ${
+                  video.description
+                    ? `
+                      <div class="video-description">
+                        ${escapeHTML(video.description)}
+                      </div>
+                    `
+                    : ""
+                }
+
+                <a
+                  class="watch-btn"
+                  href="${escapeHTML(video.url)}"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  ▶️ Watch on YouTube
+                </a>
+
+              </div>
+
+            </article>
+
+          `;
+
+        }).join("");
+
+    }
+
+
+    /* MOBILE MENU */
+    function toggleMenu() {
+
+      document
+        .getElementById("navMenu")
+        .classList
+        .toggle("active");
+
+    }
+
+
+    /* YEAR */
+    document
+      .getElementById("year")
+      .textContent =
       new Date().getFullYear();
+
+
+    /* INITIAL LOAD */
+    displayVideos();
+
+
+    /* AUTOMATIC REFRESH */
+    setInterval(
+      displayVideos,
+      3000
+    );
+
   </script>
 
 </body>
