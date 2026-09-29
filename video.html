@@ -28,32 +28,27 @@
     }
 
     /* TOP BAR */
-    .topbar {
-      background: #087f23;
+    .top-bar {
+      background: #066b1d;
       color: white;
       text-align: center;
-      padding: 8px 12px;
-      font-size: 13px;
+      padding: 8px 10px;
+      font-size: 14px;
       font-weight: bold;
+      letter-spacing: 1px;
     }
 
     /* HEADER */
     header {
       background: white;
-      border-bottom: 1px solid #ddd;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .header-inner {
-      max-width: 1200px;
-      margin: auto;
       padding: 15px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
 
     .logo-area {
@@ -69,104 +64,116 @@
     }
 
     .tagline {
-      color: #666;
       font-size: 11px;
+      color: #555;
       font-weight: bold;
       letter-spacing: 1px;
     }
 
-    /* NAVIGATION */
     nav {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 5px;
     }
 
     nav a {
       text-decoration: none;
       color: #222;
-      font-size: 13px;
       font-weight: bold;
-      white-space: nowrap;
+      font-size: 14px;
+      padding: 9px 10px;
+      border-radius: 5px;
     }
 
     nav a:hover {
-      color: #087f23;
+      background: #087f23;
+      color: white;
     }
 
-    .admin-link {
-      color: #087f23 !important;
-      border: 1px solid #087f23;
-      padding: 7px 10px;
-      border-radius: 6px;
+    nav a.admin-link {
+      background: #087f23;
+      color: white;
     }
 
     .menu-btn {
       display: none;
-      border: none;
       background: #087f23;
       color: white;
-      font-size: 24px;
-      padding: 6px 11px;
-      border-radius: 6px;
+      border: none;
+      font-size: 25px;
+      padding: 5px 11px;
+      border-radius: 5px;
       cursor: pointer;
     }
 
-    /* TICKER */
+    /* MOVING WELCOME */
     .ticker {
-      overflow: hidden;
-      background: #066b1d;
+      background: #087f23;
       color: white;
+      overflow: hidden;
       white-space: nowrap;
+      padding: 10px 0;
+      font-weight: bold;
     }
 
     .ticker-content {
       display: inline-block;
-      padding: 8px 0;
       padding-left: 100%;
-      animation: tickerMove 18s linear infinite;
-      font-size: 14px;
-      font-weight: bold;
+      animation: moveTicker 18s linear infinite;
     }
 
-    @keyframes tickerMove {
-      from {
+    @keyframes moveTicker {
+      0% {
         transform: translateX(0);
       }
 
-      to {
+      100% {
         transform: translateX(-100%);
       }
     }
 
     /* PAGE HEADER */
     .page-header {
-      background:
-        linear-gradient(
-          rgba(0, 128, 0, 0.92),
-          rgba(0, 80, 20, 0.92)
-        );
-      color: white;
       text-align: center;
-      padding: 60px 20px;
+      padding: 55px 20px 35px;
+      background: linear-gradient(
+        rgba(8,127,35,0.95),
+        rgba(6,107,29,0.95)
+      );
+      color: white;
     }
 
     .page-header h1 {
-      font-size: 40px;
+      font-size: 38px;
       margin-bottom: 10px;
     }
 
     .page-header p {
-      max-width: 750px;
+      max-width: 700px;
       margin: auto;
       font-size: 16px;
     }
 
     /* MAIN */
-    .container {
+    main {
       max-width: 1200px;
       margin: auto;
-      padding: 45px 20px;
+      padding: 40px 20px 60px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .section-title h2 {
+      color: #087f23;
+      font-size: 30px;
+      margin-bottom: 8px;
+    }
+
+    .section-title p {
+      color: #666;
     }
 
     /* VIDEO GRID */
@@ -178,24 +185,30 @@
 
     .video-card {
       background: white;
-      border-radius: 14px;
+      border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      box-shadow: 0 5px 18px rgba(0,0,0,0.10);
+      border: 1px solid #e1eee4;
     }
 
     .video-frame {
       width: 100%;
       aspect-ratio: 16 / 9;
-      border: none;
+      background: #000;
+    }
+
+    .video-frame iframe {
       display: block;
-      background: #111;
+      width: 100%;
+      height: 100%;
+      border: 0;
     }
 
-    .video-content {
-      padding: 22px;
+    .video-info {
+      padding: 20px;
     }
 
-    .video-content h2 {
+    .video-info h3 {
       color: #087f23;
       font-size: 21px;
       margin-bottom: 8px;
@@ -208,10 +221,10 @@
     }
 
     .video-description {
-      color: #555;
-      font-size: 14px;
-      white-space: pre-wrap;
+      color: #444;
+      font-size: 15px;
       margin-bottom: 18px;
+      white-space: pre-line;
     }
 
     .watch-btn {
@@ -219,9 +232,8 @@
       background: #087f23;
       color: white;
       text-decoration: none;
-      padding: 10px 16px;
-      border-radius: 7px;
-      font-size: 13px;
+      padding: 10px 17px;
+      border-radius: 6px;
       font-weight: bold;
     }
 
@@ -230,96 +242,96 @@
     }
 
     /* EMPTY STATE */
-    .empty {
+    .empty-state {
       background: white;
-      border-radius: 14px;
-      padding: 55px 25px;
+      border-radius: 12px;
+      padding: 50px 20px;
       text-align: center;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      border: 1px solid #e1eee4;
     }
 
-    .empty-icon {
-      font-size: 55px;
+    .empty-state h3 {
+      color: #087f23;
       margin-bottom: 10px;
     }
 
-    .empty h2 {
-      color: #087f23;
-      margin-bottom: 8px;
-    }
-
-    .empty p {
+    .empty-state p {
       color: #666;
-      max-width: 600px;
-      margin: auto;
+      margin-bottom: 20px;
     }
 
-    /* ADMIN BOX */
-    .admin-box {
-      background: #e8f7ec;
-      border: 1px solid #b9e6c3;
-      border-radius: 12px;
-      padding: 22px;
-      text-align: center;
-      margin-top: 35px;
-    }
-
-    .admin-box h3 {
-      color: #087f23;
-      margin-bottom: 7px;
-    }
-
-    .admin-box p {
-      color: #555;
-      font-size: 14px;
-      margin-bottom: 15px;
-    }
-
-    .admin-box a {
+    .admin-btn {
       display: inline-block;
       background: #087f23;
       color: white;
       text-decoration: none;
-      padding: 10px 17px;
-      border-radius: 7px;
+      padding: 12px 20px;
+      border-radius: 6px;
       font-weight: bold;
-      font-size: 13px;
+    }
+
+    /* ADMIN BOX */
+    .admin-box {
+      margin-top: 45px;
+      background: #e9f8ed;
+      border-left: 5px solid #087f23;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .admin-box h3 {
+      color: #087f23;
+      margin-bottom: 8px;
+    }
+
+    .admin-box p {
+      margin-bottom: 15px;
+      color: #444;
     }
 
     /* FOOTER */
     footer {
-      background: #111;
+      background: #000;
       color: white;
       text-align: center;
       padding: 30px 20px;
-      margin-top: 25px;
+    }
+
+    footer h3 {
+      color: #fff;
+      margin-bottom: 8px;
     }
 
     footer p {
-      margin: 5px 0;
+      color: #ccc;
       font-size: 14px;
-    }
-
-    footer strong {
-      color: #3dcc62;
+      margin: 5px 0;
     }
 
     /* MOBILE */
-    @media (max-width: 1050px) {
+    @media (max-width: 900px) {
+
+      header {
+        padding: 12px 15px;
+      }
+
+      .menu-btn {
+        display: block;
+      }
 
       nav {
         display: none;
         position: absolute;
         top: 100%;
         left: 0;
-        right: 0;
+        width: 100%;
         background: white;
         flex-direction: column;
         align-items: stretch;
-        padding: 15px 20px;
-        box-shadow: 0 8px 15px rgba(0,0,0,0.1);
-        max-height: 80vh;
-        overflow-y: auto;
+        padding: 10px;
+        box-shadow: 0 5px 12px rgba(0,0,0,0.12);
       }
 
       nav.active {
@@ -327,31 +339,16 @@
       }
 
       nav a {
-        padding: 10px 0;
-        border-bottom: 1px solid #eee;
+        width: 100%;
+        padding: 12px;
       }
-
-      .menu-btn {
-        display: block;
-      }
-    }
-
-    @media (max-width: 700px) {
 
       .video-grid {
         grid-template-columns: 1fr;
       }
 
-      .page-header {
-        padding: 45px 15px;
-      }
-
       .page-header h1 {
-        font-size: 32px;
-      }
-
-      .container {
-        padding: 30px 15px;
+        font-size: 30px;
       }
     }
 
@@ -365,11 +362,27 @@
         font-size: 9px;
       }
 
-      .video-content {
-        padding: 18px;
+      .page-header {
+        padding: 40px 15px 30px;
       }
 
-      .video-content h2 {
+      .page-header h1 {
+        font-size: 27px;
+      }
+
+      main {
+        padding: 30px 12px 50px;
+      }
+
+      .section-title h2 {
+        font-size: 25px;
+      }
+
+      .video-info {
+        padding: 16px;
+      }
+
+      .video-info h3 {
         font-size: 19px;
       }
     }
@@ -379,105 +392,88 @@
 <body>
 
   <!-- TOP BAR -->
-  <div class="topbar">
+  <div class="top-bar">
     SOBOBO NATION • UNITY • PROGRESS • COMMUNITY
   </div>
 
   <!-- HEADER -->
   <header>
 
-    <div class="header-inner">
-
-      <div class="logo-area">
-        <div class="logo">SOBOBO NATION</div>
-
-        <div class="tagline">
-          UNITY • PROGRESS • COMMUNITY
-        </div>
-      </div>
-
-      <button
-        class="menu-btn"
-        onclick="toggleMenu()"
-        aria-label="Open navigation menu"
-      >
-        ☰
-      </button>
-
-      <nav id="navMenu">
-
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="mission.html">Mission</a>
-        <a href="leadership.html">Leadership</a>
-        <a href="programmes.html">Programmes</a>
-        <a href="membership.html">Membership</a>
-        <a href="volunteer.html">Volunteer</a>
-        <a href="news.html">News</a>
-        <a href="events.html">Events</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="video.html">Videos</a>
-        <a href="resources.html">Resources</a>
-        <a href="faq.html">FAQ</a>
-        <a href="contact.html">Contact</a>
-
-        <a
-          href="admin-login.html"
-          class="admin-link"
-        >
-          🔐 Admin Login
-        </a>
-
-      </nav>
-
+    <div class="logo-area">
+      <div class="logo">SOBOBO NATION</div>
+      <div class="tagline">UNITY • PROGRESS • COMMUNITY</div>
     </div>
+
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+    <nav id="navMenu">
+
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="mission.html">Mission</a>
+      <a href="leadership.html">Leadership</a>
+      <a href="programmes.html">Programmes</a>
+      <a href="membership.html">Membership</a>
+      <a href="volunteer.html">Volunteer</a>
+      <a href="news.html">News</a>
+      <a href="events.html">Events</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="video.html">Videos</a>
+      <a href="resources.html">Resources</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+      <a href="admin-login.html" class="admin-link">🔐 Admin Login</a>
+
+    </nav>
 
   </header>
 
-  <!-- TICKER -->
+  <!-- MOVING WELCOME -->
   <div class="ticker">
-
     <div class="ticker-content">
-      Welcome to SOBOBO NATION • Unity • Progress • Community •
-      Stay Connected • Get Involved • Together We Build
+      Welcome to SOBOBO NATION • Unity • Progress • Community • Stay Connected • Get Involved • Together We Build
     </div>
-
   </div>
 
   <!-- PAGE HEADER -->
   <section class="page-header">
 
-    <h1>Our Videos</h1>
+    <h1>Videos</h1>
 
     <p>
-      Watch the latest activities, programmes,
-      events and updates from SOBOBO NATION.
+      Watch the latest videos, activities, programmes and updates from
+      SOBOBO NATION.
     </p>
 
   </section>
 
-  <!-- CONTENT -->
-  <main class="container">
+  <!-- MAIN CONTENT -->
+  <main>
 
-    <div
-      class="video-grid"
-      id="videoGrid"
-    ></div>
+    <div class="section-title">
 
-    <!-- ADMIN -->
-    <div class="admin-box">
-
-      <h3>
-        🎥 Video Management
-      </h3>
+      <h2>Latest Videos</h2>
 
       <p>
-        Administrators can add new YouTube videos
-        through the secure admin area.
+        Stay connected with SOBOBO NATION through our latest video updates.
       </p>
 
-      <a href="admin-videos.html">
-        🔐 Manage Videos
+    </div>
+
+    <div id="videoContainer"></div>
+
+    <!-- ADMIN BOX -->
+    <div class="admin-box">
+
+      <h3>Manage Videos</h3>
+
+      <p>
+        Administrators can add, edit and remove YouTube videos from the
+        Video Management page.
+      </p>
+
+      <a href="admin-videos.html" class="admin-btn">
+        🎥 Video Management
       </a>
 
     </div>
@@ -487,53 +483,24 @@
   <!-- FOOTER -->
   <footer>
 
-    <p>
-      <strong>SOBOBO NATION</strong>
-    </p>
+    <h3>SOBOBO NATION</h3>
+
+    <p>UNITY • PROGRESS • COMMUNITY</p>
 
     <p>
-      UNITY • PROGRESS • COMMUNITY
-    </p>
-
-    <p>
-      &copy;
-      <span id="year"></span>
-      SOBOBO NATION. All Rights Reserved.
+      © <span id="year"></span> SOBOBO NATION. All Rights Reserved.
     </p>
 
   </footer>
 
-
   <script>
 
-    /* STORAGE KEY */
-    const STORAGE_KEY =
-      "soboboNationVideos";
-
-
-    /* GET VIDEOS */
-    function getVideos() {
-
-      try {
-
-        const saved =
-          localStorage.getItem(STORAGE_KEY);
-
-        const videos =
-          saved ? JSON.parse(saved) : [];
-
-        return Array.isArray(videos)
-          ? videos
-          : [];
-
-      } catch (error) {
-
-        return [];
-
-      }
-
+    /* MOBILE MENU */
+    function toggleMenu() {
+      document
+        .getElementById("navMenu")
+        .classList.toggle("active");
     }
-
 
     /* ESCAPE HTML */
     function escapeHTML(value) {
@@ -547,212 +514,197 @@
 
     }
 
+    /* YOUTUBE EMBED URL */
+    function getYouTubeEmbedUrl(video) {
 
-    /* GET YOUTUBE ID */
-    function getYouTubeId(url) {
-
-      try {
-
-        const parsed =
-          new URL(url);
-
-        let id = "";
-
-
-        if (
-          parsed.hostname.includes("youtube.com")
-        ) {
-
-          id =
-            parsed.searchParams.get("v") || "";
-
-
-          if (
-            !id &&
-            parsed.pathname.startsWith("/shorts/")
-          ) {
-
-            id =
-              parsed.pathname
-                .split("/shorts/")[1]
-                .split("/")[0];
-
-          }
-
-
-          if (
-            !id &&
-            parsed.pathname.startsWith("/embed/")
-          ) {
-
-            id =
-              parsed.pathname
-                .split("/embed/")[1]
-                .split("/")[0];
-
-          }
-
-        }
-
-
-        if (
-          parsed.hostname === "youtu.be"
-        ) {
-
-          id =
-            parsed.pathname
-              .substring(1)
-              .split("/")[0];
-
-        }
-
-
-        return id;
-
-      } catch (error) {
-
+      if (!video || !video.youtubeId) {
         return "";
-
       }
+
+      return "https://www.youtube.com/embed/" +
+        encodeURIComponent(video.youtubeId) +
+        "?rel=0";
+    }
+
+    /* FORMAT DATE */
+    function formatDate(dateString) {
+
+      if (!dateString) {
+        return "";
+      }
+
+      const date = new Date(dateString + "T00:00:00");
+
+      if (isNaN(date.getTime())) {
+        return dateString;
+      }
+
+      return date.toLocaleDateString(undefined, {
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+      });
 
     }
 
-
-    /* DISPLAY VIDEOS */
-    function displayVideos() {
+    /* LOAD VIDEOS ONCE */
+    function loadVideos() {
 
       const container =
-        document.getElementById(
-          "videoGrid"
-        );
+        document.getElementById("videoContainer");
 
+      let videos = [];
 
-      const videos =
-        getVideos();
+      try {
 
+        videos =
+          JSON.parse(
+            localStorage.getItem("soboboNationVideos")
+          ) || [];
 
-      if (videos.length === 0) {
+      } catch (error) {
 
-        container.innerHTML = `
-
-          <div class="empty">
-
-            <div class="empty-icon">
-              🎥
-            </div>
-
-            <h2>
-              No Videos Yet
-            </h2>
-
-            <p>
-              Videos from SOBOBO NATION will
-              appear here when they are added
-              through the admin area.
-            </p>
-
-          </div>
-
-        `;
-
-        return;
+        videos = [];
 
       }
 
+      if (!Array.isArray(videos) || videos.length === 0) {
 
-      container.innerHTML =
-        videos.map(video => {
+        container.innerHTML = `
+          <div class="empty-state">
 
-          const youtubeId =
-            video.youtubeId ||
-            getYouTubeId(video.url);
+            <h3>No Videos Available Yet</h3>
 
+            <p>
+              Our latest videos will appear here when they are published.
+            </p>
 
-          if (!youtubeId) {
-            return "";
-          }
+            <a href="admin-login.html" class="admin-btn">
+              🔐 Admin Login
+            </a>
 
+          </div>
+        `;
 
-          return `
+        return;
+      }
 
-            <article class="video-card">
+      /* NEWEST FIRST */
+      videos.sort(function(a, b) {
+
+        const dateA =
+          new Date(a.date || a.createdAt || 0);
+
+        const dateB =
+          new Date(b.date || b.createdAt || 0);
+
+        return dateB - dateA;
+
+      });
+
+      let html = "";
+
+      videos.forEach(function(video) {
+
+        const embedUrl =
+          getYouTubeEmbedUrl(video);
+
+        if (!embedUrl) {
+          return;
+        }
+
+        html += `
+
+          <article class="video-card">
+
+            <div class="video-frame">
 
               <iframe
-                class="video-frame"
-                src="https://www.youtube.com/embed/${encodeURIComponent(youtubeId)}"
-                title="${escapeHTML(video.title)}"
+                src="${embedUrl}"
+                title="${escapeHTML(video.title || "SOBOBO NATION Video")}"
                 loading="lazy"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen>
               </iframe>
 
-              <div class="video-content">
+            </div>
 
-                <h2>
-                  ${escapeHTML(video.title)}
-                </h2>
+            <div class="video-info">
 
-                <div class="video-date">
-                  📅 ${escapeHTML(video.date)}
-                </div>
+              <h3>
+                ${escapeHTML(video.title || "Untitled Video")}
+              </h3>
 
-                ${
-                  video.description
-                    ? `
-                      <div class="video-description">
-                        ${escapeHTML(video.description)}
-                      </div>
-                    `
-                    : ""
-                }
-
-                <a
-                  class="watch-btn"
-                  href="${escapeHTML(video.url)}"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  ▶️ Watch on YouTube
-                </a>
-
+              <div class="video-date">
+                ${escapeHTML(formatDate(video.date))}
               </div>
 
-            </article>
+              ${
+                video.description
+                ? `
+                  <div class="video-description">
+                    ${escapeHTML(video.description)}
+                  </div>
+                `
+                : ""
+              }
 
-          `;
+              <a
+                href="${escapeHTML(video.url || "#")}"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="watch-btn">
+                ▶ Watch on YouTube
+              </a>
 
-        }).join("");
+            </div>
+
+          </article>
+
+        `;
+
+      });
+
+      if (!html) {
+
+        container.innerHTML = `
+          <div class="empty-state">
+
+            <h3>No Valid Videos Found</h3>
+
+            <p>
+              Please check the videos in Video Management.
+            </p>
+
+            <a href="admin-videos.html" class="admin-btn">
+              🎥 Video Management
+            </a>
+
+          </div>
+        `;
+
+        return;
+      }
+
+      container.innerHTML =
+        `<div class="video-grid">${html}</div>`;
 
     }
-
-
-    /* MOBILE MENU */
-    function toggleMenu() {
-
-      document
-        .getElementById("navMenu")
-        .classList
-        .toggle("active");
-
-    }
-
 
     /* YEAR */
-    document
-      .getElementById("year")
-      .textContent =
+    document.getElementById("year").textContent =
       new Date().getFullYear();
 
+    /*
+      IMPORTANT:
+      Videos are loaded ONLY ONCE.
 
-    /* INITIAL LOAD */
-    displayVideos();
-
-
-    /* AUTOMATIC REFRESH */
-    setInterval(
-      displayVideos,
-      3000
-    );
+      There is deliberately NO setInterval()
+      here. This prevents YouTube iframes from
+      being destroyed and recreated every few
+      seconds, which was causing the blinking.
+    */
+    loadVideos();
 
   </script>
 
