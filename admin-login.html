@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Admin Login | SOBOBO NATION</title>
+
+  <meta
+    name="description"
+    content="Secure administrator login for SOBOBO NATION."
+  >
+
+  <meta name="theme-color" content="#087f23">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        linear-gradient(
+          rgba(0, 70, 20, 0.88),
+          rgba(0, 45, 15, 0.94)
+        ),
+        url("https://i.ibb.co/MDFvTTJM/Screenshot-20260929-051314.jpg");
+
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 25px;
+    }
+
+    .login-wrapper {
+      width: 100%;
+      max-width: 430px;
+    }
+
+    .brand {
+      text-align: center;
+      color: white;
+      margin-bottom: 20px;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: 34px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .brand p {
+      margin: 6px 0 0;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .login-card {
+      background: white;
+      border-radius: 14px;
+      padding: 35px 30px;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.30);
+    }
+
+    .login-icon {
+      width: 75px;
+      height: 75px;
+      border-radius: 50%;
+      background: #eaffef;
+      border: 4px solid #087f23;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 34px;
+    }
+
+    .login-card h2 {
+      text-align: center;
+      color: #087f23;
+      margin: 0 0 8px;
+      font-size: 27px;
+    }
+
+    .login-subtitle {
+      text-align: center;
+      color: #666;
+      font-size: 14px;
+      margin: 0 0 28px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      color: #333;
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 7px;
+    }
+
+    .input-wrapper {
+      position: relative;
+    }
+
+    .input-wrapper span {
+      position: absolute;
+      left: 13px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 18px;
+    }
+
+    .input-wrapper input {
+      width: 100%;
+      padding: 13px 13px 13px 43px;
+      border: 1px solid #ccc;
+      border-radius: 7px;
+      font-size: 15px;
+      outline: none;
+      transition: border 0.2s, box-shadow 0.2s;
+    }
+
+    .input-wrapper input:focus {
+      border-color: #087f23;
+      box-shadow: 0 0 0 3px rgba(8,127,35,0.12);
+    }
+
+    .password-toggle {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+      color: #555;
+    }
+
+    .login-button {
+      width: 100%;
+      border: none;
+      background: #087f23;
+      color: white;
+      padding: 14px;
+      border-radius: 7px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: background 0.2s;
+    }
+
+    .login-button:hover {
+      background: #066b1d;
+    }
+
+    .login-button:active {
+      transform: scale(0.99);
+    }
+
+    .message {
+      display: none;
+      margin-top: 18px;
+      padding: 12px;
+      border-radius: 7px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .message.error {
+      display: block;
+      background: #ffe8e8;
+      color: #b00020;
+      border: 1px solid #f2b5b5;
+    }
+
+    .message.success {
+      display: block;
+      background: #eaffef;
+      color: #087f23;
+      border: 1px solid #a8dfb4;
+    }
+
+    .security-note {
+      margin-top: 22px;
+      background: #f5fff7;
+      border-left: 4px solid #087f23;
+      padding: 12px;
+      color: #555;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      color: #087f23;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    .footer {
+      text-align: center;
+      color: white;
+      font-size: 12px;
+      margin-top: 18px;
+    }
+
+    .loading {
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    @media (max-width: 500px) {
+
+      body {
+        padding: 15px;
+      }
+
+      .brand h1 {
+        font-size: 28px;
+      }
+
+      .login-card {
+        padding: 30px 22px;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="login-wrapper">
+
+    <!-- BRAND -->
+
+    <div class="brand">
+
+      <h1>SOBOBO NATION</h1>
+
+      <p>
+        UNITY • PROGRESS • COMMUNITY
+      </p>
+
+    </div>
+
+    <!-- LOGIN CARD -->
+
+    <div class="login-card">
+
+      <div class="login-icon">
+        🔐
+      </div>
+
+      <h2>
+        Admin Login
+      </h2>
+
+      <p class="login-subtitle">
+        Sign in to access the SOBOBO NATION administration area.
+      </p>
+
+      <form id="loginForm">
+
+        <!-- USERNAME -->
+
+        <div class="form-group">
+
+          <label for="username">
+            Username
+          </label>
+
+          <div class="input-wrapper">
+
+            <span>👤</span>
+
+            <input
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Enter username"
+              autocomplete="username"
+              required
+            >
+
+          </div>
+
+        </div>
+
+        <!-- PASSWORD -->
+
+        <div class="form-group">
+
+          <label for="password">
+            Password
+          </label>
+
+          <div class="input-wrapper">
+
+            <span>🔑</span>
+
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Enter password"
+              autocomplete="current-password"
+              required
+            >
+
+            <button
+              type="button"
+              class="password-toggle"
+              onclick="togglePassword()"
+              aria-label="Show or hide password"
+            >
+              👁
+            </button>
+
+          </div>
+
+        </div>
+
+        <!-- LOGIN BUTTON -->
+
+        <button
+          type="submit"
+          class="login-button"
+          id="loginButton"
+        >
+          Login to Dashboard
+        </button>
+
+      </form>
+
+      <!-- MESSAGE -->
+
+      <div
+        id="message"
+        class="message"
+      ></div>
+
+      <!-- SECURITY NOTE -->
+
+      <div class="security-note">
+
+        <strong>Security Notice:</strong><br>
+
+        This is the temporary administrator login for the
+        website development stage. Secure Supabase authentication
+        will be connected before the website is handed over.
+
+      </div>
+
+      <a
+        href="index.html"
+        class="back-link"
+      >
+        ← Back to SOBOBO NATION
+      </a>
+
+    </div>
+
+    <div class="footer">
+
+      © <span id="year"></span>
+      SOBOBO NATION. All Rights Reserved.
+
+    </div>
+
+  </div>
+
+  <script>
+
+    /*
+      TEMPORARY ADMIN LOGIN
+
+      Username:
+      admin
+
+      Password:
+      Sobobo@2026
+
+      This will later be replaced with
+      Supabase Authentication.
+    */
+
+    const ADMIN_USERNAME = "admin";
+    const ADMIN_PASSWORD = "Sobobo@2026";
+
+    const loginForm =
+      document.getElementById("loginForm");
+
+    const message =
+      document.getElementById("message");
+
+    const loginButton =
+      document.getElementById("loginButton");
+
+    loginForm.addEventListener("submit", function(event) {
+
+      event.preventDefault();
+
+      const username =
+        document.getElementById("username").value.trim();
+
+      const password =
+        document.getElementById("password").value;
+
+      message.className = "message";
+      message.textContent = "";
+
+      loginButton.classList.add("loading");
+      loginButton.textContent = "Checking...";
+
+      setTimeout(function() {
+
+        if (
+          username === ADMIN_USERNAME &&
+          password === ADMIN_PASSWORD
+        ) {
+
+          sessionStorage.setItem(
+            "soboboAdminLoggedIn",
+            "true"
+          );
+
+          message.className =
+            "message success";
+
+          message.textContent =
+            "Login successful. Opening dashboard...";
+
+          setTimeout(function() {
+
+            window.location.href =
+              "admin.html";
+
+          }, 700);
+
+        } else {
+
+          message.className =
+            "message error";
+
+          message.textContent =
+            "Incorrect username or password.";
+
+          loginButton.classList.remove("loading");
+
+          loginButton.textContent =
+            "Login to Dashboard";
+
+        }
+
+      }, 500);
+
+    });
+
+    function togglePassword() {
+
+      const password =
+        document.getElementById("password");
+
+      const button =
+        document.querySelector(".password-toggle");
+
+      if (password.type === "password") {
+
+        password.type = "text";
+        button.textContent = "🙈";
+
+      } else {
+
+        password.type = "password";
+        button.textContent = "👁";
+
+      }
+
+    }
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+  </script>
+
+</body>
+</html>
