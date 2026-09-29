@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Terms & Conditions | SOBOBO NATION</title>
+
+  <meta
+    name="description"
+    content="Terms and Conditions for the SOBOBO NATION website."
+  >
+
+  <meta name="theme-color" content="#087f23">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5fff7;
+      color: #222;
+      line-height: 1.7;
+    }
+
+    .top-bar {
+      background: #087f23;
+      color: white;
+      text-align: center;
+      padding: 8px 15px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    header {
+      background: white;
+      padding: 18px 20px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .logo {
+      color: #087f23;
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .tagline {
+      color: #555;
+      font-size: 13px;
+      margin-top: 3px;
+      letter-spacing: 1px;
+    }
+
+    .menu-btn {
+      display: none;
+      width: 100%;
+      background: #066b1d;
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    nav {
+      background: #066b1d;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 5px;
+      padding: 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 9px 12px;
+      border-radius: 5px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      background: #087f23;
+    }
+
+    .ticker {
+      background: #087f23;
+      color: white;
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 10px 0;
+      font-weight: bold;
+    }
+
+    .ticker-text {
+      display: inline-block;
+      padding-left: 100%;
+      animation: moveTicker 18s linear infinite;
+    }
+
+    @keyframes moveTicker {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    .hero {
+      background: #087f23;
+      color: white;
+      text-align: center;
+      padding: 55px 20px;
+    }
+
+    .hero h1 {
+      font-size: 38px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      max-width: 750px;
+      margin: auto;
+      font-size: 17px;
+    }
+
+    main {
+      max-width: 950px;
+      margin: auto;
+      padding: 45px 20px;
+    }
+
+    .intro {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      margin-bottom: 25px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+    }
+
+    .intro strong {
+      color: #087f23;
+    }
+
+    .terms-section {
+      background: white;
+      margin-bottom: 18px;
+      padding: 25px;
+      border-left: 4px solid #087f23;
+      border-radius: 8px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+    }
+
+    .terms-section h2 {
+      color: #087f23;
+      margin-bottom: 10px;
+      font-size: 22px;
+    }
+
+    .terms-section p {
+      color: #444;
+      margin-bottom: 10px;
+    }
+
+    .terms-section ul {
+      margin-left: 22px;
+      color: #444;
+    }
+
+    .terms-section li {
+      margin-bottom: 7px;
+    }
+
+    .notice {
+      background: #e8f7eb;
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 20px;
+      color: #174d24;
+    }
+
+    .cta {
+      text-align: center;
+      margin-top: 40px;
+      padding: 35px 20px;
+      background: #087f23;
+      color: white;
+      border-radius: 12px;
+    }
+
+    .cta h2 {
+      margin-bottom: 10px;
+    }
+
+    .cta p {
+      margin-bottom: 20px;
+    }
+
+    .cta a {
+      display: inline-block;
+      background: white;
+      color: #087f23;
+      text-decoration: none;
+      padding: 12px 22px;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    .cta a:hover {
+      background: #e8f7eb;
+    }
+
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 45px;
+    }
+
+    footer p {
+      margin: 7px 0;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: #8cff9d;
+      text-decoration: none;
+      margin: 0 7px;
+    }
+
+    @media (max-width: 850px) {
+
+      .menu-btn {
+        display: block;
+      }
+
+      nav {
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      nav a {
+        text-align: center;
+        padding: 11px;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .hero {
+        padding: 40px 15px;
+      }
+
+      .hero h1 {
+        font-size: 30px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      main {
+        padding: 30px 15px;
+      }
+
+      .logo {
+        font-size: 24px;
+      }
+
+      .intro,
+      .terms-section {
+        padding: 20px;
+      }
+
+      .terms-section h2 {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="top-bar">
+    SOBOBO NATION • UNITY • PROGRESS • COMMUNITY
+  </div>
+
+  <header>
+    <div class="logo">SOBOBO NATION</div>
+    <div class="tagline">UNITY • PROGRESS • COMMUNITY</div>
+  </header>
+
+  <button class="menu-btn" onclick="toggleMenu()">☰ Menu</button>
+
+  <nav id="navMenu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="mission.html">Mission</a>
+    <a href="leadership.html">Leadership</a>
+    <a href="programmes.html">Programmes</a>
+    <a href="membership.html">Membership</a>
+    <a href="volunteer.html">Volunteer</a>
+    <a href="news.html">News</a>
+    <a href="events.html">Events</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="video.html">Videos</a>
+    <a href="resources.html">Resources</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <div class="ticker">
+    <div class="ticker-text">
+      Welcome to SOBOBO NATION • Unity • Progress • Community • Stay Connected • Get Involved • Together We Build
+    </div>
+  </div>
+
+  <section class="hero">
+    <h1>Terms & Conditions</h1>
+
+    <p>
+      General terms governing the use of the SOBOBO NATION website.
+    </p>
+  </section>
+
+  <main>
+
+    <div class="intro">
+
+      <p>
+        <strong>Last Updated:</strong>
+        September 2026
+      </p>
+
+      <p>
+        These Terms & Conditions provide general guidance for visitors
+        using the SOBOBO NATION website. By accessing or using this
+        website, visitors are expected to use it responsibly and
+        respectfully.
+      </p>
+
+    </div>
+
+    <section class="terms-section">
+
+      <h2>1. Introduction</h2>
+
+      <p>
+        This website provides information about SOBOBO NATION, including
+        its activities, programmes, events, resources, membership,
+        volunteering opportunities and other organisational information.
+      </p>
+
+    </section>
+
+    <section class="terms-section">
+
+      <h2>2. Acceptance of Terms</h2>
+
+      <p>
+        By accessing and using this website, you agree to use the website
+        in accordance with these Terms & Conditions and applicable laws.
+      </p>
+
+    </section>
+
+    <section class="terms-section">
+
+      <h2>3. Use of the Website</h2>
+
+      <p>
+        Visitors may use the website for lawful purposes, including
+        accessing information, submitting legitimate enquiries,
+        learning about activities and participating through available
+        forms.
+      </p>
+
+      <p>
+        Users should not attempt to damage, disrupt, interfere with,
+        misuse or gain unauthorised access to the website or its systems.
+      </p>
+
+    </section>
+
+    <section class="terms-section">
+
+      <h2>4. Information and Content</h2>
+
+      <p>
+        Information published on the website is intended to provide
+        general organisational and community information.
+      </p>
+
+      <p>
+        Content may be updated, changed, corrected or removed as the
+        website and organisation develop.
+      </p>
+
+    </section>
+
+    <section class="terms-section">
+
+      <h2>5. Membership and Volunteer Forms</h2>
+
+      <p>
+        Information submitted through membership or volunteer forms
+        should be accurate and provided voluntarily.
+      </p>
+
+      <p>
+        Submission of a form does not automatically guarantee membership,
+        volunteer placement, participation or acceptance into a particular
+        programme.
+      </p>
+
+    </section>
+
+    <section class="terms-section">
+
+      <h2>6. Third-Party Links and Services</h2>
+
+      <p>
+        The website may contain links to third-party websites,
+        platforms or services.
+      </p>
+
+      <p>
+        SOBOBO NATION is not responsible for the content, availability,
+        security or policies of external websites and services.
+      </p>
+
+    </section>
+
+    <section class="terms-section">
+
+      <h2>7. Intellectual Property</h2>
+
+      <p>
+        Website content, branding, written materials, graphics and other
+        original materials may be protected by applicable intellectual
+        property laws.
+      </p>
+
+      <p>
+        Visitors should not reproduce, modify, distribute or use
+        protected materials in a way that infringes applicable rights.
+      </p>
+
+    </section>
+
+    <section class="terms-section">
+
+      <h2>8. Website Availability</h2>
+
+      <p>
+        Reasonable efforts may be made to keep the website available,
+        but continuous or uninterrupted access cannot be guaranteed.
+      </p>
+
+      <p>
+        The website may occasionally be unavailable because of
+        maintenance, updates, technical issues or other circumstances.
+      </p>
+
+    </section>
+
+    <section class="terms-section">
+
+      <h2>9. Prohibited Use</h2>
+
+      <p>
+        Users should not use the website to:
+      </p>
+
+      <ul>
+        <li>Submit false or misleading information.</li>
+        <li>Attempt unauthorised access to website systems.</li>
+        <li>Distribute harmful software or malicious content.</li>
+        <li>Harass or threaten other users.</li>
+        <li>Use the website for unlawful purposes.</li>
+        <li>Interfere with the normal operation of the website.</li>
+      </ul>
+
+    </section>
+
+    <section class="terms-section">
+
+      <h2>10. Privacy</h2>
+
+      <p>
+        Information submitted through the website may be handled in
+        accordance with the SOBOBO NATION Privacy Policy.
+      </p>
+
+      <p>
+        Please review the
+        <a href="privacy.html" style="color:#087f23;font-weight:bold;">
+          Privacy Policy
+        </a>
+        for additional information.
+      </p>
+
+    </section>
+
+    <section class="terms-section">
+
+      <h2>11. Changes to These Terms</h2>
+
+      <p>
+        These Terms & Conditions may be updated when the website,
+        services or organisational practices change.
+      </p>
+
+      <div class="notice">
+        <strong>Website Development Notice:</strong><br>
+        As new online services, databases, forms or features are added,
+        these terms should be reviewed and updated where necessary.
+      </div>
+
+    </section>
+
+    <section class="terms-section">
+
+      <h2>12. Contact</h2>
+
+      <p>
+        If you have questions about these Terms & Conditions or the use
+        of the website, please contact SOBOBO NATION through the Contact
+        page.
+      </p>
+
+    </section>
+
+    <section class="cta">
+
+      <h2>Need More Information?</h2>
+
+      <p>
+        Contact SOBOBO NATION for further questions or enquiries.
+      </p>
+
+      <a href="contact.html">
+        Contact Us
+      </a>
+
+    </section>
+
+  </main>
+
+  <footer>
+
+    <p><strong>SOBOBO NATION</strong></p>
+
+    <p>
+      Initiator, Founder & CEO: Chief Dr. Uloko OJIJI
+    </p>
+
+    <p>
+      UNITY • PROGRESS • COMMUNITY
+    </p>
+
+    <p>
+      <a href="privacy.html">Privacy Policy</a>
+      |
+      <a href="terms.html">Terms & Conditions</a>
+    </p>
+
+    <p>
+      © <span id="year"></span> SOBOBO NATION. All Rights Reserved.
+    </p>
+
+  </footer>
+
+  <script>
+
+    function toggleMenu() {
+      document.getElementById("navMenu").classList.toggle("active");
+    }
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+  </script>
+
+</body>
+</html>
