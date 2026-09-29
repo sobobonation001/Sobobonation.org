@@ -144,6 +144,25 @@
       margin-bottom: 30px;
     }
 
+    /* PRESIDENT PHOTO */
+    .president-photo {
+      width: 220px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 6px solid #087f23;
+      display: block;
+      margin: 0 auto 25px;
+      box-shadow: 0 5px 18px rgba(0,0,0,0.15);
+    }
+
+    .photo-caption {
+      color: #666;
+      font-size: 14px;
+      margin-top: -15px;
+      margin-bottom: 20px;
+    }
+
     .founder-card h2 {
       color: #087f23;
       font-size: 30px;
@@ -326,6 +345,11 @@
       .leadership-grid {
         grid-template-columns: 1fr;
       }
+
+      .president-photo {
+        width: 190px;
+        height: 190px;
+      }
     }
   </style>
 </head>
@@ -352,7 +376,6 @@
       ☰ Menu
     </button>
 
-    <!-- FULL WEBSITE NAVIGATION -->
     <nav id="navMenu">
 
       <a href="index.html">Home</a>
@@ -397,8 +420,19 @@
   <!-- MAIN CONTENT -->
   <main class="container">
 
-    <!-- FOUNDER -->
+    <!-- PRESIDENT / FOUNDER -->
     <div class="founder-card">
+
+      <!-- PRESIDENT PHOTO -->
+      <img
+        class="president-photo"
+        src="https://ibb.co/zTw13p01"
+        alt="President of SOBOBO NATION"
+      >
+
+      <div class="photo-caption">
+        President — SOBOBO NATION
+      </div>
 
       <h2>
         Chief Dr. Uloko OJIJI
@@ -649,10 +683,12 @@
   <script>
 
     function toggleMenu() {
+
       document
         .getElementById("navMenu")
         .classList
         .toggle("active");
+
     }
 
     document.getElementById("year").textContent =
