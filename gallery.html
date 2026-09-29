@@ -76,7 +76,7 @@
     nav {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 13px;
     }
 
     nav a {
@@ -136,10 +136,11 @@
     }
 
     .page-header {
-      background: linear-gradient(
-        rgba(0, 128, 0, 0.92),
-        rgba(0, 80, 20, 0.92)
-      );
+      background:
+        linear-gradient(
+          rgba(0, 128, 0, 0.92),
+          rgba(0, 80, 20, 0.92)
+        );
       color: white;
       text-align: center;
       padding: 55px 20px;
@@ -340,17 +341,21 @@
 
 <body>
 
+  <!-- TOP BAR -->
   <div class="topbar">
     SOBOBO NATION • UNITY • PROGRESS • COMMUNITY
   </div>
 
+  <!-- HEADER -->
   <header>
 
     <div class="header-inner">
 
       <div class="logo-area">
         <div class="logo">SOBOBO NATION</div>
-        <div class="tagline">UNITY • PROGRESS • COMMUNITY</div>
+        <div class="tagline">
+          UNITY • PROGRESS • COMMUNITY
+        </div>
       </div>
 
       <button
@@ -378,7 +383,10 @@
         <a href="faq.html">FAQ</a>
         <a href="contact.html">Contact</a>
 
-        <a href="admin-login.html" class="admin-link">
+        <a
+          href="admin-login.html"
+          class="admin-link"
+        >
           🔐 Admin Login
         </a>
 
@@ -388,6 +396,7 @@
 
   </header>
 
+  <!-- TICKER -->
   <div class="ticker">
 
     <div class="ticker-content">
@@ -397,6 +406,7 @@
 
   </div>
 
+  <!-- PAGE HEADER -->
   <section class="page-header">
 
     <h1>SOBOBO NATION Gallery</h1>
@@ -409,15 +419,21 @@
 
   </section>
 
+  <!-- GALLERY -->
   <main class="container">
 
-    <div class="gallery-grid" id="galleryGrid"></div>
+    <div
+      class="gallery-grid"
+      id="galleryGrid"
+    ></div>
 
   </main>
 
   <!-- LIGHTBOX -->
-
-  <div class="lightbox" id="lightbox">
+  <div
+    class="lightbox"
+    id="lightbox"
+  >
 
     <span
       class="close-lightbox"
@@ -429,7 +445,7 @@
     <img
       id="lightboxImage"
       src=""
-      alt="SOBOBO NATION Gallery"
+      alt="SOBOBO NATION Gallery Image"
     >
 
     <div
@@ -439,6 +455,7 @@
 
   </div>
 
+  <!-- FOOTER -->
   <footer>
 
     <p>
@@ -460,129 +477,312 @@
   <script>
 
     /*
-      NEW SOBOBO NATION GALLERY
-
-      The links supplied are ImgBB page links.
-      They are kept here so you have the complete
-      list in one place.
+    =====================================================
+    SOBOBO NATION GALLERY
+    =====================================================
+    All images below are direct ImgBB image links.
+    They will therefore display directly on the page.
+    =====================================================
     */
 
     const galleryImages = [
 
-      "https://ibb.co/xtDs2DgG",
-      "https://ibb.co/bjDJkPR7",
-      "https://ibb.co/HTpv3ZwN",
-      "https://ibb.co/214zTtVG",
-      "https://ibb.co/Z654Pj1B",
-      "https://ibb.co/ZRbbJjgw",
-      "https://ibb.co/8nVcLgBZ",
-      "https://ibb.co/HfXYZWjP",
-      "https://ibb.co/dJLNBGP1",
-      "https://ibb.co/m5Hd0RTc",
-      "https://ibb.co/vKGKtQc",
-      "https://ibb.co/H5rs7rm",
-      "https://ibb.co/20gqLNSC",
-      "https://ibb.co/7N6fKwCz",
-      "https://ibb.co/4R5wjsw8",
-      "https://ibb.co/fz1VNzcM",
-      "https://ibb.co/fZHRGvY",
-      "https://ibb.co/v6G3vhsN",
-      "https://ibb.co/tpm0Dcgg",
-      "https://ibb.co/nXhq22S",
-      "https://ibb.co/fVbP4Fp4",
-      "https://ibb.co/x8GT0pYm",
-      "https://ibb.co/GGm4H17",
-      "https://ibb.co/bM8XgrfK",
-      "https://ibb.co/DPQ1p398",
-      "https://ibb.co/84KMLxxd",
-      "https://ibb.co/CKqczk6H",
-      "https://ibb.co/WW8wMb5Z",
-      "https://ibb.co/m5BP3ddy",
-      "https://ibb.co/tPF46VXm",
-      "https://ibb.co/NDYbvnz",
-      "https://ibb.co/1tC0Qhn"
+      {
+        image:
+        "https://i.ibb.co/Q7td4fjX/IMG-20260929-WA0238.jpg",
+        title:
+        "SOBOBO NATION Photo 1"
+      },
+
+      {
+        image:
+        "https://i.ibb.co/tT4hH42c/IMG-20260929-WA0288.jpg",
+        title:
+        "SOBOBO NATION Photo 2"
+      },
+
+      {
+        image:
+        "https://i.ibb.co/FLTQFwZR/IMG-20260929-WA0285.jpg",
+        title:
+        "SOBOBO NATION Photo 3"
+      },
+
+      {
+        image:
+        "https://i.ibb.co/Zz1s794H/IMG-20260929-WA0282.jpg",
+        title:
+        "SOBOBO NATION Photo 4"
+      },
+
+      {
+        image:
+        "https://i.ibb.co/QFLSRgjP/IMG-20260929-WA0271.jpg",
+        title:
+        "SOBOBO NATION Photo 5"
+      },
+
+      {
+        image:
+        "https://i.ibb.co/Y4VVWCdK/IMG-20260929-WA0280.jpg",
+        title:
+        "SOBOBO NATION Photo 6"
+      },
+
+      {
+        image:
+        "https://i.ibb.co/DPnpHfb2/IMG-20260929-WA0276.jpg",
+        title:
+        "SOBOBO NATION Photo 7"
+      },
+
+      {
+        image:
+        "https://i.ibb.co/DHLkdxZM/IMG-20260929-WA0273.jpg",
+        title:
+        "SOBOBO NATION Photo 8"
+      },
+
+      {
+        image:
+        "https://i.ibb.co/CsMjBhbN/IMG-20260929-WA0268.jpg",
+        title:
+        "SOBOBO NATION Photo 9"
+      },
+
+      {
+        image:
+        "https://i.ibb.co/23jRSFhk/IMG-20260929-WA0275.jpg",
+        title:
+        "SOBOBO NATION Photo 10"
+      },
+
+      {
+        image:
+        "https://i.ibb.co/5fyf7n1/IMG-20260929-WA0265.jpg",
+        title:
+        "SOBOBO NATION Photo 11"
+      },
+
+      {
+        image:
+        "https://i.ibb.co/gkDpyDs/IMG-20260929-WA0266.jpg",
+        title:
+        "SOBOBO NATION Photo 12"
+      },
+
+      {
+        image:
+        "https://i.ibb.co/5XBTzFkS/IMG-20260929-WA0260.jpg",
+        title:
+        "SOBOBO NATION Photo 13"
+      },
+
+      {
+        image:
+        "https://i.ibb.co/dJzTDdMc/IMG-20260929-WA0264.jpg",
+        title:
+        "SOBOBO NATION Photo 14"
+      },
+
+      {
+        image:
+        "https://i.ibb.co/F4jkBsk5/IMG-20260929-WA0250.jpg",
+        title:
+        "SOBOBO NATION Photo 15"
+      },
+
+      {
+        image:
+        "https://i.ibb.co/ZpLRgpZd/IMG-20260929-WA0252.jpg",
+        title:
+        "SOBOBO NATION Photo 16"
+      },
+
+      {
+        image:
+        "https://i.ibb.co/0RSCVKB0/IMG-20260929-WA0259.jpg",
+        title:
+        "SOBOBO NATION Photo 17"
+      },
+
+      {
+        image:
+        "https://i.ibb.co/scqSJHv/IMG-20260929-WA0262.jpg",
+        title:
+        "SOBOBO NATION Photo 18"
+      },
+
+      {
+        image:
+        "https://i.ibb.co/Xx2ntp11/IMG-20260929-WA0251.jpg",
+        title:
+        "SOBOBO NATION Photo 19"
+      },
+
+      {
+        image:
+        "https://i.ibb.co/wnDZHH1/IMG-20260929-WA0255.jpg",
+        title:
+        "SOBOBO NATION Photo 20"
+      },
+
+      {
+        image:
+        "https://i.ibb.co/LDM2nRtn/IMG-20260929-WA0257.jpg",
+        title:
+        "SOBOBO NATION Photo 21"
+      },
+
+      {
+        image:
+        "https://i.ibb.co/842ZpWbz/IMG-20260929-WA0261.jpg",
+        title:
+        "SOBOBO NATION Photo 22"
+      },
+
+      {
+        image:
+        "https://i.ibb.co/Vb6cwhV/IMG-20260929-WA0248.jpg",
+        title:
+        "SOBOBO NATION Photo 23"
+      },
+
+      {
+        image:
+        "https://i.ibb.co/8LS9Djh7/IMG-20260929-WA0249.jpg",
+        title:
+        "SOBOBO NATION Photo 24"
+      },
+
+      {
+        image:
+        "https://i.ibb.co/xK62HV1f/IMG-20260929-WA0253.jpg",
+        title:
+        "SOBOBO NATION Photo 25"
+      },
+
+      {
+        image:
+        "https://i.ibb.co/Qjb93HHC/IMG-20260929-WA0246.jpg",
+        title:
+        "SOBOBO NATION Photo 26"
+      },
+
+      {
+        image:
+        "https://i.ibb.co/s9hf20CV/IMG-20260929-WA0245.jpg",
+        title:
+        "SOBOBO NATION Photo 27"
+      },
+
+      {
+        image:
+        "https://i.ibb.co/MDw4tYSr/IMG-20260929-WA0247.jpg",
+        title:
+        "SOBOBO NATION Photo 28"
+      },
+
+      {
+        image:
+        "https://i.ibb.co/7tz0qBBp/IMG-20260929-WA0244.jpg",
+        title:
+        "SOBOBO NATION Photo 29"
+      },
+
+      {
+        image:
+        "https://i.ibb.co/QjtfVydb/IMG-20260929-WA0243.jpg",
+        title:
+        "SOBOBO NATION Photo 30"
+      },
+
+      {
+        image:
+        "https://i.ibb.co/wG6jkr1/IMG-20260929-WA0241.jpg",
+        title:
+        "SOBOBO NATION Photo 31"
+      },
+
+      {
+        image:
+        "https://i.ibb.co/9kxpgzvJ/IMG-20260929-WA0242.jpg",
+        title:
+        "SOBOBO NATION Photo 32"
+      }
 
     ];
 
     /*
-      IMPORTANT:
-
-      ImgBB page URLs cannot normally be placed directly
-      inside an <img src=""> tag.
-
-      The function below attempts to extract the image
-      URL from the ImgBB page when possible.
+    =====================================================
+    DISPLAY GALLERY
+    =====================================================
     */
 
-    async function loadGallery() {
+    const galleryGrid =
+      document.getElementById("galleryGrid");
 
-      const gallery =
-        document.getElementById("galleryGrid");
+    galleryImages.forEach(function(item, index) {
 
-      gallery.innerHTML = "";
+      const card =
+        document.createElement("div");
 
-      galleryImages.forEach(function(url, index) {
+      card.className =
+        "gallery-card";
 
-        const card =
-          document.createElement("div");
+      card.innerHTML = `
+        <img
+          src="${item.image}"
+          alt="${item.title}"
+          loading="lazy"
+        >
 
-        card.className = "gallery-card";
+        <div class="caption">
+          ${item.title}
+        </div>
+      `;
 
-        /*
-          A clickable ImgBB page is used as the fallback.
-          This means the picture can still be opened even
-          when ImgBB does not expose the direct image file.
-        */
+      card.addEventListener(
+        "click",
+        function() {
 
-        card.innerHTML = `
-          <a
-            href="${url}"
-            target="_blank"
-            rel="noopener"
-            style="text-decoration:none;"
-          >
-            <div
-              style="
-                height:250px;
-                background:#eaf8ed;
-                display:flex;
-                align-items:center;
-                justify-content:center;
-                flex-direction:column;
-                color:#087f23;
-                padding:20px;
-                text-align:center;
-              "
-            >
-              <div style="font-size:42px;">📷</div>
+          openLightbox(
+            item.image,
+            item.title
+          );
 
-              <strong>
-                SOBOBO NATION
-              </strong>
+        }
+      );
 
-              <small style="margin-top:7px;color:#666;">
-                Open Photo
-              </small>
-            </div>
-          </a>
+      galleryGrid.appendChild(card);
 
-          <div class="caption">
-            SOBOBO NATION Photo ${index + 1}
-          </div>
-        `;
+    });
 
-        gallery.appendChild(card);
+    /*
+    =====================================================
+    LIGHTBOX
+    =====================================================
+    */
 
-      });
-
-    }
-
-    function toggleMenu() {
+    function openLightbox(
+      image,
+      title
+    ) {
 
       document
-        .getElementById("navMenu")
-        .classList.toggle("active");
+        .getElementById("lightboxImage")
+        .src = image;
 
+      document
+        .getElementById("lightboxCaption")
+        .textContent = title;
+
+      document
+        .getElementById("lightbox")
+        .classList.add("active");
+
+      document.body.style.overflow =
+        "hidden";
     }
 
     function closeLightbox() {
@@ -591,15 +791,71 @@
         .getElementById("lightbox")
         .classList.remove("active");
 
-      document.body.style.overflow = "auto";
+      document.body.style.overflow =
+        "auto";
+    }
+
+    /*
+    Close when clicking outside the image
+    */
+
+    document
+      .getElementById("lightbox")
+      .addEventListener(
+        "click",
+        function(event) {
+
+          if (
+            event.target === this
+          ) {
+
+            closeLightbox();
+
+          }
+
+        }
+      );
+
+    /*
+    Close with ESC key
+    */
+
+    document.addEventListener(
+      "keydown",
+      function(event) {
+
+        if (
+          event.key === "Escape"
+        ) {
+
+          closeLightbox();
+
+        }
+
+      }
+    );
+
+    /*
+    MOBILE MENU
+    */
+
+    function toggleMenu() {
+
+      document
+        .getElementById("navMenu")
+        .classList
+        .toggle("active");
 
     }
 
+    /*
+    YEAR
+    */
+
     document
       .getElementById("year")
-      .textContent = new Date().getFullYear();
-
-    loadGallery();
+      .textContent =
+      new Date().getFullYear();
 
   </script>
 
