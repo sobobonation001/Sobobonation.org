@@ -8,7 +8,7 @@
 
   <meta
     name="description"
-    content="Latest news, updates, announcements and activities from SOBOBO NATION."
+    content="Latest news, announcements, activities and updates from SOBOBO NATION."
   >
 
   <meta name="theme-color" content="#087f23">
@@ -16,95 +16,118 @@
   <style>
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
+      margin: 0;
       font-family: Arial, Helvetica, sans-serif;
       background: #f5fff7;
       color: #222;
-      line-height: 1.6;
     }
 
-    .top-bar {
-      background: #066b1d;
-      color: white;
-      text-align: center;
-      padding: 8px 10px;
-      font-size: 14px;
-      font-weight: bold;
-    }
+    /* TOP BAR */
 
-    header {
+    .topbar {
       background: #087f23;
       color: white;
-      padding: 18px 15px;
+      padding: 9px 15px;
       text-align: center;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    /* HEADER */
+
+    header {
+      background: white;
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo-area {
+      color: #087f23;
     }
 
     .logo {
-      font-size: 30px;
-      font-weight: bold;
+      font-size: 24px;
+      font-weight: 800;
       letter-spacing: 1px;
     }
 
     .tagline {
-      margin-top: 5px;
-      font-size: 14px;
+      font-size: 10px;
+      font-weight: bold;
       letter-spacing: 1px;
+      margin-top: 4px;
+    }
+
+    /* NAV */
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    nav a {
+      color: #333;
+      text-decoration: none;
+      padding: 8px 9px;
+      border-radius: 5px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background: #087f23;
+      color: white;
     }
 
     .menu-btn {
       display: none;
-      margin: 15px auto 0;
-      background: white;
-      color: #087f23;
+      background: #087f23;
+      color: white;
       border: none;
-      padding: 10px 18px;
+      padding: 9px 12px;
       border-radius: 5px;
-      font-weight: bold;
+      font-size: 16px;
       cursor: pointer;
     }
 
-    nav {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 18px;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      padding: 9px 11px;
-      border-radius: 5px;
-      font-size: 14px;
-      transition: 0.3s;
-    }
-
-    nav a:hover {
-      background: white;
-      color: #087f23;
-    }
+    /* TICKER */
 
     .ticker {
       background: #066b1d;
       color: white;
       overflow: hidden;
       white-space: nowrap;
+    }
+
+    .ticker-text {
+      display: inline-block;
       padding: 10px 0;
+      padding-left: 100%;
+      animation: ticker 18s linear infinite;
+      font-size: 13px;
       font-weight: bold;
     }
 
-    .ticker span {
-      display: inline-block;
-      padding-left: 100%;
-      animation: moveTicker 18s linear infinite;
-    }
+    @keyframes ticker {
 
-    @keyframes moveTicker {
       0% {
         transform: translateX(0);
       }
@@ -112,46 +135,54 @@
       100% {
         transform: translateX(-100%);
       }
+
     }
 
+    /* HERO */
+
     .hero {
-      background: #087f23;
+      background:
+        linear-gradient(
+          rgba(0,65,20,0.86),
+          rgba(0,100,30,0.88)
+        );
+
       color: white;
       text-align: center;
-      padding: 55px 20px;
+      padding: 70px 20px;
     }
 
     .hero h1 {
-      font-size: 38px;
-      margin-bottom: 12px;
+      margin: 0;
+      font-size: 42px;
     }
 
     .hero p {
-      font-size: 18px;
-      max-width: 750px;
-      margin: auto;
+      max-width: 700px;
+      margin: 15px auto 0;
+      line-height: 1.7;
+      font-size: 16px;
     }
+
+    /* MAIN */
 
     .container {
-      width: 92%;
-      max-width: 1100px;
-      margin: 40px auto;
+      max-width: 1150px;
+      margin: auto;
+      padding: 45px 18px;
     }
 
-    .section-title {
+    .section-intro {
       text-align: center;
-      color: #087f23;
-      font-size: 28px;
-      margin-bottom: 12px;
-    }
-
-    .intro {
-      text-align: center;
-      max-width: 800px;
+      max-width: 750px;
       margin: 0 auto 35px;
+      color: #666;
+      line-height: 1.7;
     }
 
-    .news-grid {
+    /* NEWS GRID */
+
+    #newsGrid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 22px;
@@ -161,124 +192,203 @@
       background: white;
       border-radius: 10px;
       overflow: hidden;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-      border-top: 4px solid #087f23;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.09);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s;
     }
 
-    .news-header {
-      background: #e8f7ec;
-      padding: 25px 20px;
-      text-align: center;
+    .news-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 7px 18px rgba(0,0,0,0.13);
+    }
+
+    .news-image {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .no-image {
+      height: 220px;
+      background: #eaffef;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       color: #087f23;
-      font-size: 36px;
+      font-size: 50px;
     }
 
-    .news-content {
-      padding: 22px;
+    .news-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
     }
 
-    .news-date {
+    .category {
+      align-self: flex-start;
+      background: #eaffef;
       color: #087f23;
-      font-size: 13px;
+      padding: 5px 9px;
+      border-radius: 20px;
+      font-size: 10px;
       font-weight: bold;
-      margin-bottom: 8px;
-    }
-
-    .news-content h3 {
-      color: #087f23;
       margin-bottom: 10px;
-      font-size: 20px;
     }
 
-    .news-content p {
-      margin-bottom: 18px;
-      color: #444;
+    .news-body h2 {
+      color: #087f23;
+      margin: 0 0 8px;
+      font-size: 19px;
+      line-height: 1.4;
     }
 
-    .read-more {
+    .date {
+      color: #888;
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+
+    .excerpt {
+      color: #555;
+      line-height: 1.6;
+      font-size: 14px;
+      margin: 0 0 18px;
+      flex: 1;
+    }
+
+    .read-btn {
       display: inline-block;
+      align-self: flex-start;
       background: #087f23;
       color: white;
       text-decoration: none;
-      padding: 10px 16px;
+      padding: 10px 14px;
       border-radius: 5px;
+      font-size: 13px;
       font-weight: bold;
-      font-size: 14px;
+      border: none;
+      cursor: pointer;
     }
 
-    .read-more:hover {
+    .read-btn:hover {
       background: #066b1d;
     }
 
-    .announcement {
-      margin-top: 45px;
+    /* EMPTY STATE */
+
+    .empty-news {
+      grid-column: 1 / -1;
+      text-align: center;
       background: white;
-      border-left: 5px solid #087f23;
-      padding: 25px;
-      border-radius: 8px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+      padding: 45px 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.07);
     }
 
-    .announcement h2 {
-      color: #087f23;
+    .empty-news-icon {
+      font-size: 50px;
       margin-bottom: 10px;
     }
 
+    .empty-news h2 {
+      color: #087f23;
+      margin: 5px 0 10px;
+    }
+
+    .empty-news p {
+      color: #666;
+    }
+
+    /* NOTICE */
+
+    .notice {
+      margin-top: 40px;
+      background: white;
+      border-left: 5px solid #087f23;
+      padding: 20px;
+      border-radius: 7px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      line-height: 1.7;
+      color: #555;
+    }
+
+    .notice strong {
+      color: #087f23;
+    }
+
+    /* CTA */
+
     .cta {
-      text-align: center;
-      margin: 45px 0;
-      padding: 35px 20px;
       background: #087f23;
       color: white;
-      border-radius: 10px;
+      text-align: center;
+      padding: 55px 20px;
+      margin-top: 10px;
     }
 
     .cta h2 {
-      margin-bottom: 10px;
+      margin: 0 0 10px;
+      font-size: 30px;
+    }
+
+    .cta p {
+      max-width: 650px;
+      margin: 0 auto 22px;
+      line-height: 1.7;
     }
 
     .cta a {
       display: inline-block;
-      margin-top: 18px;
       background: white;
       color: #087f23;
-      text-decoration: none;
-      padding: 12px 22px;
+      padding: 12px 18px;
       border-radius: 6px;
+      text-decoration: none;
       font-weight: bold;
     }
+
+    /* FOOTER */
 
     footer {
       background: #111;
       color: white;
       text-align: center;
-      padding: 30px 15px;
-      margin-top: 40px;
+      padding: 28px 18px;
+      font-size: 13px;
     }
 
     footer p {
-      margin: 6px 0;
+      margin: 5px 0;
     }
 
     footer a {
-      color: #8cff9e;
+      color: #8ee69c;
       text-decoration: none;
       margin: 0 7px;
     }
 
-    @media (max-width: 850px) {
-      .news-grid {
-        grid-template-columns: 1fr 1fr;
-      }
+    /* MOBILE */
 
-      .menu-btn {
-        display: block;
+    @media (max-width: 950px) {
+
+      #newsGrid {
+        grid-template-columns: repeat(2, 1fr);
       }
 
       nav {
         display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 15px;
+        box-shadow: 0 5px 12px rgba(0,0,0,0.1);
         flex-direction: column;
-        margin-top: 15px;
+        align-items: stretch;
       }
 
       nav.active {
@@ -286,219 +396,240 @@
       }
 
       nav a {
-        display: block;
-        background: rgba(255,255,255,0.08);
+        width: 100%;
       }
+
+      .menu-btn {
+        display: block;
+      }
+
     }
 
-    @media (max-width: 550px) {
+    @media (max-width: 650px) {
+
+      header {
+        padding: 14px;
+      }
+
       .logo {
-        font-size: 24px;
+        font-size: 19px;
+      }
+
+      .hero {
+        padding: 55px 18px;
       }
 
       .hero h1 {
-        font-size: 30px;
+        font-size: 31px;
       }
 
       .hero p {
-        font-size: 16px;
+        font-size: 14px;
       }
 
-      .news-grid {
+      #newsGrid {
         grid-template-columns: 1fr;
       }
+
+      .container {
+        padding: 35px 13px;
+      }
+
+      .news-image,
+      .no-image {
+        height: 210px;
+      }
+
     }
   </style>
 </head>
 
 <body>
 
-  <div class="top-bar">
+  <!-- TOP BAR -->
+
+  <div class="topbar">
     SOBOBO NATION • UNITY • PROGRESS • COMMUNITY
   </div>
 
+
+  <!-- HEADER -->
+
   <header>
 
-    <div class="logo">SOBOBO NATION</div>
+    <div class="logo-area">
 
-    <div class="tagline">
-      UNITY • PROGRESS • COMMUNITY
+      <div class="logo">
+        SOBOBO NATION
+      </div>
+
+      <div class="tagline">
+        UNITY • PROGRESS • COMMUNITY
+      </div>
+
     </div>
 
-    <button class="menu-btn" onclick="toggleMenu()">
-      ☰ Menu
+
+    <button
+      class="menu-btn"
+      onclick="toggleMenu()"
+    >
+      ☰
     </button>
 
+
     <nav id="navMenu">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="mission.html">Mission</a>
-      <a href="leadership.html">Leadership</a>
-      <a href="programmes.html">Programmes</a>
-      <a href="membership.html">Membership</a>
-      <a href="volunteer.html">Volunteer</a>
-      <a href="news.html">News</a>
-      <a href="events.html">Events</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="video.html">Videos</a>
-      <a href="resources.html">Resources</a>
-      <a href="faq.html">FAQ</a>
-      <a href="contact.html">Contact</a>
+
+      <a href="index.html">
+        Home
+      </a>
+
+      <a href="about.html">
+        About
+      </a>
+
+      <a href="mission.html">
+        Mission
+      </a>
+
+      <a href="leadership.html">
+        Leadership
+      </a>
+
+      <a href="programmes.html">
+        Programmes
+      </a>
+
+      <a href="membership.html">
+        Membership
+      </a>
+
+      <a href="volunteer.html">
+        Volunteer
+      </a>
+
+      <a
+        href="news.html"
+        class="active"
+      >
+        News
+      </a>
+
+      <a href="events.html">
+        Events
+      </a>
+
+      <a href="gallery.html">
+        Gallery
+      </a>
+
+      <a href="video.html">
+        Videos
+      </a>
+
+      <a href="resources.html">
+        Resources
+      </a>
+
+      <a href="faq.html">
+        FAQ
+      </a>
+
+      <a href="contact.html">
+        Contact
+      </a>
+
     </nav>
 
   </header>
 
+
+  <!-- TICKER -->
+
   <div class="ticker">
-    <span>
-      Welcome to SOBOBO NATION • Unity • Progress • Community • Stay Connected • Get Involved • Together We Build
-    </span>
+
+    <div class="ticker-text">
+
+      Welcome to SOBOBO NATION • Unity • Progress • Community
+      • Stay Connected • Get Involved • Together We Build
+
+    </div>
+
   </div>
 
+
+  <!-- HERO -->
+
   <section class="hero">
-    <h1>News & Updates</h1>
+
+    <h1>
+      News & Updates
+    </h1>
 
     <p>
-      Stay informed about activities, announcements, programmes and
-      developments from SOBOBO NATION.
+      Stay informed about the latest activities,
+      announcements, programmes and community updates
+      from SOBOBO NATION.
     </p>
+
   </section>
+
+
+  <!-- NEWS -->
 
   <main class="container">
 
-    <h2 class="section-title">Latest News</h2>
+    <p class="section-intro">
 
-    <p class="intro">
-      Follow the latest information and updates from SOBOBO NATION.
-      This page will continue to grow as new activities and announcements
-      are published.
+      Discover the latest information and updates from
+      SOBOBO NATION. New stories published through the
+      administration panel will appear here automatically
+      on this browser.
+
     </p>
 
-    <div class="news-grid">
 
-      <article class="news-card">
-
-        <div class="news-header">
-          📰
-        </div>
-
-        <div class="news-content">
-
-          <div class="news-date">
-            SOBOBO NATION
-          </div>
-
-          <h3>
-            Welcome to SOBOBO NATION
-          </h3>
-
-          <p>
-            Welcome to the official online platform of SOBOBO NATION,
-            created to provide information, encourage participation and
-            promote unity, progress and community engagement.
-          </p>
-
-          <a href="about.html" class="read-more">
-            Read More
-          </a>
-
-        </div>
-
-      </article>
+    <div id="newsGrid"></div>
 
 
-      <article class="news-card">
+    <div class="notice">
 
-        <div class="news-header">
-          📢
-        </div>
+      <strong>
+        Official Updates
+      </strong>
 
-        <div class="news-content">
+      <br>
 
-          <div class="news-date">
-            ANNOUNCEMENT
-          </div>
-
-          <h3>
-            Community Participation
-          </h3>
-
-          <p>
-            SOBOBO NATION provides opportunities for members, volunteers
-            and community participants to share ideas and take part in
-            activities and programmes.
-          </p>
-
-          <a href="membership.html" class="read-more">
-            Get Involved
-          </a>
-
-        </div>
-
-      </article>
-
-
-      <article class="news-card">
-
-        <div class="news-header">
-          🤝
-        </div>
-
-        <div class="news-content">
-
-          <div class="news-date">
-            COMMUNITY
-          </div>
-
-          <h3>
-            Working Together
-          </h3>
-
-          <p>
-            Through collaboration, communication and participation,
-            SOBOBO NATION seeks to support initiatives that contribute
-            to community progress.
-          </p>
-
-          <a href="programmes.html" class="read-more">
-            Our Programmes
-          </a>
-
-        </div>
-
-      </article>
+      This page provides news and information about
+      SOBOBO NATION activities, programmes, events and
+      community engagement.
 
     </div>
-
-
-    <div class="announcement">
-
-      <h2>Official Updates</h2>
-
-      <p>
-        Official announcements, activities, programme updates and other
-        important information will be published on this page as they
-        become available.
-      </p>
-
-    </div>
-
-
-    <section class="cta">
-
-      <h2>Stay Connected</h2>
-
-      <p>
-        Become a member or volunteer and stay connected with the activities
-        and programmes of SOBOBO NATION.
-      </p>
-
-      <a href="membership.html">
-        Join SOBOBO NATION
-      </a>
-
-    </section>
 
   </main>
+
+
+  <!-- CTA -->
+
+  <section class="cta">
+
+    <h2>
+      Stay Connected
+    </h2>
+
+    <p>
+      Follow SOBOBO NATION updates and take part in
+      programmes, activities and community initiatives.
+    </p>
+
+    <a href="membership.html">
+      Join SOBOBO NATION
+    </a>
+
+  </section>
+
+
+  <!-- FOOTER -->
 
   <footer>
 
@@ -507,32 +638,320 @@
     </p>
 
     <p>
-      Unity • Progress • Community
+      UNITY • PROGRESS • COMMUNITY
     </p>
 
     <p>
-      Initiator, Founder & CEO: Chief Dr. Uloko OJIJI
+      Initiator, Founder & CEO:
+      Chief Dr. Uloko OJIJI
     </p>
 
     <p>
-      <a href="privacy.html">Privacy Policy</a>
+      © <span id="year"></span>
+      SOBOBO NATION. All Rights Reserved.
+    </p>
+
+    <p>
+
+      <a href="privacy.html">
+        Privacy Policy
+      </a>
+
       |
-      <a href="terms.html">Terms & Conditions</a>
-    </p>
 
-    <p>
-      © <span id="year"></span> SOBOBO NATION. All Rights Reserved.
+      <a href="terms.html">
+        Terms & Conditions
+      </a>
+
     </p>
 
   </footer>
 
+
   <script>
+
+    /* =====================================
+       MOBILE MENU
+       ===================================== */
+
     function toggleMenu() {
-      document.getElementById("navMenu").classList.toggle("active");
+
+      document
+        .getElementById("navMenu")
+        .classList.toggle("active");
+
     }
+
+
+    /* =====================================
+       LOCAL NEWS STORAGE
+       ===================================== */
+
+    const STORAGE_KEY =
+      "soboboNationNews";
+
+
+    function getNews() {
+
+      try {
+
+        return JSON.parse(
+          localStorage.getItem(STORAGE_KEY)
+        ) || [];
+
+      } catch (error) {
+
+        return [];
+
+      }
+
+    }
+
+
+    /* =====================================
+       DISPLAY NEWS
+       ===================================== */
+
+    function displayNews() {
+
+      const grid =
+        document.getElementById("newsGrid");
+
+      const news =
+        getNews();
+
+
+      if (news.length === 0) {
+
+        grid.innerHTML = `
+
+          <div class="empty-news">
+
+            <div class="empty-news-icon">
+              📰
+            </div>
+
+            <h2>
+              No News Updates Yet
+            </h2>
+
+            <p>
+              New SOBOBO NATION news and announcements
+              will appear here.
+            </p>
+
+          </div>
+
+        `;
+
+        return;
+
+      }
+
+
+      grid.innerHTML =
+        news.map(function(item) {
+
+          let imageHTML = "";
+
+          if (item.image) {
+
+            imageHTML = `
+
+              <img
+                class="news-image"
+                src="${item.image}"
+                alt="${escapeHTML(item.headline)}"
+              >
+
+            `;
+
+          } else {
+
+            imageHTML = `
+
+              <div class="no-image">
+                📰
+              </div>
+
+            `;
+
+          }
+
+
+          const excerpt =
+            createExcerpt(
+              item.content,
+              150
+            );
+
+
+          return `
+
+            <article class="news-card">
+
+              ${imageHTML}
+
+              <div class="news-body">
+
+                <span class="category">
+                  ${escapeHTML(item.category || "News")}
+                </span>
+
+                <h2>
+                  ${escapeHTML(item.headline)}
+                </h2>
+
+                <div class="date">
+                  ${formatDate(item.date)}
+                </div>
+
+                <p class="excerpt">
+                  ${escapeHTML(excerpt)}
+                </p>
+
+                <button
+                  class="read-btn"
+                  onclick="readNews(${item.id})"
+                >
+                  Read Full Story →
+                </button>
+
+              </div>
+
+            </article>
+
+          `;
+
+        }).join("");
+
+    }
+
+
+    /* =====================================
+       READ FULL STORY
+       ===================================== */
+
+    function readNews(id) {
+
+      const news =
+        getNews();
+
+
+      const item =
+        news.find(
+          article => article.id === id
+        );
+
+
+      if (!item) {
+
+        alert(
+          "This news story could not be found."
+        );
+
+        return;
+
+      }
+
+
+      /*
+        Store the selected story temporarily
+        and open the news detail page.
+      */
+
+      sessionStorage.setItem(
+        "selectedSoboboNews",
+        JSON.stringify(item)
+      );
+
+
+      window.location.href =
+        "news-detail.html";
+
+    }
+
+
+    /* =====================================
+       CREATE EXCERPT
+       ===================================== */
+
+    function createExcerpt(text, length) {
+
+      if (!text) {
+        return "";
+      }
+
+
+      if (text.length <= length) {
+        return text;
+      }
+
+
+      return text.substring(0, length).trim() + "...";
+
+    }
+
+
+    /* =====================================
+       FORMAT DATE
+       ===================================== */
+
+    function formatDate(dateString) {
+
+      if (!dateString) {
+        return "";
+      }
+
+
+      const date =
+        new Date(
+          dateString + "T00:00:00"
+        );
+
+
+      return date.toLocaleDateString(
+        "en-NG",
+        {
+          day: "numeric",
+          month: "long",
+          year: "numeric"
+        }
+      );
+
+    }
+
+
+    /* =====================================
+       HTML SECURITY
+       ===================================== */
+
+    function escapeHTML(value) {
+
+      return String(value || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+    }
+
+
+    /* =====================================
+       YEAR
+       ===================================== */
 
     document.getElementById("year").textContent =
       new Date().getFullYear();
+
+
+    /* =====================================
+       LOAD NEWS
+       ===================================== */
+
+    displayNews();
+
   </script>
 
 </body>
