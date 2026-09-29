@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>About SOBOBO NATION | Official Website</title>
+
+  <meta
+    name="description"
+    content="Learn about SOBOBO NATION, its purpose, values, leadership and founder Chief Dr. Uloko OJIJI."
+  >
+
+  <meta name="theme-color" content="#087f23">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5fff7;
+      color: #222;
+      line-height: 1.7;
+    }
+
+    .top-bar {
+      background: #087f23;
+      color: white;
+      text-align: center;
+      padding: 8px 15px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    header {
+      background: white;
+      padding: 18px 15px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .logo {
+      color: #087f23;
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .tagline {
+      color: #555;
+      font-size: 13px;
+      margin-top: 4px;
+    }
+
+    nav {
+      margin-top: 15px;
+    }
+
+    nav a {
+      display: inline-block;
+      text-decoration: none;
+      color: #087f23;
+      font-weight: bold;
+      margin: 5px 6px;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: #066b1d;
+    }
+
+    .menu-btn {
+      display: none;
+      background: #087f23;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      font-size: 17px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 12px auto 0;
+    }
+
+    .ticker {
+      background: #066b1d;
+      color: white;
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 9px 0;
+      font-size: 14px;
+    }
+
+    .ticker-text {
+      display: inline-block;
+      padding-left: 100%;
+      animation: moveTicker 18s linear infinite;
+    }
+
+    @keyframes moveTicker {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-100%);
+      }
+    }
+
+    .hero {
+      background: #087f23;
+      color: white;
+      text-align: center;
+      padding: 65px 20px;
+    }
+
+    .hero h1 {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      max-width: 750px;
+      margin: auto;
+      font-size: 17px;
+    }
+
+    .container {
+      max-width: 1050px;
+      margin: 45px auto;
+      padding: 0 20px;
+    }
+
+    .section {
+      background: white;
+      padding: 30px;
+      margin-bottom: 25px;
+      border-radius: 10px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+    }
+
+    .section h2 {
+      color: #087f23;
+      font-size: 26px;
+      margin-bottom: 15px;
+    }
+
+    .section p {
+      margin-bottom: 12px;
+    }
+
+    .founder {
+      border-left: 5px solid #087f23;
+      background: #eaf8ed;
+      padding: 25px;
+      border-radius: 7px;
+    }
+
+    .founder h2 {
+      margin-bottom: 8px;
+    }
+
+    .founder-name {
+      font-size: 24px;
+      font-weight: bold;
+      color: #087f23;
+    }
+
+    .founder-title {
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .values {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .value-card {
+      background: #f5fff7;
+      border: 1px solid #d7eadb;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .value-card h3 {
+      color: #087f23;
+      margin-bottom: 8px;
+    }
+
+    .objectives {
+      margin-left: 22px;
+    }
+
+    .objectives li {
+      margin-bottom: 10px;
+    }
+
+    .cta {
+      background: #087f23;
+      color: white;
+      text-align: center;
+      padding: 45px 20px;
+    }
+
+    .cta h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .cta p {
+      margin-bottom: 20px;
+    }
+
+    .cta a {
+      display: inline-block;
+      background: white;
+      color: #087f23;
+      padding: 12px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 30px 15px;
+    }
+
+    footer h3 {
+      margin-bottom: 8px;
+    }
+
+    footer p {
+      color: #ccc;
+      font-size: 14px;
+      margin: 5px 0;
+    }
+
+    footer a {
+      color: #7ee49a;
+      text-decoration: none;
+    }
+
+    @media (max-width: 900px) {
+      .values {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      nav a {
+        margin: 4px;
+      }
+    }
+
+    @media (max-width: 768px) {
+
+      .logo {
+        font-size: 25px;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      nav {
+        display: none;
+        margin-top: 15px;
+      }
+
+      nav.active {
+        display: block;
+      }
+
+      nav a {
+        display: block;
+        padding: 8px;
+        margin: 0;
+        border-bottom: 1px solid #eee;
+      }
+
+      .hero {
+        padding: 55px 20px;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .section {
+        padding: 22px;
+      }
+
+      .values {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    SOBOBO NATION • UNITY • PROGRESS • COMMUNITY
+  </div>
+
+  <!-- HEADER -->
+  <header>
+
+    <div class="logo">
+      SOBOBO NATION
+    </div>
+
+    <div class="tagline">
+      UNITY • PROGRESS • COMMUNITY
+    </div>
+
+    <button class="menu-btn" onclick="toggleMenu()">
+      ☰ Menu
+    </button>
+
+    <!-- FULL WEBSITE NAVIGATION -->
+    <nav id="navMenu">
+
+      <a href="index.html">Home</a>
+
+      <a href="about.html">About</a>
+
+      <a href="mission.html">Mission</a>
+
+      <a href="leadership.html">Leadership</a>
+
+      <a href="programmes.html">Programmes</a>
+
+      <a href="membership.html">Membership</a>
+
+      <a href="volunteer.html">Volunteer</a>
+
+      <a href="news.html">News</a>
+
+      <a href="events.html">Events</a>
+
+      <a href="gallery.html">Gallery</a>
+
+      <a href="video.html">Videos</a>
+
+      <a href="resources.html">Resources</a>
+
+      <a href="faq.html">FAQ</a>
+
+      <a href="contact.html">Contact</a>
+
+    </nav>
+
+  </header>
+
+  <!-- MOVING TICKER -->
+  <div class="ticker">
+
+    <div class="ticker-text">
+      Welcome to SOBOBO NATION • Unity • Progress • Community • Stay Connected • Get Involved • Together We Build
+    </div>
+
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <h1>About SOBOBO NATION</h1>
+
+    <p>
+      Connecting people, sharing information and encouraging
+      participation for unity, progress and community development.
+    </p>
+
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <main class="container">
+
+    <!-- WHO WE ARE -->
+    <section class="section">
+
+      <h2>Who We Are</h2>
+
+      <p>
+        SOBOBO NATION is a platform focused on connection,
+        communication, participation and community development.
+      </p>
+
+      <p>
+        The platform provides opportunities for individuals,
+        groups, supporters and community stakeholders to connect,
+        share information, exchange ideas and participate in
+        constructive activities.
+      </p>
+
+      <p>
+        Through information, engagement and collaboration,
+        SOBOBO NATION seeks to encourage a stronger sense of
+        community and collective participation.
+      </p>
+
+    </section>
+
+    <!-- LEADERSHIP AND FOUNDING -->
+    <section class="section">
+
+      <h2>Leadership & Founding</h2>
+
+      <div class="founder">
+
+        <div class="founder-name">
+          Chief Dr. Uloko OJIJI
+        </div>
+
+        <div class="founder-title">
+          Initiator, Founder & CEO — SOBOBO NATION
+        </div>
+
+        <p>
+          Chief Dr. Uloko OJIJI is the initiator, founder and CEO
+          of SOBOBO NATION, providing leadership and direction for
+          the platform.
+        </p>
+
+        <p>
+          Under its leadership structure, SOBOBO NATION is focused
+          on creating a platform where people can connect,
+          communicate, participate and contribute to community
+          progress.
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- CORE VALUES -->
+    <section class="section">
+
+      <h2>Our Core Values</h2>
+
+      <p>
+        SOBOBO NATION is built around values that encourage
+        constructive participation and community connection.
+      </p>
+
+      <div class="values">
+
+        <div class="value-card">
+          <h3>Unity</h3>
+          <p>
+            Encouraging people to work together and maintain
+            meaningful connections.
+          </p>
+        </div>
+
+        <div class="value-card">
+          <h3>Information</h3>
+          <p>
+            Promoting access to useful information and updates.
+          </p>
+        </div>
+
+        <div class="value-card">
+          <h3>Community</h3>
+          <p>
+            Supporting activities that strengthen community
+            participation.
+          </p>
+        </div>
+
+        <div class="value-card">
+          <h3>Ideas</h3>
+          <p>
+            Creating room for people to share ideas and
+            constructive perspectives.
+          </p>
+        </div>
+
+        <div class="value-card">
+          <h3>Service</h3>
+          <p>
+            Encouraging individuals to contribute through
+            meaningful service.
+          </p>
+        </div>
+
+        <div class="value-card">
+          <h3>Progress</h3>
+          <p>
+            Supporting initiatives and activities that contribute
+            to positive development.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- MISSION AND VISION -->
+    <section class="section">
+
+      <h2>Mission & Vision</h2>
+
+      <p>
+        <strong>Mission:</strong>
+        To provide a platform that connects people, promotes
+        communication, encourages participation and supports
+        community-focused activities.
+      </p>
+
+      <p>
+        <strong>Vision:</strong>
+        To build a connected community where information,
+        participation, ideas and collaboration contribute to
+        sustainable progress.
+      </p>
+
+    </section>
+
+    <!-- OBJECTIVES -->
+    <section class="section">
+
+      <h2>Our Objectives</h2>
+
+      <ul class="objectives">
+
+        <li>
+          Promote communication and connection among community members.
+        </li>
+
+        <li>
+          Share relevant information, announcements and updates.
+        </li>
+
+        <li>
+          Encourage community participation and volunteerism.
+        </li>
+
+        <li>
+          Support constructive ideas and community initiatives.
+        </li>
+
+        <li>
+          Create opportunities for networking and collaboration.
+        </li>
+
+        <li>
+          Encourage activities that contribute to community progress.
+        </li>
+
+      </ul>
+
+    </section>
+
+    <!-- PARTICIPATION -->
+    <section class="section">
+
+      <h2>Be Part of SOBOBO NATION</h2>
+
+      <p>
+        Everyone who shares an interest in community connection,
+        participation and progress can explore opportunities to
+        get involved.
+      </p>
+
+      <p>
+        You can become a member, volunteer, attend activities,
+        participate in programmes, share ideas or connect with
+        other members of the community.
+      </p>
+
+    </section>
+
+  </main>
+
+  <!-- CTA -->
+  <section class="cta">
+
+    <h2>
+      Connect With SOBOBO NATION
+    </h2>
+
+    <p>
+      Learn more about our programmes, activities,
+      membership and volunteer opportunities.
+    </p>
+
+    <a href="contact.html">
+      Contact Us
+    </a>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+
+    <h3>
+      SOBOBO NATION
+    </h3>
+
+    <p>
+      UNITY • PROGRESS • COMMUNITY
+    </p>
+
+    <p>
+      Initiator, Founder & CEO:
+      <strong>Chief Dr. Uloko OJIJI</strong>
+    </p>
+
+    <p>
+      <a href="privacy.html">
+        Privacy Policy
+      </a>
+
+      &nbsp; | &nbsp;
+
+      <a href="terms.html">
+        Terms & Conditions
+      </a>
+    </p>
+
+    <p>
+      © <span id="year"></span>
+      SOBOBO NATION. All Rights Reserved.
+    </p>
+
+  </footer>
+
+  <script>
+
+    function toggleMenu() {
+
+      document
+        .getElementById("navMenu")
+        .classList
+        .toggle("active");
+
+    }
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+  </script>
+
+</body>
+</html>
