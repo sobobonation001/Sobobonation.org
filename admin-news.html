@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>News Management | SOBOBO NATION</title>
+
+  <meta name="theme-color" content="#087f23">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5fff7;
+      color: #222;
+    }
+
+    /* TOP BAR */
+
+    .topbar {
+      background: #087f23;
+      color: white;
+      padding: 15px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    .brand {
+      font-size: 20px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .brand small {
+      display: block;
+      font-size: 10px;
+      margin-top: 3px;
+      letter-spacing: 1px;
+    }
+
+    .back-btn {
+      background: white;
+      color: #087f23;
+      padding: 9px 14px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 13px;
+    }
+
+    /* MAIN */
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 30px 18px;
+    }
+
+    .page-title {
+      color: #087f23;
+      margin: 0 0 8px;
+      font-size: 28px;
+    }
+
+    .intro {
+      color: #666;
+      margin-top: 0;
+      margin-bottom: 25px;
+    }
+
+    /* FORM CARD */
+
+    .form-card {
+      background: white;
+      border-radius: 10px;
+      padding: 25px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      margin-bottom: 30px;
+    }
+
+    .form-card h2 {
+      color: #087f23;
+      margin-top: 0;
+      font-size: 21px;
+    }
+
+    .form-group {
+      margin-bottom: 17px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      font-size: 14px;
+      margin-bottom: 7px;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+      font-family: inherit;
+      outline: none;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: #087f23;
+      box-shadow: 0 0 0 3px rgba(8,127,35,0.10);
+    }
+
+    textarea {
+      min-height: 180px;
+      resize: vertical;
+    }
+
+    .file-note {
+      font-size: 12px;
+      color: #777;
+      margin-top: 6px;
+    }
+
+    .image-preview {
+      display: none;
+      margin-top: 15px;
+      max-width: 300px;
+      border-radius: 8px;
+      border: 2px solid #087f23;
+    }
+
+    .button-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .primary-btn {
+      background: #087f23;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .primary-btn:hover {
+      background: #066b1d;
+    }
+
+    .secondary-btn {
+      background: #eee;
+      color: #333;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* NEWS LIST */
+
+    .news-card {
+      background: white;
+      border-radius: 10px;
+      padding: 18px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    }
+
+    .news-card h3 {
+      color: #087f23;
+      margin: 0 0 8px;
+    }
+
+    .news-date {
+      color: #888;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+
+    .news-card p {
+      color: #555;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .status {
+      padding: 8px 12px;
+      border-radius: 5px;
+      background: #fff8df;
+      color: #775900;
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 600px) {
+
+      .container {
+        padding: 22px 13px;
+      }
+
+      .form-card {
+        padding: 18px;
+      }
+
+      .page-title {
+        font-size: 23px;
+      }
+
+      .topbar {
+        padding: 13px;
+      }
+
+      .brand {
+        font-size: 16px;
+      }
+
+      .back-btn {
+        font-size: 11px;
+        padding: 8px 10px;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+
+  <header class="topbar">
+
+    <div class="brand">
+
+      SOBOBO NATION
+
+      <small>
+        NEWS MANAGEMENT
+      </small>
+
+    </div>
+
+    <a
+      href="admin.html"
+      class="back-btn"
+    >
+      ← Dashboard
+    </a>
+
+  </header>
+
+
+  <main class="container">
+
+    <h1 class="page-title">
+      News Management
+    </h1>
+
+    <p class="intro">
+      Create and manage official SOBOBO NATION news and updates.
+    </p>
+
+
+    <div class="status">
+
+      <strong>Current Stage:</strong>
+      News interface is ready. Database publishing will be
+      connected in the next step.
+
+    </div>
+
+
+    <!-- ADD NEWS -->
+
+    <div class="form-card">
+
+      <h2>
+        Add New News
+      </h2>
+
+      <form id="newsForm">
+
+        <div class="form-group">
+
+          <label for="headline">
+            News Headline
+          </label>
+
+          <input
+            type="text"
+            id="headline"
+            placeholder="Enter news headline"
+            required
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="date">
+            Publication Date
+          </label>
+
+          <input
+            type="date"
+            id="date"
+            required
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="category">
+            Category
+          </label>
+
+          <select id="category">
+
+            <option value="News">
+              News
+            </option>
+
+            <option value="Announcement">
+              Announcement
+            </option>
+
+            <option value="Community">
+              Community
+            </option>
+
+            <option value="Event">
+              Event
+            </option>
+
+            <option value="Programme">
+              Programme
+            </option>
+
+            <option value="Other">
+              Other
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="image">
+            News Image
+          </label>
+
+          <input
+            type="file"
+            id="image"
+            accept="image/*"
+          >
+
+          <div class="file-note">
+            Select a JPG, PNG or WebP image.
+          </div>
+
+          <img
+            id="imagePreview"
+            class="image-preview"
+            alt="News image preview"
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="content">
+            News Content
+          </label>
+
+          <textarea
+            id="content"
+            placeholder="Write the full news story here..."
+            required
+          ></textarea>
+
+        </div>
+
+
+        <div class="button-row">
+
+          <button
+            type="submit"
+            class="primary-btn"
+          >
+            Publish News
+          </button>
+
+          <button
+            type="reset"
+            class="secondary-btn"
+          >
+            Clear Form
+          </button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+
+    <!-- EXISTING NEWS -->
+
+    <div class="form-card">
+
+      <h2>
+        Published News
+      </h2>
+
+      <div id="newsList">
+
+        <div class="news-card">
+
+          <h3>
+            No News Published Yet
+          </h3>
+
+          <div class="news-date">
+            SOBOBO NATION
+          </div>
+
+          <p>
+            Published news stories will appear here after the
+            database connection is completed.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+
+  <script>
+
+    /* ==============================
+       LOGIN PROTECTION
+       ============================== */
+
+    if (
+      sessionStorage.getItem("soboboAdminLoggedIn")
+      !== "true"
+    ) {
+
+      window.location.href =
+        "admin-login.html";
+
+    }
+
+
+    /* ==============================
+       SET TODAY'S DATE
+       ============================== */
+
+    document.getElementById("date").value =
+      new Date().toISOString().split("T")[0];
+
+
+    /* ==============================
+       IMAGE PREVIEW
+       ============================== */
+
+    const imageInput =
+      document.getElementById("image");
+
+    const imagePreview =
+      document.getElementById("imagePreview");
+
+
+    imageInput.addEventListener(
+      "change",
+      function() {
+
+        const file = this.files[0];
+
+        if (!file) {
+
+          imagePreview.style.display =
+            "none";
+
+          imagePreview.src = "";
+
+          return;
+
+        }
+
+        if (!file.type.startsWith("image/")) {
+
+          alert("Please select an image file.");
+
+          this.value = "";
+
+          return;
+
+        }
+
+        const reader =
+          new FileReader();
+
+        reader.onload = function(event) {
+
+          imagePreview.src =
+            event.target.result;
+
+          imagePreview.style.display =
+            "block";
+
+        };
+
+        reader.readAsDataURL(file);
+
+      }
+    );
+
+
+    /* ==============================
+       FORM
+       ============================== */
+
+    document
+      .getElementById("newsForm")
+      .addEventListener(
+        "submit",
+        function(event) {
+
+          event.preventDefault();
+
+          alert(
+            "The news form is working. " +
+            "The next step is connecting it to Supabase " +
+            "so the news can be permanently saved and " +
+            "displayed on news.html."
+          );
+
+        }
+      );
+
+
+    /* ==============================
+       CLEAR IMAGE PREVIEW
+       ============================== */
+
+    document
+      .getElementById("newsForm")
+      .addEventListener(
+        "reset",
+        function() {
+
+          setTimeout(function() {
+
+            imagePreview.style.display =
+              "none";
+
+            imagePreview.src = "";
+
+            document.getElementById("date").value =
+              new Date().toISOString().split("T")[0];
+
+          }, 50);
+
+        }
+      );
+
+  </script>
+
+</body>
+</html>
