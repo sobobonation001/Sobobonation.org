@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Partners & Supporters | SOBOBO NATION</title>
+
+  <meta
+    name="description"
+    content="Partners, supporters and collaboration opportunities with SOBOBO NATION."
+  >
+
+  <meta name="theme-color" content="#087f23">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5fff7;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    .top-bar {
+      background: #087f23;
+      color: white;
+      text-align: center;
+      padding: 8px 15px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    header {
+      background: white;
+      padding: 18px 20px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .logo {
+      color: #087f23;
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .tagline {
+      color: #555;
+      font-size: 13px;
+      margin-top: 3px;
+      letter-spacing: 1px;
+    }
+
+    .menu-btn {
+      display: none;
+      width: 100%;
+      background: #066b1d;
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    nav {
+      background: #066b1d;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 5px;
+      padding: 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 9px 12px;
+      border-radius: 5px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      background: #087f23;
+    }
+
+    .ticker {
+      background: #087f23;
+      color: white;
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 10px 0;
+      font-weight: bold;
+    }
+
+    .ticker-text {
+      display: inline-block;
+      padding-left: 100%;
+      animation: moveTicker 18s linear infinite;
+    }
+
+    @keyframes moveTicker {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    .hero {
+      background: #087f23;
+      color: white;
+      text-align: center;
+      padding: 55px 20px;
+    }
+
+    .hero h1 {
+      font-size: 38px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      max-width: 750px;
+      margin: auto;
+      font-size: 17px;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 45px 20px;
+    }
+
+    .intro {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 35px;
+    }
+
+    .intro h2 {
+      color: #087f23;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .partner-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .partner-card {
+      background: white;
+      padding: 30px 22px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      border-top: 4px solid #087f23;
+      text-align: center;
+      transition: transform 0.2s ease;
+    }
+
+    .partner-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .partner-icon {
+      font-size: 38px;
+      margin-bottom: 12px;
+    }
+
+    .partner-card h3 {
+      color: #087f23;
+      margin-bottom: 10px;
+    }
+
+    .partner-card p {
+      color: #555;
+      font-size: 15px;
+    }
+
+    .info-box {
+      background: white;
+      margin-top: 40px;
+      padding: 30px;
+      border-left: 5px solid #087f23;
+      border-radius: 8px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+    }
+
+    .info-box h2 {
+      color: #087f23;
+      margin-bottom: 12px;
+    }
+
+    .notice {
+      margin-top: 20px;
+      background: #e8f7eb;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    .cta {
+      text-align: center;
+      margin-top: 45px;
+      padding: 35px 20px;
+      background: #087f23;
+      color: white;
+      border-radius: 12px;
+    }
+
+    .cta h2 {
+      margin-bottom: 10px;
+    }
+
+    .cta p {
+      margin-bottom: 20px;
+    }
+
+    .cta a {
+      display: inline-block;
+      background: white;
+      color: #087f23;
+      text-decoration: none;
+      padding: 12px 22px;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    .cta a:hover {
+      background: #e8f7eb;
+    }
+
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 45px;
+    }
+
+    footer p {
+      margin: 7px 0;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: #8cff9d;
+      text-decoration: none;
+      margin: 0 7px;
+    }
+
+    @media (max-width: 850px) {
+
+      .menu-btn {
+        display: block;
+      }
+
+      nav {
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      nav a {
+        text-align: center;
+        padding: 11px;
+      }
+
+      .partner-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .hero {
+        padding: 40px 15px;
+      }
+
+      .hero h1 {
+        font-size: 30px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      main {
+        padding: 35px 15px;
+      }
+
+      .partner-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .logo {
+        font-size: 24px;
+      }
+
+      .info-box {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="top-bar">
+    SOBOBO NATION • UNITY • PROGRESS • COMMUNITY
+  </div>
+
+  <header>
+    <div class="logo">SOBOBO NATION</div>
+    <div class="tagline">UNITY • PROGRESS • COMMUNITY</div>
+  </header>
+
+  <button class="menu-btn" onclick="toggleMenu()">☰ Menu</button>
+
+  <nav id="navMenu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="mission.html">Mission</a>
+    <a href="leadership.html">Leadership</a>
+    <a href="programmes.html">Programmes</a>
+    <a href="membership.html">Membership</a>
+    <a href="volunteer.html">Volunteer</a>
+    <a href="news.html">News</a>
+    <a href="events.html">Events</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="video.html">Videos</a>
+    <a href="resources.html">Resources</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <div class="ticker">
+    <div class="ticker-text">
+      Welcome to SOBOBO NATION • Unity • Progress • Community • Stay Connected • Get Involved • Together We Build
+    </div>
+  </div>
+
+  <section class="hero">
+    <h1>Partners & Supporters</h1>
+    <p>
+      Building meaningful connections and opportunities for collaboration
+      in support of community participation and development.
+    </p>
+  </section>
+
+  <main>
+
+    <section class="intro">
+      <h2>Our Partnership Network</h2>
+
+      <p>
+        SOBOBO NATION recognises the importance of collaboration,
+        cooperation and shared participation in achieving meaningful
+        community-focused objectives.
+      </p>
+    </section>
+
+    <section class="partner-grid">
+
+      <div class="partner-card">
+        <div class="partner-icon">🤝</div>
+
+        <h3>Community Partners</h3>
+
+        <p>
+          Community groups and local stakeholders can work together
+          to support engagement, participation and development activities.
+        </p>
+      </div>
+
+      <div class="partner-card">
+        <div class="partner-icon">🏢</div>
+
+        <h3>Organisations</h3>
+
+        <p>
+          Organisations may explore areas of collaboration, information
+          sharing, programmes and community-focused initiatives.
+        </p>
+      </div>
+
+      <div class="partner-card">
+        <div class="partner-icon">👥</div>
+
+        <h3>Individual Supporters</h3>
+
+        <p>
+          Individuals can contribute ideas, skills, resources and
+          participation to activities supported by SOBOBO NATION.
+        </p>
+      </div>
+
+      <div class="partner-card">
+        <div class="partner-icon">🌍</div>
+
+        <h3>Development Partners</h3>
+
+        <p>
+          Development-focused partners can explore opportunities
+          for supporting community initiatives and programmes.
+        </p>
+      </div>
+
+      <div class="partner-card">
+        <div class="partner-icon">📢</div>
+
+        <h3>Media & Information</h3>
+
+        <p>
+          Media and information partners can support awareness,
+          communication and the distribution of official updates.
+        </p>
+      </div>
+
+      <div class="partner-card">
+        <div class="partner-icon">🙋</div>
+
+        <h3>Volunteers</h3>
+
+        <p>
+          Volunteers are an important part of community participation
+          and may support activities according to their interests and skills.
+        </p>
+      </div>
+
+    </section>
+
+    <div class="info-box">
+
+      <h2>Working Together</h2>
+
+      <p>
+        Effective partnerships are built on communication, mutual respect,
+        shared understanding and clearly defined areas of cooperation.
+        SOBOBO NATION welcomes enquiries from individuals, organisations
+        and groups interested in exploring appropriate opportunities.
+      </p>
+
+      <div class="notice">
+        <strong>Partnership Information:</strong><br>
+        Details of confirmed partners, supporters and future collaboration
+        opportunities can be added to this page as the organisation develops.
+      </div>
+
+    </div>
+
+    <section class="cta">
+
+      <h2>Become Part of the Network</h2>
+
+      <p>
+        Interested in supporting or collaborating with SOBOBO NATION?
+        Get in touch with us to start a conversation.
+      </p>
+
+      <a href="contact.html">Contact SOBOBO NATION</a>
+
+    </section>
+
+  </main>
+
+  <footer>
+
+    <p><strong>SOBOBO NATION</strong></p>
+
+    <p>
+      Initiator, Founder & CEO: Chief Dr. Uloko OJIJI
+    </p>
+
+    <p>
+      UNITY • PROGRESS • COMMUNITY
+    </p>
+
+    <p>
+      <a href="privacy.html">Privacy Policy</a>
+      |
+      <a href="terms.html">Terms & Conditions</a>
+    </p>
+
+    <p>
+      © <span id="year"></span> SOBOBO NATION. All Rights Reserved.
+    </p>
+
+  </footer>
+
+  <script>
+
+    function toggleMenu() {
+      document.getElementById("navMenu").classList.toggle("active");
+    }
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+  </script>
+
+</body>
+</html>
