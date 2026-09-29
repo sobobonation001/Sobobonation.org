@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Contact | SOBOBO NATION</title>
+
+  <meta
+    name="description"
+    content="Contact SOBOBO NATION for information, enquiries, membership, volunteering and community engagement."
+  >
+
+  <meta name="theme-color" content="#087f23">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5fff7;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    .top-bar {
+      background: #087f23;
+      color: white;
+      text-align: center;
+      padding: 9px 10px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    header {
+      background: white;
+      padding: 18px 15px;
+      text-align: center;
+      border-bottom: 3px solid #087f23;
+    }
+
+    .logo {
+      color: #087f23;
+      font-size: 27px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .tagline {
+      color: #555;
+      font-size: 12px;
+      margin-top: 4px;
+      font-weight: bold;
+    }
+
+    .menu-btn {
+      display: none;
+      width: 100%;
+      background: #087f23;
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    nav {
+      background: #087f23;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 5px;
+      padding: 8px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 9px 11px;
+      font-size: 14px;
+      border-radius: 5px;
+    }
+
+    nav a:hover {
+      background: #066b1d;
+    }
+
+    .ticker {
+      background: #066b1d;
+      color: white;
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 10px 0;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .ticker span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: moveTicker 18s linear infinite;
+    }
+
+    @keyframes moveTicker {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-100%);
+      }
+    }
+
+    .hero {
+      background: #087f23;
+      color: white;
+      text-align: center;
+      padding: 55px 20px;
+    }
+
+    .hero h1 {
+      font-size: 34px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 17px;
+      max-width: 750px;
+      margin: auto;
+    }
+
+    .container {
+      max-width: 1050px;
+      margin: auto;
+      padding: 45px 18px;
+    }
+
+    .intro {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .intro h2 {
+      color: #087f23;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .contact-card {
+      background: white;
+      padding: 28px 22px;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+      border-top: 4px solid #087f23;
+      text-align: center;
+    }
+
+    .contact-icon {
+      font-size: 38px;
+      margin-bottom: 12px;
+    }
+
+    .contact-card h3 {
+      color: #087f23;
+      margin-bottom: 10px;
+      font-size: 21px;
+    }
+
+    .contact-card p {
+      margin-bottom: 8px;
+    }
+
+    .contact-card a.phone-link {
+      color: #087f23;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 17px;
+      display: block;
+      margin: 8px 0;
+    }
+
+    .contact-card a.phone-link:hover {
+      text-decoration: underline;
+    }
+
+    .phone-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .whatsapp-btn {
+      display: inline-block;
+      margin-top: 15px;
+      background: #087f23;
+      color: white !important;
+      text-decoration: none;
+      padding: 13px 22px;
+      border-radius: 7px;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+
+    .whatsapp-btn:hover {
+      background: #066b1d;
+      transform: translateY(-1px);
+    }
+
+    .message-box {
+      margin-top: 30px;
+      background: #e9f8ed;
+      border-left: 5px solid #087f23;
+      padding: 22px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .message-box h3 {
+      color: #087f23;
+      margin-bottom: 8px;
+    }
+
+    .cta {
+      text-align: center;
+      margin-top: 35px;
+    }
+
+    .cta a {
+      display: inline-block;
+      background: #087f23;
+      color: white;
+      padding: 13px 24px;
+      border-radius: 7px;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 5px;
+    }
+
+    .cta a:hover {
+      background: #066b1d;
+    }
+
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 30px 15px;
+      margin-top: 20px;
+    }
+
+    footer p {
+      margin: 7px 0;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: #8ee49e;
+      text-decoration: none;
+    }
+
+    .footer-links {
+      margin: 15px 0;
+    }
+
+    .footer-links a {
+      margin: 0 8px;
+    }
+
+    @media (max-width: 700px) {
+
+      .logo {
+        font-size: 24px;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      nav {
+        display: none;
+        flex-direction: column;
+        padding: 8px 12px;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      nav a {
+        width: 100%;
+        text-align: center;
+      }
+
+      .hero {
+        padding: 42px 15px;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .container {
+        padding: 35px 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="top-bar">
+    SOBOBO NATION • UNITY • PROGRESS • COMMUNITY
+  </div>
+
+  <header>
+    <div class="logo">SOBOBO NATION</div>
+    <div class="tagline">UNITY • PROGRESS • COMMUNITY</div>
+  </header>
+
+  <button
+    class="menu-btn"
+    onclick="toggleMenu()"
+  >
+    ☰ Menu
+  </button>
+
+  <nav id="navMenu">
+
+    <a href="index.html">Home</a>
+
+    <a href="about.html">About</a>
+
+    <a href="mission.html">Mission</a>
+
+    <a href="leadership.html">Leadership</a>
+
+    <a href="programmes.html">Programmes</a>
+
+    <a href="membership.html">Membership</a>
+
+    <a href="volunteer.html">Volunteer</a>
+
+    <a href="news.html">News</a>
+
+    <a href="events.html">Events</a>
+
+    <a href="gallery.html">Gallery</a>
+
+    <a href="video.html">Videos</a>
+
+    <a href="resources.html">Resources</a>
+
+    <a href="faq.html">FAQ</a>
+
+    <a href="contact.html">Contact</a>
+
+  </nav>
+
+  <div class="ticker">
+    <span>
+      Welcome to SOBOBO NATION • Unity • Progress • Community •
+      Stay Connected • Get Involved • Together We Build
+    </span>
+  </div>
+
+  <section class="hero">
+
+    <h1>Contact SOBOBO NATION</h1>
+
+    <p>
+      Connect with us for enquiries, information,
+      membership, volunteering and community engagement.
+    </p>
+
+  </section>
+
+  <main class="container">
+
+    <div class="intro">
+
+      <h2>Get In Touch</h2>
+
+      <p>
+        We welcome communication from members, supporters,
+        volunteers, organisations and members of the community.
+      </p>
+
+    </div>
+
+    <div class="contact-grid">
+
+      <!-- PHONE -->
+
+      <div class="contact-card">
+
+        <div class="contact-icon">📞</div>
+
+        <h3>Phone Numbers</h3>
+
+        <div class="phone-list">
+
+          <a
+            class="phone-link"
+            href="tel:+2349151524655"
+          >
+            +234 915 152 4655
+          </a>
+
+          <a
+            class="phone-link"
+            href="tel:+2348130122985"
+          >
+            +234 813 012 2985
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- WHATSAPP -->
+
+      <div class="contact-card">
+
+        <div class="contact-icon">💬</div>
+
+        <h3>WhatsApp</h3>
+
+        <p>
+          Send us a message directly through WhatsApp.
+        </p>
+
+        <a
+          class="whatsapp-btn"
+          href="https://api.whatsapp.com/send?phone=2349151524655"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          💬 Chat on WhatsApp
+        </a>
+
+      </div>
+
+
+      <!-- MEMBERSHIP -->
+
+      <div class="contact-card">
+
+        <div class="contact-icon">🤝</div>
+
+        <h3>Membership</h3>
+
+        <p>
+          Interested in becoming part of SOBOBO NATION?
+        </p>
+
+        <a
+          class="phone-link"
+          href="membership.html"
+        >
+          Join SOBOBO NATION →
+        </a>
+
+      </div>
+
+
+      <!-- VOLUNTEER -->
+
+      <div class="contact-card">
+
+        <div class="contact-icon">🙋</div>
+
+        <h3>Volunteer</h3>
+
+        <p>
+          Support community activities and programmes
+          by volunteering.
+        </p>
+
+        <a
+          class="phone-link"
+          href="volunteer.html"
+        >
+          Become a Volunteer →
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- MESSAGE BOX -->
+
+    <div class="message-box">
+
+      <h3>We Are Here To Connect</h3>
+
+      <p>
+        For general enquiries, community engagement,
+        programmes, partnerships or other information,
+        please contact SOBOBO NATION using the phone numbers above.
+      </p>
+
+      <a
+        class="whatsapp-btn"
+        href="https://api.whatsapp.com/send?phone=2349151524655&text=Hello%20SOBOBO%20NATION%2C%20I%20would%20like%20to%20make%20an%20enquiry."
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        💬 Message Us on WhatsApp
+      </a>
+
+    </div>
+
+
+    <!-- CTA -->
+
+    <div class="cta">
+
+      <a href="news.html">
+        Latest News
+      </a>
+
+      <a href="events.html">
+        View Events
+      </a>
+
+      <a href="index.html">
+        Back to Home
+      </a>
+
+    </div>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <p>
+      <strong>SOBOBO NATION</strong>
+    </p>
+
+    <p>
+      UNITY • PROGRESS • COMMUNITY
+    </p>
+
+    <p>
+      Initiator, Founder & CEO:
+      <strong>Chief Dr. Uloko OJIJI</strong>
+    </p>
+
+    <div class="footer-links">
+
+      <a href="privacy.html">
+        Privacy Policy
+      </a>
+
+      <a href="terms.html">
+        Terms & Conditions
+      </a>
+
+    </div>
+
+    <p>
+      © <span id="year"></span>
+      SOBOBO NATION. All Rights Reserved.
+    </p>
+
+  </footer>
+
+
+  <script>
+
+    function toggleMenu() {
+
+      document
+        .getElementById("navMenu")
+        .classList
+        .toggle("active");
+
+    }
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+  </script>
+
+</body>
+</html>
