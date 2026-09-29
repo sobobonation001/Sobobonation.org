@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Events & Activities | SOBOBO NATION</title>
+  <title>Events | SOBOBO NATION</title>
 
   <meta
     name="description"
-    content="Upcoming events, activities and programmes from SOBOBO NATION."
+    content="Upcoming events, programmes and activities of SOBOBO NATION."
   >
 
   <meta name="theme-color" content="#087f23">
@@ -24,69 +24,83 @@
       font-family: Arial, Helvetica, sans-serif;
       background: #f5fff7;
       color: #222;
-      line-height: 1.6;
     }
 
-    .top-bar {
-      background: #066b1d;
+    .topbar {
+      background: #087f23;
       color: white;
       text-align: center;
-      padding: 8px 10px;
-      font-size: 14px;
+      padding: 9px;
+      font-size: 13px;
       font-weight: bold;
+      letter-spacing: .5px;
     }
 
     header {
-      background: #087f23;
-      color: white;
-      padding: 18px 15px;
-      text-align: center;
+      background: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,.08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: auto;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
     }
 
     .logo {
-      font-size: 30px;
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
-
-    .tagline {
-      margin-top: 5px;
-      font-size: 14px;
-      letter-spacing: 1px;
-    }
-
-    .menu-btn {
-      display: none;
-      margin: 15px auto 0;
-      background: white;
       color: #087f23;
-      border: none;
-      padding: 10px 18px;
-      border-radius: 5px;
+      font-size: 22px;
       font-weight: bold;
-      cursor: pointer;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .logo span {
+      display: block;
+      font-size: 10px;
+      color: #555;
+      letter-spacing: 1px;
+      margin-top: 3px;
     }
 
     nav {
       display: flex;
-      justify-content: center;
+      align-items: center;
+      gap: 5px;
       flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 18px;
+      justify-content: flex-end;
     }
 
     nav a {
-      color: white;
+      color: #333;
       text-decoration: none;
-      padding: 9px 11px;
+      padding: 8px 9px;
       border-radius: 5px;
-      font-size: 14px;
-      transition: 0.3s;
+      font-size: 13px;
     }
 
-    nav a:hover {
-      background: white;
-      color: #087f23;
+    nav a:hover,
+    nav a.active {
+      background: #087f23;
+      color: white;
+    }
+
+    .menu-btn {
+      display: none;
+      background: #087f23;
+      color: white;
+      border: none;
+      padding: 9px 12px;
+      border-radius: 6px;
+      font-size: 20px;
+      cursor: pointer;
     }
 
     .ticker {
@@ -94,61 +108,68 @@
       color: white;
       overflow: hidden;
       white-space: nowrap;
-      padding: 10px 0;
-      font-weight: bold;
+      padding: 9px 0;
+      font-size: 13px;
     }
 
-    .ticker span {
+    .ticker-track {
       display: inline-block;
       padding-left: 100%;
       animation: moveTicker 18s linear infinite;
     }
 
     @keyframes moveTicker {
-      0% {
+      from {
         transform: translateX(0);
       }
 
-      100% {
+      to {
         transform: translateX(-100%);
       }
     }
 
     .hero {
-      background: #087f23;
+      background:
+        linear-gradient(
+          rgba(0, 107, 29, .86),
+          rgba(0, 107, 29, .86)
+        );
       color: white;
       text-align: center;
-      padding: 55px 20px;
+      padding: 65px 20px;
     }
 
     .hero h1 {
-      font-size: 38px;
+      font-size: 42px;
       margin-bottom: 12px;
     }
 
     .hero p {
-      font-size: 18px;
-      max-width: 750px;
+      max-width: 700px;
       margin: auto;
+      line-height: 1.7;
+      font-size: 16px;
     }
 
     .container {
-      width: 92%;
-      max-width: 1100px;
-      margin: 40px auto;
+      max-width: 1150px;
+      margin: auto;
+      padding: 45px 20px;
     }
 
     .section-title {
       text-align: center;
-      color: #087f23;
-      font-size: 28px;
-      margin-bottom: 12px;
+      margin-bottom: 35px;
     }
 
-    .intro {
-      text-align: center;
-      max-width: 800px;
-      margin: 0 auto 35px;
+    .section-title h2 {
+      color: #087f23;
+      font-size: 30px;
+      margin-bottom: 8px;
+    }
+
+    .section-title p {
+      color: #666;
     }
 
     .events-grid {
@@ -159,115 +180,149 @@
 
     .event-card {
       background: white;
-      border-radius: 10px;
+      border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+      box-shadow: 0 4px 16px rgba(0,0,0,.08);
       border-top: 4px solid #087f23;
+      transition: transform .2s ease, box-shadow .2s ease;
     }
 
-    .event-icon {
-      background: #e8f7ec;
+    .event-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 7px 20px rgba(0,0,0,.12);
+    }
+
+    .event-image {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      background: #e8f5eb;
+    }
+
+    .no-image {
+      height: 220px;
+      background: #e8f5eb;
       color: #087f23;
-      text-align: center;
-      padding: 25px;
-      font-size: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 55px;
     }
 
-    .event-content {
-      padding: 22px;
+    .event-body {
+      padding: 20px;
     }
 
-    .event-status {
-      display: inline-block;
-      background: #087f23;
-      color: white;
-      padding: 5px 10px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    .event-content h3 {
+    .event-title {
       color: #087f23;
-      margin-bottom: 10px;
       font-size: 20px;
+      font-weight: bold;
+      line-height: 1.3;
+      margin-bottom: 13px;
     }
 
-    .event-content p {
-      color: #444;
-      margin-bottom: 10px;
+    .event-info {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 15px;
     }
 
-    .info-box {
-      margin-top: 40px;
-      background: white;
-      border-left: 5px solid #087f23;
-      padding: 25px;
-      border-radius: 8px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+    .event-info div {
+      font-size: 13px;
+      color: #555;
+      line-height: 1.4;
     }
 
-    .info-box h2 {
+    .event-info strong {
       color: #087f23;
-      margin-bottom: 10px;
     }
 
-    .cta {
+    .event-description {
+      color: #555;
+      line-height: 1.7;
+      font-size: 14px;
+      white-space: pre-wrap;
+    }
+
+    .empty {
+      background: white;
+      border-radius: 12px;
+      padding: 55px 20px;
       text-align: center;
-      margin: 45px 0;
-      padding: 35px 20px;
+      box-shadow: 0 3px 15px rgba(0,0,0,.06);
+    }
+
+    .empty-icon {
+      font-size: 55px;
+      margin-bottom: 15px;
+    }
+
+    .empty h3 {
+      color: #087f23;
+      font-size: 23px;
+      margin-bottom: 8px;
+    }
+
+    .empty p {
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .admin-link {
+      text-align: center;
+      margin-top: 35px;
+    }
+
+    .admin-link a {
+      display: inline-block;
       background: #087f23;
       color: white;
-      border-radius: 10px;
-    }
-
-    .cta h2 {
-      margin-bottom: 10px;
-    }
-
-    .cta a {
-      display: inline-block;
-      margin-top: 18px;
-      background: white;
-      color: #087f23;
       text-decoration: none;
-      padding: 12px 22px;
+      padding: 11px 18px;
       border-radius: 6px;
       font-weight: bold;
+      font-size: 13px;
     }
 
     footer {
       background: #111;
       color: white;
+      margin-top: 30px;
+      padding: 35px 20px;
       text-align: center;
-      padding: 30px 15px;
-      margin-top: 40px;
+    }
+
+    footer h3 {
+      color: #48c95c;
+      margin-bottom: 8px;
     }
 
     footer p {
-      margin: 6px 0;
+      color: #ccc;
+      font-size: 13px;
+      line-height: 1.7;
     }
 
-    footer a {
-      color: #8cff9e;
-      text-decoration: none;
-      margin: 0 7px;
+    .copyright {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid #333;
+      color: #999;
+      font-size: 12px;
     }
 
-    @media (max-width: 850px) {
+    @media (max-width: 950px) {
+
       .events-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .menu-btn {
-        display: block;
+        grid-template-columns: repeat(2, 1fr);
       }
 
       nav {
         display: none;
+        width: 100%;
         flex-direction: column;
-        margin-top: 15px;
+        align-items: stretch;
       }
 
       nav.active {
@@ -275,314 +330,517 @@
       }
 
       nav a {
-        display: block;
-        background: rgba(255,255,255,0.08);
+        padding: 11px;
       }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .header-inner {
+        flex-wrap: wrap;
+      }
+
     }
 
-    @media (max-width: 550px) {
+    @media (max-width: 600px) {
+
+      .topbar {
+        font-size: 11px;
+      }
+
+      .header-inner {
+        padding: 13px;
+      }
+
       .logo {
-        font-size: 24px;
+        font-size: 19px;
+      }
+
+      .hero {
+        padding: 48px 18px;
       }
 
       .hero h1 {
-        font-size: 30px;
+        font-size: 32px;
       }
 
       .hero p {
-        font-size: 16px;
+        font-size: 14px;
+      }
+
+      .container {
+        padding: 35px 13px;
+      }
+
+      .section-title h2 {
+        font-size: 26px;
       }
 
       .events-grid {
         grid-template-columns: 1fr;
       }
+
+      .event-image,
+      .no-image {
+        height: 210px;
+      }
+
     }
   </style>
 </head>
 
 <body>
 
-  <div class="top-bar">
+  <div class="topbar">
     SOBOBO NATION • UNITY • PROGRESS • COMMUNITY
   </div>
 
+
   <header>
 
-    <div class="logo">SOBOBO NATION</div>
+    <div class="header-inner">
 
-    <div class="tagline">
-      UNITY • PROGRESS • COMMUNITY
+      <a href="index.html" class="logo">
+        SOBOBO NATION
+        <span>UNITY • PROGRESS • COMMUNITY</span>
+      </a>
+
+
+      <button
+        class="menu-btn"
+        onclick="toggleMenu()"
+        aria-label="Open navigation"
+      >
+        ☰
+      </button>
+
+
+      <nav id="navMenu">
+
+        <a href="index.html">
+          Home
+        </a>
+
+        <a href="about.html">
+          About
+        </a>
+
+        <a href="mission.html">
+          Mission
+        </a>
+
+        <a href="leadership.html">
+          Leadership
+        </a>
+
+        <a href="programmes.html">
+          Programmes
+        </a>
+
+        <a href="membership.html">
+          Membership
+        </a>
+
+        <a href="volunteer.html">
+          Volunteer
+        </a>
+
+        <a href="news.html">
+          News
+        </a>
+
+        <a href="events.html" class="active">
+          Events
+        </a>
+
+        <a href="gallery.html">
+          Gallery
+        </a>
+
+        <a href="video.html">
+          Videos
+        </a>
+
+        <a href="resources.html">
+          Resources
+        </a>
+
+        <a href="faq.html">
+          FAQ
+        </a>
+
+        <a href="contact.html">
+          Contact
+        </a>
+
+      </nav>
+
     </div>
-
-    <button class="menu-btn" onclick="toggleMenu()">
-      ☰ Menu
-    </button>
-
-    <nav id="navMenu">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="mission.html">Mission</a>
-      <a href="leadership.html">Leadership</a>
-      <a href="programmes.html">Programmes</a>
-      <a href="membership.html">Membership</a>
-      <a href="volunteer.html">Volunteer</a>
-      <a href="news.html">News</a>
-      <a href="events.html">Events</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="video.html">Videos</a>
-      <a href="resources.html">Resources</a>
-      <a href="faq.html">FAQ</a>
-      <a href="contact.html">Contact</a>
-    </nav>
 
   </header>
 
+
   <div class="ticker">
-    <span>
-      Welcome to SOBOBO NATION • Unity • Progress • Community • Stay Connected • Get Involved • Together We Build
-    </span>
+
+    <div class="ticker-track">
+      Welcome to SOBOBO NATION • Unity • Progress • Community •
+      Stay Connected • Get Involved • Together We Build
+    </div>
+
   </div>
 
+
   <section class="hero">
-    <h1>Events & Activities</h1>
+
+    <h1>Events & Programmes</h1>
 
     <p>
-      Stay connected with activities, programmes, meetings and community
-      initiatives organised by SOBOBO NATION.
+      Stay informed about upcoming events, programmes,
+      community activities and important engagements from
+      SOBOBO NATION.
     </p>
+
   </section>
+
 
   <main class="container">
 
-    <h2 class="section-title">Our Activities</h2>
+    <div class="section-title">
 
-    <p class="intro">
-      This page will provide information about upcoming activities and
-      programmes, as well as important community events.
-    </p>
-
-    <div class="events-grid">
-
-      <article class="event-card">
-
-        <div class="event-icon">
-          🤝
-        </div>
-
-        <div class="event-content">
-
-          <span class="event-status">
-            COMMUNITY
-          </span>
-
-          <h3>
-            Community Engagement
-          </h3>
-
-          <p>
-            Opportunities for members and community participants to connect,
-            communicate and share ideas.
-          </p>
-
-        </div>
-
-      </article>
-
-
-      <article class="event-card">
-
-        <div class="event-icon">
-          📢
-        </div>
-
-        <div class="event-content">
-
-          <span class="event-status">
-            PROGRAMME
-          </span>
-
-          <h3>
-            Information & Awareness
-          </h3>
-
-          <p>
-            Activities designed to share useful information and encourage
-            awareness and participation.
-          </p>
-
-        </div>
-
-      </article>
-
-
-      <article class="event-card">
-
-        <div class="event-icon">
-          🌱
-        </div>
-
-        <div class="event-content">
-
-          <span class="event-status">
-            DEVELOPMENT
-          </span>
-
-          <h3>
-            Community Development
-          </h3>
-
-          <p>
-            Initiatives and activities focused on supporting community
-            development and collective progress.
-          </p>
-
-        </div>
-
-      </article>
-
-
-      <article class="event-card">
-
-        <div class="event-icon">
-          💡
-        </div>
-
-        <div class="event-content">
-
-          <span class="event-status">
-            IDEAS
-          </span>
-
-          <h3>
-            Ideas & Innovation
-          </h3>
-
-          <p>
-            Platforms where participants can share ideas, suggestions and
-            practical solutions.
-          </p>
-
-        </div>
-
-      </article>
-
-
-      <article class="event-card">
-
-        <div class="event-icon">
-          👥
-        </div>
-
-        <div class="event-content">
-
-          <span class="event-status">
-            NETWORKING
-          </span>
-
-          <h3>
-            Networking Activities
-          </h3>
-
-          <p>
-            Opportunities to build relationships and strengthen connections
-            among members and partners.
-          </p>
-
-        </div>
-
-      </article>
-
-
-      <article class="event-card">
-
-        <div class="event-icon">
-          ⭐
-        </div>
-
-        <div class="event-content">
-
-          <span class="event-status">
-            FUTURE
-          </span>
-
-          <h3>
-            Future Programmes
-          </h3>
-
-          <p>
-            New programmes and activities will be announced here as they
-            are developed and scheduled.
-          </p>
-
-        </div>
-
-      </article>
-
-    </div>
-
-
-    <div class="info-box">
-
-      <h2>Event Announcements</h2>
+      <h2>Upcoming Events</h2>
 
       <p>
-        Official dates, locations, schedules and other details for specific
-        events will be published on this page when activities are confirmed.
+        Discover events and activities organised by SOBOBO NATION.
       </p>
 
     </div>
 
 
-    <section class="cta">
+    <div
+      id="eventsGrid"
+      class="events-grid"
+    ></div>
 
-      <h2>Get Involved</h2>
 
-      <p>
-        Become a member or volunteer and participate in future SOBOBO NATION
-        activities and programmes.
-      </p>
+    <div class="admin-link">
 
-      <a href="volunteer.html">
-        Become a Volunteer
+      <a href="admin-events.html">
+        Admin: Manage Events
       </a>
 
-    </section>
+    </div>
 
   </main>
 
+
   <footer>
 
-    <p>
-      <strong>SOBOBO NATION</strong>
-    </p>
+    <h3>SOBOBO NATION</h3>
 
     <p>
       Unity • Progress • Community
     </p>
 
     <p>
-      Initiator, Founder & CEO: Chief Dr. Uloko OJIJI
+      Building stronger communities through
+      participation, service and collective progress.
     </p>
 
-    <p>
-      <a href="privacy.html">Privacy Policy</a>
-      |
-      <a href="terms.html">Terms & Conditions</a>
-    </p>
-
-    <p>
-      © <span id="year"></span> SOBOBO NATION. All Rights Reserved.
-    </p>
+    <div class="copyright">
+      © <span id="year"></span> SOBOBO NATION.
+      All Rights Reserved.
+    </div>
 
   </footer>
 
+
   <script>
-    function toggleMenu() {
-      document.getElementById("navMenu").classList.toggle("active");
+
+    /* ==============================
+       STORAGE
+    ============================== */
+
+    const STORAGE_KEY =
+      "soboboNationEvents";
+
+
+    /* ==============================
+       HTML SECURITY
+    ============================== */
+
+    function escapeHTML(value) {
+
+      if (value === null || value === undefined) {
+        return "";
+      }
+
+      return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
     }
 
-    document.getElementById("year").textContent =
+
+    /* ==============================
+       LOAD EVENTS
+    ============================== */
+
+    function getEvents() {
+
+      try {
+
+        const data =
+          JSON.parse(
+            localStorage.getItem(STORAGE_KEY)
+          );
+
+        return Array.isArray(data)
+          ? data
+          : [];
+
+      } catch (error) {
+
+        return [];
+
+      }
+
+    }
+
+
+    /* ==============================
+       DISPLAY EVENTS
+    ============================== */
+
+    function displayEvents() {
+
+      const grid =
+        document.getElementById("eventsGrid");
+
+
+      let events =
+        getEvents();
+
+
+      /*
+        Sort by date.
+        Earlier upcoming dates appear first.
+      */
+
+      events.sort(function(a, b) {
+
+        const dateA =
+          new Date(
+            (a.date || "9999-12-31") +
+            "T00:00:00"
+          );
+
+        const dateB =
+          new Date(
+            (b.date || "9999-12-31") +
+            "T00:00:00"
+          );
+
+        return dateA - dateB;
+
+      });
+
+
+      if (events.length === 0) {
+
+        grid.innerHTML = `
+
+          <div class="empty">
+
+            <div class="empty-icon">
+              📅
+            </div>
+
+            <h3>
+              No Events Yet
+            </h3>
+
+            <p>
+              There are currently no events published.
+              Please check back for upcoming activities
+              and programmes.
+            </p>
+
+          </div>
+
+        `;
+
+        return;
+
+      }
+
+
+      grid.innerHTML =
+        events.map(function(event) {
+
+
+          /* ==========================
+             FORMAT DATE
+          ========================== */
+
+          let formattedDate =
+            "Date not available";
+
+
+          if (event.date) {
+
+            const date =
+              new Date(
+                event.date + "T00:00:00"
+              );
+
+
+            if (!isNaN(date.getTime())) {
+
+              formattedDate =
+                date.toLocaleDateString(
+                  undefined,
+                  {
+                    weekday: "long",
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric"
+                  }
+                );
+
+            }
+
+          }
+
+
+          /* ==========================
+             IMAGE
+          ========================== */
+
+          const imageHTML =
+            event.image
+
+              ? `
+                <img
+                  src="${event.image}"
+                  alt="${escapeHTML(event.title)}"
+                  class="event-image"
+                  loading="lazy"
+                >
+              `
+
+              : `
+                <div class="no-image">
+                  📅
+                </div>
+              `;
+
+
+          /* ==========================
+             RETURN CARD
+          ========================== */
+
+          return `
+
+            <article class="event-card">
+
+              ${imageHTML}
+
+
+              <div class="event-body">
+
+                <h3 class="event-title">
+                  ${escapeHTML(event.title)}
+                </h3>
+
+
+                <div class="event-info">
+
+                  <div>
+                    <strong>📅 Date:</strong>
+                    ${escapeHTML(formattedDate)}
+                  </div>
+
+
+                  ${
+                    event.time
+                      ? `
+                        <div>
+                          <strong>🕐 Time:</strong>
+                          ${escapeHTML(event.time)}
+                        </div>
+                      `
+                      : ""
+                  }
+
+
+                  <div>
+                    <strong>📍 Location:</strong>
+                    ${escapeHTML(event.location)}
+                  </div>
+
+                </div>
+
+
+                <div class="event-description">
+                  ${escapeHTML(event.description)}
+                </div>
+
+              </div>
+
+            </article>
+
+          `;
+
+        })
+        .join("");
+
+    }
+
+
+    /* ==============================
+       MOBILE MENU
+    ============================== */
+
+    function toggleMenu() {
+
+      document
+        .getElementById("navMenu")
+        .classList.toggle("active");
+
+    }
+
+
+    /* ==============================
+       YEAR
+    ============================== */
+
+    document
+      .getElementById("year")
+      .textContent =
       new Date().getFullYear();
+
+
+    /* ==============================
+       INITIAL LOAD
+    ============================== */
+
+    displayEvents();
+
+
+    /* ==============================
+       AUTO REFRESH
+    ============================== */
+
+    setInterval(function() {
+
+      displayEvents();
+
+    }, 3000);
+
   </script>
 
 </body>
