@@ -6,28 +6,22 @@
 
   <title>Admin Dashboard | SOBOBO NATION</title>
 
-  <meta
-    name="description"
-    content="SOBOBO NATION administration dashboard."
-  >
-
   <meta name="theme-color" content="#087f23">
 
   <style>
     * {
       box-sizing: border-box;
-    }
-
-    html,
-    body {
       margin: 0;
       padding: 0;
+    }
+
+    body {
       font-family: Arial, Helvetica, sans-serif;
-      background: #f5fff7;
+      background: #f4fff6;
       color: #222;
     }
 
-    /* TOP BAR */
+    /* HEADER */
 
     .topbar {
       height: 65px;
@@ -37,30 +31,29 @@
       align-items: center;
       justify-content: space-between;
       padding: 0 25px;
-      position: sticky;
+      position: fixed;
       top: 0;
+      left: 0;
+      right: 0;
       z-index: 1000;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     }
 
     .brand {
       font-size: 21px;
       font-weight: bold;
-      letter-spacing: 1px;
     }
 
     .brand span {
       display: block;
       font-size: 10px;
       letter-spacing: 1px;
-      margin-top: 3px;
-      opacity: 0.9;
+      opacity: .9;
     }
 
     .logout-btn {
+      border: none;
       background: white;
       color: #087f23;
-      border: none;
       padding: 9px 15px;
       border-radius: 6px;
       font-weight: bold;
@@ -68,85 +61,53 @@
     }
 
     .logout-btn:hover {
-      background: #eaffef;
-    }
-
-    /* LAYOUT */
-
-    .layout {
-      display: flex;
-      min-height: calc(100vh - 65px);
+      background: #eaffee;
     }
 
     /* SIDEBAR */
 
     .sidebar {
       width: 245px;
-      background: #066b1d;
+      background: #063f13;
       color: white;
-      padding: 25px 15px;
-      flex-shrink: 0;
+      position: fixed;
+      top: 65px;
+      bottom: 0;
+      left: 0;
+      padding: 20px 12px;
+      overflow-y: auto;
+      z-index: 900;
     }
 
-    .admin-profile {
-      text-align: center;
-      padding-bottom: 25px;
-      border-bottom: 1px solid rgba(255,255,255,0.2);
-      margin-bottom: 20px;
-    }
-
-    .admin-icon {
-      width: 65px;
-      height: 65px;
-      border-radius: 50%;
-      background: white;
-      color: #087f23;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: auto;
-      font-size: 28px;
-    }
-
-    .admin-profile h3 {
-      margin: 12px 0 4px;
-      font-size: 16px;
-    }
-
-    .admin-profile p {
-      margin: 0;
+    .sidebar-title {
+      color: #8df09e;
       font-size: 12px;
-      opacity: 0.8;
+      font-weight: bold;
+      margin: 5px 12px 15px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
-    .side-link {
-      width: 100%;
+    .sidebar a {
       display: block;
-      padding: 13px 15px;
-      margin-bottom: 6px;
       color: white;
       text-decoration: none;
+      padding: 13px 14px;
+      margin-bottom: 5px;
       border-radius: 6px;
       font-size: 14px;
-      cursor: pointer;
     }
 
-    .side-link:hover,
-    .side-link.active {
-      background: rgba(255,255,255,0.15);
+    .sidebar a:hover,
+    .sidebar a.active {
+      background: #087f23;
     }
 
-    .side-link span {
-      display: inline-block;
-      width: 28px;
-    }
+    /* MAIN */
 
-    /* CONTENT */
-
-    .content {
-      flex: 1;
-      padding: 30px;
-      min-width: 0;
+    .main {
+      margin-left: 245px;
+      padding: 95px 30px 40px;
     }
 
     .welcome {
@@ -154,17 +115,16 @@
     }
 
     .welcome h1 {
-      margin: 0;
       color: #087f23;
-      font-size: 28px;
+      font-size: 30px;
+      margin-bottom: 5px;
     }
 
     .welcome p {
-      margin: 7px 0 0;
       color: #666;
     }
 
-    /* STAT CARDS */
+    /* STATS */
 
     .stats {
       display: grid;
@@ -175,38 +135,43 @@
 
     .stat-card {
       background: white;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      border-radius: 12px;
+      padding: 22px;
+      box-shadow: 0 4px 15px rgba(0,0,0,.07);
       border-left: 5px solid #087f23;
     }
 
     .stat-icon {
-      font-size: 27px;
-      margin-bottom: 10px;
+      font-size: 28px;
+      margin-bottom: 8px;
     }
 
     .stat-card h3 {
-      margin: 0;
-      font-size: 27px;
+      color: #777;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .stat-number {
       color: #087f23;
+      font-size: 34px;
+      font-weight: bold;
     }
 
-    .stat-card p {
-      margin: 5px 0 0;
-      color: #666;
-      font-size: 13px;
+    .stat-card small {
+      display: block;
+      color: #888;
+      margin-top: 6px;
+      font-size: 11px;
     }
 
-    /* SECTION */
+    /* MANAGEMENT */
 
     .section-title {
-      margin: 0 0 15px;
       color: #087f23;
-      font-size: 20px;
+      margin-bottom: 15px;
+      font-size: 22px;
     }
-
-    /* MANAGEMENT CARDS */
 
     .management-grid {
       display: grid;
@@ -216,42 +181,25 @@
 
     .management-card {
       background: white;
-      padding: 25px;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-      transition: transform 0.2s, box-shadow 0.2s;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,.07);
     }
 
-    .management-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 5px 16px rgba(0,0,0,0.12);
-    }
-
-    .management-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 9px;
-      background: #eaffef;
-      color: #087f23;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 25px;
-      margin-bottom: 15px;
+    .management-card .icon {
+      font-size: 35px;
+      margin-bottom: 10px;
     }
 
     .management-card h3 {
-      margin: 0 0 7px;
-      color: #333;
-      font-size: 17px;
+      color: #087f23;
+      margin-bottom: 7px;
     }
 
     .management-card p {
       color: #666;
-      font-size: 13px;
-      line-height: 1.5;
-      min-height: 40px;
-      margin-bottom: 18px;
+      font-size: 14px;
+      margin-bottom: 17px;
     }
 
     .manage-btn {
@@ -259,51 +207,45 @@
       background: #087f23;
       color: white;
       text-decoration: none;
-      padding: 9px 13px;
-      border-radius: 5px;
+      padding: 10px 15px;
+      border-radius: 6px;
       font-size: 13px;
       font-weight: bold;
-      border: none;
-      cursor: pointer;
     }
 
     .manage-btn:hover {
       background: #066b1d;
     }
 
+    .disabled-btn {
+      background: #999;
+      cursor: default;
+    }
+
     /* NOTICE */
 
     .notice {
-      background: white;
-      border-left: 5px solid #087f23;
-      padding: 18px;
-      margin-top: 28px;
-      border-radius: 7px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-
-    .notice strong {
-      color: #087f23;
-    }
-
-    .notice p {
-      margin: 7px 0 0;
-      color: #666;
+      background: #fffbea;
+      border: 1px solid #f0d77a;
+      color: #725b00;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 25px;
       font-size: 13px;
       line-height: 1.6;
     }
 
-    /* MOBILE MENU */
+    /* MOBILE BUTTON */
 
     .mobile-menu {
       display: none;
-      background: #066b1d;
-      color: white;
       border: none;
-      padding: 10px 13px;
+      background: white;
+      color: #087f23;
+      font-size: 24px;
+      padding: 5px 10px;
       border-radius: 5px;
       cursor: pointer;
-      font-size: 18px;
     }
 
     /* MOBILE */
@@ -317,10 +259,27 @@
       .management-grid {
         grid-template-columns: repeat(2, 1fr);
       }
-
     }
 
-    @media (max-width: 700px) {
+    @media (max-width: 750px) {
+
+      .mobile-menu {
+        display: block;
+      }
+
+      .sidebar {
+        transform: translateX(-100%);
+        transition: .3s;
+      }
+
+      .sidebar.active {
+        transform: translateX(0);
+      }
+
+      .main {
+        margin-left: 0;
+        padding: 90px 18px 30px;
+      }
 
       .topbar {
         padding: 0 15px;
@@ -329,36 +288,12 @@
       .brand {
         font-size: 17px;
       }
+    }
 
-      .brand span {
-        font-size: 8px;
-      }
-
-      .layout {
-        display: block;
-      }
-
-      .sidebar {
-        display: none;
-        width: 100%;
-        padding: 15px;
-      }
-
-      .sidebar.active {
-        display: block;
-      }
-
-      .mobile-menu {
-        display: block;
-      }
-
-      .content {
-        padding: 20px 15px;
-      }
+    @media (max-width: 550px) {
 
       .stats {
-        grid-template-columns: 1fr 1fr;
-        gap: 12px;
+        grid-template-columns: 1fr;
       }
 
       .management-grid {
@@ -366,22 +301,12 @@
       }
 
       .welcome h1 {
-        font-size: 23px;
+        font-size: 25px;
       }
 
-      .logout-btn {
-        padding: 8px 10px;
-        font-size: 12px;
+      .stat-number {
+        font-size: 30px;
       }
-
-    }
-
-    @media (max-width: 420px) {
-
-      .stats {
-        grid-template-columns: 1fr;
-      }
-
     }
   </style>
 </head>
@@ -392,12 +317,7 @@
 
   <header class="topbar">
 
-    <div class="brand">
-      SOBOBO NATION
-      <span>ADMINISTRATION PANEL</span>
-    </div>
-
-    <div style="display:flex; align-items:center; gap:10px;">
+    <div style="display:flex; align-items:center; gap:12px;">
 
       <button
         class="mobile-menu"
@@ -406,598 +326,348 @@
         ☰
       </button>
 
-      <button
-        class="logout-btn"
-        onclick="logout()"
-      >
-        Logout
-      </button>
+      <div class="brand">
+        SOBOBO NATION
+        <span>ADMIN DASHBOARD</span>
+      </div>
 
     </div>
+
+    <button
+      class="logout-btn"
+      onclick="logout()"
+    >
+      Logout
+    </button>
 
   </header>
 
 
-  <div class="layout">
+  <!-- SIDEBAR -->
 
-    <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
 
-    <aside
-      class="sidebar"
-      id="sidebar"
+    <div class="sidebar-title">
+      Administration
+    </div>
+
+    <a
+      href="admin.html"
+      class="active"
     >
+      🏠 Dashboard
+    </a>
 
-      <div class="admin-profile">
+    <a href="admin-news.html">
+      📰 News Management
+    </a>
 
-        <div class="admin-icon">
-          👤
+    <a href="news.html">
+      🌐 View News Page
+    </a>
+
+    <a href="events.html">
+      📅 Events
+    </a>
+
+    <a href="gallery.html">
+      🖼️ Gallery
+    </a>
+
+    <a href="membership.html">
+      👥 Membership
+    </a>
+
+    <a href="volunteer.html">
+      🤝 Volunteers
+    </a>
+
+    <a href="contact.html">
+      📩 Contact
+    </a>
+
+    <a href="index.html">
+      🌐 Visit Website
+    </a>
+
+  </aside>
+
+
+  <!-- MAIN -->
+
+  <main class="main">
+
+    <section class="welcome">
+
+      <h1>Welcome to the Admin Dashboard</h1>
+
+      <p>
+        Manage SOBOBO NATION website content and monitor saved records.
+      </p>
+
+    </section>
+
+
+    <!-- STATISTICS -->
+
+    <section class="stats">
+
+      <!-- NEWS -->
+
+      <div class="stat-card">
+
+        <div class="stat-icon">📰</div>
+
+        <h3>Published News</h3>
+
+        <div
+          class="stat-number"
+          id="newsCount"
+        >
+          0
         </div>
 
-        <h3>Administrator</h3>
-
-        <p>SOBOBO NATION</p>
+        <small>
+          Saved news stories
+        </small>
 
       </div>
 
 
-      <a
-        href="#dashboard"
-        class="side-link active"
-        onclick="showSection('dashboard')"
-      >
-        <span>📊</span>
-        Dashboard
-      </a>
-
-      <a
-        href="#news"
-        class="side-link"
-        onclick="showSection('news')"
-      >
-        <span>📰</span>
-        News
-      </a>
-
-      <a
-        href="#events"
-        class="side-link"
-        onclick="showSection('events')"
-      >
-        <span>📅</span>
-        Events
-      </a>
-
-      <a
-        href="#gallery"
-        class="side-link"
-        onclick="showSection('gallery')"
-      >
-        <span>🖼️</span>
-        Gallery
-      </a>
-
-      <a
-        href="#membership"
-        class="side-link"
-        onclick="showSection('membership')"
-      >
-        <span>👥</span>
-        Membership
-      </a>
-
-      <a
-        href="#volunteers"
-        class="side-link"
-        onclick="showSection('volunteers')"
-      >
-        <span>🤝</span>
-        Volunteers
-      </a>
-
-      <a
-        href="#settings"
-        class="side-link"
-        onclick="showSection('settings')"
-      >
-        <span>⚙️</span>
-        Settings
-      </a>
-
-      <a
-        href="index.html"
-        class="side-link"
-      >
-        <span>🌐</span>
-        View Website
-      </a>
-
-    </aside>
-
-
-    <!-- MAIN CONTENT -->
-
-    <main class="content">
-
-      <!-- DASHBOARD -->
-
-      <section id="dashboardSection">
-
-        <div class="welcome">
-
-          <h1>
-            Welcome, Administrator
-          </h1>
-
-          <p>
-            Manage SOBOBO NATION website activities from one place.
-          </p>
-
-        </div>
-
-
-        <!-- STATISTICS -->
-
-        <div class="stats">
-
-          <div class="stat-card">
-
-            <div class="stat-icon">
-              📰
-            </div>
-
-            <h3>0</h3>
-
-            <p>
-              Published News
-            </p>
-
-          </div>
-
-
-          <div class="stat-card">
-
-            <div class="stat-icon">
-              📅
-            </div>
-
-            <h3>0</h3>
-
-            <p>
-              Events
-            </p>
-
-          </div>
-
-
-          <div class="stat-card">
-
-            <div class="stat-icon">
-              👥
-            </div>
-
-            <h3>0</h3>
-
-            <p>
-              Members
-            </p>
-
-          </div>
-
-
-          <div class="stat-card">
-
-            <div class="stat-icon">
-              🤝
-            </div>
-
-            <h3>0</h3>
-
-            <p>
-              Volunteers
-            </p>
-
-          </div>
-
-        </div>
-
-
-        <!-- MANAGEMENT -->
-
-        <h2 class="section-title">
-          Website Management
-        </h2>
-
-
-        <div class="management-grid">
-
-          <!-- NEWS -->
-
-          <div class="management-card">
-
-            <div class="management-icon">
-              📰
-            </div>
-
-            <h3>
-              News Management
-            </h3>
-
-            <p>
-              Add, edit and manage SOBOBO NATION news and updates.
-            </p>
-
-            <button
-              class="manage-btn"
-              onclick="showSection('news')"
-            >
-              Manage News
-            </button>
-
-          </div>
-
-
-          <!-- EVENTS -->
-
-          <div class="management-card">
-
-            <div class="management-icon">
-              📅
-            </div>
-
-            <h3>
-              Events
-            </h3>
-
-            <p>
-              Create and manage upcoming events and activities.
-            </p>
-
-            <button
-              class="manage-btn"
-              onclick="showSection('events')"
-            >
-              Manage Events
-            </button>
-
-          </div>
-
-
-          <!-- GALLERY -->
-
-          <div class="management-card">
-
-            <div class="management-icon">
-              🖼️
-            </div>
-
-            <h3>
-              Gallery
-            </h3>
-
-            <p>
-              Manage photographs and community activity images.
-            </p>
-
-            <button
-              class="manage-btn"
-              onclick="showSection('gallery')"
-            >
-              Manage Gallery
-            </button>
-
-          </div>
-
-
-          <!-- MEMBERSHIP -->
-
-          <div class="management-card">
-
-            <div class="management-icon">
-              👥
-            </div>
-
-            <h3>
-              Membership
-            </h3>
-
-            <p>
-              View and manage membership registrations.
-            </p>
-
-            <button
-              class="manage-btn"
-              onclick="showSection('membership')"
-            >
-              View Members
-            </button>
-
-          </div>
-
-
-          <!-- VOLUNTEERS -->
-
-          <div class="management-card">
-
-            <div class="management-icon">
-              🤝
-            </div>
-
-            <h3>
-              Volunteers
-            </h3>
-
-            <p>
-              View volunteer applications and participation.
-            </p>
-
-            <button
-              class="manage-btn"
-              onclick="showSection('volunteers')"
-            >
-              View Volunteers
-            </button>
-
-          </div>
-
-
-          <!-- SETTINGS -->
-
-          <div class="management-card">
-
-            <div class="management-icon">
-              ⚙️
-            </div>
-
-            <h3>
-              Site Settings
-            </h3>
-
-            <p>
-              Manage administrator and website settings.
-            </p>
-
-            <button
-              class="manage-btn"
-              onclick="showSection('settings')"
-            >
-              Open Settings
-            </button>
-
-          </div>
-
-        </div>
-
-
-        <div class="notice">
-
-          <strong>
-            Dashboard Status
-          </strong>
-
-          <p>
-            The administration interface is ready.
-            News, events, gallery, membership and volunteer
-            data will be connected to a secure database in the
-            next development stage.
-          </p>
-
-        </div>
-
-      </section>
-
-
-      <!-- NEWS -->
-
-      <section
-        id="newsSection"
-        style="display:none;"
-      >
-
-        <h1 class="section-title">
-          📰 News Management
-        </h1>
-
-        <div class="notice">
-
-          <strong>
-            News Management
-          </strong>
-
-          <p>
-            This section will allow the administrator to
-            publish news, upload images, edit existing stories,
-            delete stories and control what appears on the
-            public News page.
-          </p>
-
-          <br>
-
-          <button
-            class="manage-btn"
-            onclick="comingSoon('News Management')"
-          >
-            + Add New News
-          </button>
-
-        </div>
-
-      </section>
-
-
       <!-- EVENTS -->
 
-      <section
-        id="eventsSection"
-        style="display:none;"
-      >
+      <div class="stat-card">
 
-        <h1 class="section-title">
-          📅 Events Management
-        </h1>
+        <div class="stat-icon">📅</div>
 
-        <div class="notice">
+        <h3>Events</h3>
 
-          <strong>
-            Events Management
-          </strong>
-
-          <p>
-            Create, edit and manage SOBOBO NATION events
-            and activities from this section.
-          </p>
-
-          <br>
-
-          <button
-            class="manage-btn"
-            onclick="comingSoon('Events Management')"
-          >
-            + Add New Event
-          </button>
-
+        <div
+          class="stat-number"
+          id="eventsCount"
+        >
+          0
         </div>
 
-      </section>
+        <small>
+          Saved events
+        </small>
+
+      </div>
 
 
-      <!-- GALLERY -->
+      <!-- MEMBERS -->
 
-      <section
-        id="gallerySection"
-        style="display:none;"
-      >
+      <div class="stat-card">
 
-        <h1 class="section-title">
-          🖼️ Gallery Management
-        </h1>
+        <div class="stat-icon">👥</div>
 
-        <div class="notice">
+        <h3>Members</h3>
 
-          <strong>
-            Gallery Management
-          </strong>
-
-          <p>
-            Upload and manage SOBOBO NATION photographs
-            and community activity images.
-          </p>
-
-          <br>
-
-          <button
-            class="manage-btn"
-            onclick="comingSoon('Gallery Management')"
-          >
-            + Add Image
-          </button>
-
+        <div
+          class="stat-number"
+          id="membersCount"
+        >
+          0
         </div>
 
-      </section>
+        <small>
+          Saved membership applications
+        </small>
 
-
-      <!-- MEMBERSHIP -->
-
-      <section
-        id="membershipSection"
-        style="display:none;"
-      >
-
-        <h1 class="section-title">
-          👥 Membership
-        </h1>
-
-        <div class="notice">
-
-          <strong>
-            Membership Registrations
-          </strong>
-
-          <p>
-            Membership registrations submitted through the
-            public website will appear here after the database
-            connection is completed.
-          </p>
-
-        </div>
-
-      </section>
+      </div>
 
 
       <!-- VOLUNTEERS -->
 
-      <section
-        id="volunteersSection"
-        style="display:none;"
-      >
+      <div class="stat-card">
 
-        <h1 class="section-title">
-          🤝 Volunteers
-        </h1>
+        <div class="stat-icon">🤝</div>
 
-        <div class="notice">
+        <h3>Volunteers</h3>
 
-          <strong>
-            Volunteer Applications
-          </strong>
-
-          <p>
-            Volunteer applications submitted through the
-            website will be displayed here after the database
-            connection is completed.
-          </p>
-
+        <div
+          class="stat-number"
+          id="volunteersCount"
+        >
+          0
         </div>
 
-      </section>
+        <small>
+          Saved volunteer applications
+        </small>
+
+      </div>
+
+    </section>
 
 
-      <!-- SETTINGS -->
+    <!-- MANAGEMENT -->
 
-      <section
-        id="settingsSection"
-        style="display:none;"
-      >
+    <h2 class="section-title">
+      Website Management
+    </h2>
 
-        <h1 class="section-title">
-          ⚙️ Site Settings
-        </h1>
 
-        <div class="notice">
+    <section class="management-grid">
 
-          <strong>
-            Administrator Settings
-          </strong>
+      <!-- NEWS -->
 
-          <p>
-            Website settings, administrator accounts,
-            authentication and other controls will be
-            configured here.
-          </p>
+      <div class="management-card">
 
-          <br>
+        <div class="icon">📰</div>
 
-          <button
-            class="manage-btn"
-            onclick="comingSoon('Site Settings')"
-          >
-            Manage Settings
-          </button>
+        <h3>News Management</h3>
 
-        </div>
+        <p>
+          Publish, edit, search and delete SOBOBO NATION news stories.
+        </p>
 
-      </section>
+        <a
+          href="admin-news.html"
+          class="manage-btn"
+        >
+          Manage News
+        </a>
 
-    </main>
+      </div>
 
-  </div>
+
+      <!-- EVENTS -->
+
+      <div class="management-card">
+
+        <div class="icon">📅</div>
+
+        <h3>Events</h3>
+
+        <p>
+          Manage upcoming events and activities.
+        </p>
+
+        <a
+          href="events.html"
+          class="manage-btn"
+        >
+          View Events
+        </a>
+
+      </div>
+
+
+      <!-- GALLERY -->
+
+      <div class="management-card">
+
+        <div class="icon">🖼️</div>
+
+        <h3>Gallery</h3>
+
+        <p>
+          View and manage SOBOBO NATION photos.
+        </p>
+
+        <a
+          href="gallery.html"
+          class="manage-btn"
+        >
+          Open Gallery
+        </a>
+
+      </div>
+
+
+      <!-- MEMBERS -->
+
+      <div class="management-card">
+
+        <div class="icon">👥</div>
+
+        <h3>Membership</h3>
+
+        <p>
+          View the membership registration page and applications.
+        </p>
+
+        <a
+          href="membership.html"
+          class="manage-btn"
+        >
+          Membership
+        </a>
+
+      </div>
+
+
+      <!-- VOLUNTEERS -->
+
+      <div class="management-card">
+
+        <div class="icon">🤝</div>
+
+        <h3>Volunteers</h3>
+
+        <p>
+          View the volunteer registration system and applications.
+        </p>
+
+        <a
+          href="volunteer.html"
+          class="manage-btn"
+        >
+          Volunteers
+        </a>
+
+      </div>
+
+
+      <!-- WEBSITE -->
+
+      <div class="management-card">
+
+        <div class="icon">🌐</div>
+
+        <h3>Website</h3>
+
+        <p>
+          Open the public SOBOBO NATION website.
+        </p>
+
+        <a
+          href="index.html"
+          class="manage-btn"
+        >
+          Visit Website
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- NOTICE -->
+
+    <div class="notice">
+
+      <strong>Important:</strong>
+
+      This dashboard currently uses browser localStorage because
+      Supabase has not been connected yet.
+
+      News, membership and volunteer records are stored on the
+      device/browser where they are submitted.
+
+      A future Supabase connection can make these records available
+      securely across different devices.
+
+    </div>
+
+  </main>
 
 
   <script>
 
-    /* ==============================
-       LOGIN PROTECTION
-       ============================== */
+    /* LOGIN PROTECTION */
 
     const loggedIn =
       sessionStorage.getItem("soboboAdminLoggedIn");
@@ -1010,74 +680,104 @@
     }
 
 
-    /* ==============================
-       SECTION SWITCHING
-       ============================== */
+    /*
+      STORAGE KEYS
+    */
 
-    function showSection(section) {
+    const NEWS_KEY =
+      "soboboNationNews";
 
-      const sections = [
-        "dashboard",
-        "news",
-        "events",
-        "gallery",
-        "membership",
-        "volunteers",
-        "settings"
-      ];
+    const MEMBERS_KEY =
+      "soboboNationMembers";
 
-      sections.forEach(function(item) {
+    const VOLUNTEERS_KEY =
+      "soboboNationVolunteers";
 
-        const element =
-          document.getElementById(item + "Section");
+    const EVENTS_KEY =
+      "soboboNationEvents";
 
-        if (element) {
 
-          element.style.display =
-            item === section ? "block" : "none";
+    /*
+      SAFELY COUNT RECORDS
+    */
 
+    function getCount(key) {
+
+      try {
+
+        const saved =
+          localStorage.getItem(key);
+
+        if (!saved) {
+          return 0;
         }
 
-      });
+        const records =
+          JSON.parse(saved);
 
+        if (Array.isArray(records)) {
+          return records.length;
+        }
 
-      document.querySelectorAll(".side-link")
-        .forEach(function(link) {
+        return 0;
 
-          link.classList.remove("active");
+      } catch (error) {
 
-        });
-
-
-      const activeLink =
-        document.querySelector(
-          '.side-link[href="#' + section + '"]'
+        console.error(
+          "Unable to read:",
+          key,
+          error
         );
 
-      if (activeLink) {
-
-        activeLink.classList.add("active");
-
+        return 0;
       }
+    }
 
 
-      /* Close mobile sidebar */
+    /*
+      UPDATE DASHBOARD NUMBERS
+    */
 
-      document
-        .getElementById("sidebar")
-        .classList.remove("active");
+    function updateDashboardStats() {
 
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
+      const news =
+        getCount(NEWS_KEY);
+
+      const members =
+        getCount(MEMBERS_KEY);
+
+      const volunteers =
+        getCount(VOLUNTEERS_KEY);
+
+      const events =
+        getCount(EVENTS_KEY);
+
+
+      document.getElementById(
+        "newsCount"
+      ).textContent = news;
+
+
+      document.getElementById(
+        "membersCount"
+      ).textContent = members;
+
+
+      document.getElementById(
+        "volunteersCount"
+      ).textContent = volunteers;
+
+
+      document.getElementById(
+        "eventsCount"
+      ).textContent = events;
 
     }
 
 
-    /* ==============================
-       MOBILE SIDEBAR
-       ============================== */
+    /*
+      MOBILE SIDEBAR
+    */
 
     function toggleSidebar() {
 
@@ -1088,9 +788,9 @@
     }
 
 
-    /* ==============================
-       LOGOUT
-       ============================== */
+    /*
+      LOGOUT
+    */
 
     function logout() {
 
@@ -1104,18 +804,21 @@
     }
 
 
-    /* ==============================
-       COMING SOON
-       ============================== */
+    /*
+      LOAD COUNTS
+    */
 
-    function comingSoon(name) {
+    updateDashboardStats();
 
-      alert(
-        name +
-        " will be connected to the database in the next stage."
-      );
 
-    }
+    /*
+      REFRESH COUNTS EVERY 3 SECONDS
+    */
+
+    setInterval(
+      updateDashboardStats,
+      3000
+    );
 
   </script>
 
