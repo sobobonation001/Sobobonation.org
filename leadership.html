@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Leadership | SOBOBO NATION</title>
+  <title>Leadership | Chief Dr. Uloko OJIJI | SOBOBO NATION</title>
 
   <meta
     name="description"
-    content="Meet the leadership of SOBOBO NATION, led by Chief Dr. Uloko OJIJI, Founder and CEO."
+    content="Profile of Chief Dr. Uloko OJIJI, Founder and Chief Executive Officer of SOBOBO NATION."
   >
 
   <meta name="theme-color" content="#087f23">
@@ -24,36 +24,31 @@
       font-family: Arial, Helvetica, sans-serif;
       background: #f5fff7;
       color: #222;
-      line-height: 1.6;
+      line-height: 1.8;
     }
 
     /* TOP BAR */
-    .topbar {
-      background: #087f23;
+    .top-bar {
+      background: #066b1d;
       color: white;
       text-align: center;
-      padding: 8px 12px;
-      font-size: 13px;
+      padding: 8px 10px;
+      font-size: 14px;
       font-weight: bold;
+      letter-spacing: 1px;
     }
 
     /* HEADER */
     header {
       background: white;
-      border-bottom: 1px solid #ddd;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .header-inner {
-      max-width: 1200px;
-      margin: auto;
       padding: 15px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
 
     .logo-area {
@@ -69,276 +64,322 @@
     }
 
     .tagline {
-      color: #666;
       font-size: 11px;
+      color: #555;
       font-weight: bold;
       letter-spacing: 1px;
     }
 
-    /* NAVIGATION */
     nav {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 4px;
     }
 
     nav a {
       text-decoration: none;
       color: #222;
-      font-size: 13px;
       font-weight: bold;
-      white-space: nowrap;
+      font-size: 13px;
+      padding: 9px 8px;
+      border-radius: 5px;
     }
 
     nav a:hover {
-      color: #087f23;
+      background: #087f23;
+      color: white;
     }
 
-    .admin-link {
-      color: #087f23 !important;
-      border: 1px solid #087f23;
-      padding: 7px 10px;
-      border-radius: 6px;
+    nav a.admin-link {
+      background: #087f23;
+      color: white;
     }
 
     .menu-btn {
       display: none;
-      border: none;
       background: #087f23;
       color: white;
-      font-size: 24px;
-      padding: 6px 11px;
-      border-radius: 6px;
+      border: none;
+      font-size: 25px;
+      padding: 5px 11px;
+      border-radius: 5px;
       cursor: pointer;
     }
 
     /* TICKER */
     .ticker {
-      overflow: hidden;
-      background: #066b1d;
+      background: #087f23;
       color: white;
+      overflow: hidden;
       white-space: nowrap;
+      padding: 10px 0;
+      font-weight: bold;
     }
 
     .ticker-content {
       display: inline-block;
-      padding: 8px 0;
       padding-left: 100%;
-      animation: tickerMove 18s linear infinite;
-      font-size: 14px;
-      font-weight: bold;
+      animation: moveTicker 18s linear infinite;
     }
 
-    @keyframes tickerMove {
-      from {
+    @keyframes moveTicker {
+      0% {
         transform: translateX(0);
       }
 
-      to {
+      100% {
         transform: translateX(-100%);
       }
     }
 
-    /* PAGE HEADER */
-    .page-header {
+    /* PAGE HERO */
+    .page-hero {
       background:
         linear-gradient(
-          rgba(0, 128, 0, 0.92),
-          rgba(0, 80, 20, 0.92)
-        );
+          rgba(0, 80, 20, 0.90),
+          rgba(8, 127, 35, 0.90)
+        ),
+        url("https://i.ibb.co/wG6jkr1/IMG-20260929-WA0241.jpg");
+
+      background-size: cover;
+      background-position: center;
+
       color: white;
       text-align: center;
-      padding: 60px 20px;
+      padding: 70px 20px;
     }
 
-    .page-header h1 {
-      font-size: 40px;
+    .page-hero h1 {
+      font-size: 42px;
       margin-bottom: 10px;
     }
 
-    .page-header p {
-      max-width: 750px;
-      margin: auto;
-      font-size: 16px;
+    .page-hero p {
+      font-size: 18px;
     }
 
-    /* CONTENT */
-    .container {
-      max-width: 1100px;
+    /* MAIN */
+    main {
+      max-width: 1150px;
       margin: auto;
-      padding: 50px 20px;
+      padding: 45px 20px 70px;
     }
 
-    /* LEADER CARD */
-    .leader-card {
+    /* LEADER PROFILE */
+    .leader-profile {
       background: white;
-      border-radius: 18px;
+      border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.10);
-      display: grid;
-      grid-template-columns: 420px 1fr;
-      margin-bottom: 40px;
+      box-shadow: 0 6px 25px rgba(0,0,0,0.10);
+      margin-bottom: 35px;
     }
 
-    .leader-image {
+    /* PHOTO */
+    .leader-photo {
+      background: #e9f8ed;
+      padding: 30px;
+      text-align: center;
+    }
+
+    .leader-photo img {
       width: 100%;
-      height: 100%;
-      min-height: 480px;
-      object-fit: cover;
+      max-width: 650px;
+      height: auto;
+      max-height: 650px;
+      object-fit: contain;
+      border-radius: 12px;
       display: block;
+      margin: auto;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.15);
     }
 
-    .leader-content {
-      padding: 45px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+    /* PROFILE CONTENT UNDER PHOTO */
+    .profile-content {
+      padding: 40px;
     }
 
-    .leader-content .label {
-      display: inline-block;
-      width: fit-content;
-      background: #e8f7ec;
+    .profile-content > h2:first-child {
       color: #087f23;
-      padding: 7px 13px;
-      border-radius: 30px;
-      font-size: 13px;
-      font-weight: bold;
-      margin-bottom: 15px;
-    }
-
-    .leader-content h2 {
-      color: #087f23;
-      font-size: 30px;
+      font-size: 34px;
       margin-bottom: 5px;
     }
 
-    .leader-content h3 {
-      color: #555;
+    .profile-content .position {
+      color: #066b1d;
+      font-size: 21px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .profile-content .subtitle {
+      color: #777;
       font-size: 17px;
-      margin-bottom: 20px;
+      font-style: italic;
+      margin-bottom: 25px;
     }
 
-    .leader-content p {
-      color: #444;
+    /* SECTIONS */
+    .profile-section {
+      margin-top: 32px;
+      padding-top: 25px;
+      border-top: 1px solid #dfeee3;
+    }
+
+    .profile-section h2 {
+      color: #087f23;
+      font-size: 27px;
+      margin-bottom: 14px;
+    }
+
+    .profile-section p {
       margin-bottom: 15px;
-      font-size: 15px;
     }
 
-    /* LEADERSHIP VALUES */
-    .section-title {
-      text-align: center;
-      margin: 20px 0 30px;
+    /* PHILOSOPHY */
+    .philosophy {
+      background: #e9f8ed;
+      border-left: 6px solid #087f23;
+      padding: 25px;
+      border-radius: 10px;
+      margin: 20px 0;
     }
 
-    .section-title h2 {
+    .philosophy strong {
+      color: #066b1d;
+    }
+
+    .philosophy .quote {
+      font-size: 23px;
+      font-weight: bold;
       color: #087f23;
-      font-size: 28px;
-      margin-bottom: 8px;
+      text-align: center;
+      margin-top: 15px;
     }
 
-    .section-title p {
-      color: #666;
+    /* PROFILE DETAILS */
+    .official-profile {
+      background: #f5fff7;
+      border: 1px solid #dceee1;
+      border-radius: 12px;
+      padding: 25px;
+      margin-top: 20px;
     }
 
-    .values {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
+    .official-profile h2 {
+      color: #087f23;
+      margin-bottom: 18px;
     }
 
-    .value-card {
-      background: white;
-      padding: 30px 22px;
+    .profile-row {
+      display: flex;
+      gap: 15px;
+      padding: 12px 0;
+      border-bottom: 1px solid #dceee1;
+    }
+
+    .profile-row:last-child {
+      border-bottom: none;
+    }
+
+    .profile-label {
+      min-width: 190px;
+      font-weight: bold;
+      color: #066b1d;
+    }
+
+    .profile-value {
+      flex: 1;
+    }
+
+    /* BIG QUOTE */
+    .main-quote {
+      background: linear-gradient(
+        135deg,
+        #066b1d,
+        #087f23
+      );
+      color: white;
+      text-align: center;
+      padding: 38px 25px;
       border-radius: 14px;
-      box-shadow: 0 5px 18px rgba(0,0,0,0.07);
-      text-align: center;
-      border-top: 4px solid #087f23;
+      margin: 35px 0;
     }
 
-    .value-icon {
-      font-size: 35px;
-      margin-bottom: 12px;
+    .main-quote p {
+      font-size: 28px;
+      font-weight: bold;
     }
 
-    .value-card h3 {
+    /* CONCLUSION */
+    .conclusion {
+      background: white;
+      border-left: 6px solid #087f23;
+      padding: 30px;
+      border-radius: 10px;
+      margin-top: 30px;
+    }
+
+    .conclusion h2 {
       color: #087f23;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
     }
 
-    .value-card p {
-      color: #666;
-      font-size: 14px;
+    /* JOIN BUTTON */
+    .join-area {
+      text-align: center;
+      margin-top: 35px;
     }
 
-    /* CTA */
-    .cta {
-      margin-top: 45px;
+    .join-btn {
+      display: inline-block;
       background: #087f23;
       color: white;
-      padding: 40px 25px;
-      border-radius: 16px;
-      text-align: center;
-    }
-
-    .cta h2 {
-      margin-bottom: 10px;
-      font-size: 28px;
-    }
-
-    .cta p {
-      max-width: 700px;
-      margin: auto auto 20px;
-    }
-
-    .cta a {
-      display: inline-block;
-      background: white;
-      color: #087f23;
       text-decoration: none;
-      padding: 12px 22px;
+      padding: 13px 25px;
       border-radius: 7px;
       font-weight: bold;
     }
 
-    .cta a:hover {
-      background: #eee;
+    .join-btn:hover {
+      background: #066b1d;
     }
 
     /* FOOTER */
     footer {
-      background: #111;
+      background: #000;
       color: white;
       text-align: center;
       padding: 30px 20px;
-      margin-top: 20px;
+    }
+
+    footer h3 {
+      margin-bottom: 8px;
     }
 
     footer p {
-      margin: 5px 0;
+      color: #ccc;
       font-size: 14px;
-    }
-
-    footer strong {
-      color: #3dcc62;
+      margin: 5px 0;
     }
 
     /* MOBILE */
-    @media (max-width: 1050px) {
+    @media (max-width: 1000px) {
+
+      .menu-btn {
+        display: block;
+      }
 
       nav {
         display: none;
         position: absolute;
         top: 100%;
         left: 0;
-        right: 0;
+        width: 100%;
         background: white;
         flex-direction: column;
         align-items: stretch;
-        padding: 15px 20px;
-        box-shadow: 0 8px 15px rgba(0,0,0,0.1);
-        max-height: 80vh;
-        overflow-y: auto;
+        padding: 10px;
+        box-shadow: 0 5px 12px rgba(0,0,0,0.12);
       }
 
       nav.active {
@@ -346,68 +387,77 @@
       }
 
       nav a {
-        padding: 10px 0;
-        border-bottom: 1px solid #eee;
-      }
-
-      .menu-btn {
-        display: block;
-      }
-
-      .leader-card {
-        grid-template-columns: 1fr;
-      }
-
-      .leader-image {
-        height: 450px;
-        min-height: 0;
-      }
-
-      .values {
-        grid-template-columns: 1fr 1fr;
+        width: 100%;
+        padding: 12px;
       }
     }
 
-    @media (max-width: 600px) {
-
-      .header-inner {
-        padding: 13px 15px;
-      }
+    @media (max-width: 650px) {
 
       .logo {
         font-size: 20px;
       }
 
-      .page-header {
-        padding: 42px 15px;
+      .tagline {
+        font-size: 9px;
       }
 
-      .page-header h1 {
+      .page-hero {
+        padding: 55px 15px;
+      }
+
+      .page-hero h1 {
         font-size: 31px;
       }
 
-      .container {
-        padding: 30px 15px;
+      .page-hero p {
+        font-size: 15px;
       }
 
-      .leader-image {
-        height: 360px;
+      main {
+        padding: 30px 12px 50px;
       }
 
-      .leader-content {
-        padding: 28px 22px;
+      .leader-photo {
+        padding: 15px;
       }
 
-      .leader-content h2 {
-        font-size: 25px;
+      .profile-content {
+        padding: 25px 18px;
       }
 
-      .values {
-        grid-template-columns: 1fr;
+      .profile-content > h2:first-child {
+        font-size: 27px;
       }
 
-      .cta {
-        padding: 32px 20px;
+      .profile-content .position {
+        font-size: 18px;
+      }
+
+      .profile-section h2 {
+        font-size: 24px;
+      }
+
+      .philosophy .quote {
+        font-size: 19px;
+      }
+
+      .main-quote p {
+        font-size: 21px;
+      }
+
+      .profile-row {
+        display: block;
+      }
+
+      .profile-label {
+        min-width: 0;
+        display: block;
+        margin-bottom: 4px;
+      }
+
+      .official-profile {
+        padding: 20px 15px;
       }
     }
   </style>
@@ -416,57 +466,51 @@
 <body>
 
   <!-- TOP BAR -->
-  <div class="topbar">
+  <div class="top-bar">
     SOBOBO NATION • UNITY • PROGRESS • COMMUNITY
   </div>
 
   <!-- HEADER -->
   <header>
 
-    <div class="header-inner">
+    <div class="logo-area">
+      <div class="logo">SOBOBO NATION</div>
 
-      <div class="logo-area">
-        <div class="logo">SOBOBO NATION</div>
-        <div class="tagline">
-          UNITY • PROGRESS • COMMUNITY
-        </div>
+      <div class="tagline">
+        UNITY • PROGRESS • COMMUNITY
       </div>
-
-      <button
-        class="menu-btn"
-        onclick="toggleMenu()"
-        aria-label="Open navigation menu"
-      >
-        ☰
-      </button>
-
-      <nav id="navMenu">
-
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="mission.html">Mission</a>
-        <a href="leadership.html">Leadership</a>
-        <a href="programmes.html">Programmes</a>
-        <a href="membership.html">Membership</a>
-        <a href="volunteer.html">Volunteer</a>
-        <a href="news.html">News</a>
-        <a href="events.html">Events</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="video.html">Videos</a>
-        <a href="resources.html">Resources</a>
-        <a href="faq.html">FAQ</a>
-        <a href="contact.html">Contact</a>
-
-        <a
-          href="admin-login.html"
-          class="admin-link"
-        >
-          🔐 Admin Login
-        </a>
-
-      </nav>
-
     </div>
+
+    <button
+      class="menu-btn"
+      onclick="toggleMenu()">
+      ☰
+    </button>
+
+    <nav id="navMenu">
+
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="mission.html">Mission</a>
+      <a href="leadership.html">Leadership</a>
+      <a href="programmes.html">Programmes</a>
+      <a href="membership.html">Membership</a>
+      <a href="volunteer.html">Volunteer</a>
+      <a href="news.html">News</a>
+      <a href="events.html">Events</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="video.html">Videos</a>
+      <a href="resources.html">Resources</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+
+      <a
+        href="admin-login.html"
+        class="admin-link">
+        🔐 Admin Login
+      </a>
+
+    </nav>
 
   </header>
 
@@ -474,171 +518,450 @@
   <div class="ticker">
 
     <div class="ticker-content">
-      Welcome to SOBOBO NATION • Unity • Progress • Community •
-      Stay Connected • Get Involved • Together We Build
+      Welcome to SOBOBO NATION • Unity • Progress • Community • Stay Connected • Get Involved • Together We Build
     </div>
 
   </div>
 
-  <!-- PAGE HEADER -->
-  <section class="page-header">
+  <!-- PAGE HERO -->
+  <section class="page-hero">
 
-    <h1>Our Leadership</h1>
+    <h1>LEADERSHIP</h1>
 
     <p>
-      Meet the leadership guiding SOBOBO NATION
-      towards unity, progress and meaningful
-      community engagement.
+      Vision • Compassion • Service • Humanity
     </p>
 
   </section>
 
-  <!-- MAIN CONTENT -->
-  <main class="container">
+  <!-- MAIN -->
+  <main>
 
-    <!-- FOUNDER -->
-    <section class="leader-card">
+    <article class="leader-profile">
 
-      <img
-        class="leader-image"
-        src="https://i.ibb.co/wG6jkr1/IMG-20260929-WA0241.jpg"
-        alt="Chief Dr. Uloko OJIJI - Founder and CEO of SOBOBO NATION"
-      >
+      <!-- PICTURE -->
+      <div class="leader-photo">
 
-      <div class="leader-content">
+        <img
+          src="https://i.ibb.co/wG6jkr1/IMG-20260929-WA0241.jpg"
+          alt="Chief Dr. Uloko OJIJI - Founder and CEO of SOBOBO NATION"
+        >
 
-        <span class="label">
-          FOUNDER & CEO
-        </span>
+      </div>
+
+      <!-- EVERYTHING BELOW THE PICTURE -->
+      <div class="profile-content">
 
         <h2>
-          Chief Dr. Uloko OJIJI
+          CHIEF DR. ULOKO OJIJI
         </h2>
 
-        <h3>
-          Initiator, Founder & CEO
-        </h3>
-
-        <p>
-          Chief Dr. Uloko OJIJI is the Initiator,
-          Founder and Chief Executive Officer of
-          SOBOBO NATION.
-        </p>
-
-        <p>
-          Through SOBOBO NATION, the organisation
-          promotes unity, progress, community
-          participation and constructive engagement
-          among its members and communities.
-        </p>
-
-        <p>
-          The leadership vision is centred on building
-          stronger communities through cooperation,
-          participation and shared responsibility.
-        </p>
-
-      </div>
-
-    </section>
-
-    <!-- VALUES -->
-    <div class="section-title">
-
-      <h2>Leadership Values</h2>
-
-      <p>
-        Principles that guide the work and activities
-        of SOBOBO NATION.
-      </p>
-
-    </div>
-
-    <section class="values">
-
-      <div class="value-card">
-
-        <div class="value-icon">
-          🤝
+        <div class="position">
+          Founder & Chief Executive Officer, SOBOBO NATION
         </div>
 
-        <h3>Unity</h3>
-
-        <p>
-          Promoting cooperation, togetherness and
-          mutual respect within our communities.
-        </p>
-
-      </div>
-
-      <div class="value-card">
-
-        <div class="value-icon">
-          📈
+        <div class="subtitle">
+          A Life Dedicated to Humanity, Compassion and Community Development
         </div>
 
-        <h3>Progress</h3>
-
         <p>
-          Supporting initiatives that contribute to
-          meaningful social and community development.
+          Chief Dr. Uloko OJIJI is a humanitarian, community-minded
+          leader and the Founder and Chief Executive Officer of
+          <strong>SOBOBO NATION</strong>, a movement and foundation
+          established around the principles of compassion, human
+          dignity, community support and service to humanity.
         </p>
 
-      </div>
+        <p>
+          His vision is rooted in the belief that every human being
+          deserves to be treated with dignity, compassion and respect,
+          regardless of social or economic circumstances. Through
+          SOBOBO NATION, he seeks to create a platform where people
+          can come together to support vulnerable members of society,
+          empower communities and provide hope to individuals and
+          families facing difficult circumstances.
+        </p>
 
-      <div class="value-card">
+        <!-- HIS VISION -->
+        <section class="profile-section">
 
-        <div class="value-icon">
-          🏘️
+          <h2>HIS VISION</h2>
+
+          <p>
+            Chief Dr. Uloko OJIJI's vision extends beyond providing
+            temporary assistance. He believes that meaningful
+            humanitarian service should help people regain confidence,
+            discover opportunities and build better lives.
+          </p>
+
+          <p>
+            His approach places particular emphasis on people who are
+            often overlooked within society, including vulnerable
+            families, children, elderly people, young people in need
+            of opportunities and individuals experiencing hardship.
+          </p>
+
+          <p>
+            Through his leadership, SOBOBO NATION seeks to encourage
+            a culture in which people do not simply wait for government
+            or institutions to solve every social challenge, but also
+            recognise their responsibility to care for one another
+            and contribute positively to their communities.
+          </p>
+
+        </section>
+
+        <!-- BIRTH OF SOBOBO NATION -->
+        <section class="profile-section">
+
+          <h2>THE BIRTH OF SOBOBO NATION</h2>
+
+          <p>
+            SOBOBO NATION was conceived as a platform for people who
+            share a commitment to humanity, compassion and community
+            development.
+          </p>
+
+          <p>
+            The movement brings together individuals who believe that
+            positive change can begin with simple acts of kindness,
+            support and responsibility. Its philosophy is based on
+            the understanding that a society becomes stronger when
+            its people are willing to stand together for those who
+            need help.
+          </p>
+
+          <p>
+            Under the leadership of Chief Dr. Uloko OJIJI,
+            SOBOBO NATION continues to develop as a platform for
+            humanitarian engagement, community participation,
+            empowerment and social support.
+          </p>
+
+        </section>
+
+        <!-- HUMANITARIAN PHILOSOPHY -->
+        <section class="profile-section">
+
+          <h2>HUMANITARIAN PHILOSOPHY</h2>
+
+          <p>
+            At the heart of Chief Dr. Uloko OJIJI's philosophy is
+            a simple principle:
+          </p>
+
+          <div class="philosophy">
+
+            <div class="quote">
+              "No one should be forgotten because they are vulnerable."
+            </div>
+
+          </div>
+
+          <p>
+            He believes that humanitarian service is not merely about
+            giving material assistance. It is also about listening to
+            people, restoring hope, creating opportunities and reminding
+            individuals that their lives and aspirations matter.
+          </p>
+
+          <p>
+            This philosophy informs the work and aspirations of
+            SOBOBO NATION.
+          </p>
+
+        </section>
+
+        <!-- LEADERSHIP -->
+        <section class="profile-section">
+
+          <h2>LEADERSHIP</h2>
+
+          <p>
+            As Founder and CEO, Chief Dr. Uloko OJIJI provides the
+            vision and leadership direction of SOBOBO NATION.
+          </p>
+
+          <p>
+            His leadership philosophy encourages unity, compassion,
+            responsibility and active participation. He seeks to
+            inspire members and supporters of the movement to look
+            beyond individual interests and consider how their actions
+            can contribute to the wellbeing of others.
+          </p>
+
+          <p>
+            He also recognises the importance of young people in
+            building stronger communities and supports the idea of
+            creating opportunities through which young people can
+            develop their abilities and contribute meaningfully to
+            society.
+          </p>
+
+        </section>
+
+        <!-- COMMUNITY DEVELOPMENT -->
+        <section class="profile-section">
+
+          <h2>COMMUNITY DEVELOPMENT</h2>
+
+          <p>
+            Chief Dr. Uloko OJIJI views community development as a
+            shared responsibility.
+          </p>
+
+          <p>
+            For him, development is not measured only by physical
+            infrastructure. It also includes the wellbeing of families,
+            access to opportunities, support for vulnerable people,
+            encouragement of young people and the creation of
+            communities where people can live with dignity and hope.
+          </p>
+
+          <p>
+            Through SOBOBO NATION, his vision is to encourage
+            partnerships and collective action capable of addressing
+            practical social challenges at the grassroots.
+          </p>
+
+        </section>
+
+        <!-- VOICE FOR VULNERABLE -->
+        <section class="profile-section">
+
+          <h2>A VOICE FOR THE VULNERABLE</h2>
+
+          <p>
+            One of the central purposes of SOBOBO NATION is to give
+            greater attention to people whose challenges may otherwise
+            go unnoticed.
+          </p>
+
+          <p>
+            Chief Dr. Uloko OJIJI believes that vulnerable people
+            should not be defined by their circumstances. Instead,
+            they should be given encouragement, support and opportunities
+            that can help them move forward.
+          </p>
+
+          <p>
+            The organisation's humanitarian outlook therefore embraces
+            compassion for families in need, care for elderly people,
+            support for children and assistance for young people seeking
+            opportunities to improve their lives.
+          </p>
+
+        </section>
+
+        <!-- LEGACY -->
+        <section class="profile-section">
+
+          <h2>HIS LEGACY AND ASPIRATION</h2>
+
+          <p>
+            Chief Dr. Uloko OJIJI's broader aspiration is to build a
+            legacy based not only on personal achievement, but on the
+            positive impact made in the lives of other people.
+          </p>
+
+          <p>
+            Through SOBOBO NATION, he seeks to inspire individuals
+            to become agents of positive change and to demonstrate
+            that meaningful community transformation can begin when
+            people choose to care.
+          </p>
+
+          <p>
+            His vision is for SOBOBO NATION to grow into a recognised
+            platform where humanitarian values, community participation,
+            empowerment and service to humanity can flourish.
+          </p>
+
+        </section>
+
+        <!-- MESSAGE -->
+        <section class="profile-section">
+
+          <h2>MESSAGE TO THE PUBLIC</h2>
+
+          <p>
+            Chief Dr. Uloko OJIJI encourages people from different
+            backgrounds to come together in the spirit of humanity.
+          </p>
+
+          <p>
+            He believes that everyone has something to contribute.
+            For some, that contribution may be financial support;
+            for others, it may be their time, skills, knowledge,
+            connections, ideas or simply their willingness to help
+            another person.
+          </p>
+
+          <p>
+            The strength of SOBOBO NATION therefore lies in collective
+            action.
+          </p>
+
+          <div class="main-quote">
+
+            <p>
+              "Together, We Can Make a Difference."
+            </p>
+
+          </div>
+
+          <p>
+            This principle represents the heart of Chief Dr. Uloko
+            OJIJI's vision and the purpose of the SOBOBO NATION movement.
+          </p>
+
+        </section>
+
+        <!-- OFFICIAL PROFILE -->
+        <section class="profile-section">
+
+          <div class="official-profile">
+
+            <h2>OFFICIAL PROFILE</h2>
+
+            <div class="profile-row">
+
+              <div class="profile-label">
+                Name:
+              </div>
+
+              <div class="profile-value">
+                Chief Dr. Uloko OJIJI
+              </div>
+
+            </div>
+
+            <div class="profile-row">
+
+              <div class="profile-label">
+                Position:
+              </div>
+
+              <div class="profile-value">
+                Founder & Chief Executive Officer
+              </div>
+
+            </div>
+
+            <div class="profile-row">
+
+              <div class="profile-label">
+                Organisation:
+              </div>
+
+              <div class="profile-value">
+                SOBOBO NATION
+              </div>
+
+            </div>
+
+            <div class="profile-row">
+
+              <div class="profile-label">
+                Area of Focus:
+              </div>
+
+              <div class="profile-value">
+                Humanitarian Service, Community Support,
+                Empowerment and Social Development
+              </div>
+
+            </div>
+
+            <div class="profile-row">
+
+              <div class="profile-label">
+                Leadership Philosophy:
+              </div>
+
+              <div class="profile-value">
+                Compassion, Unity, Service and Human Dignity
+              </div>
+
+            </div>
+
+            <div class="profile-row">
+
+              <div class="profile-label">
+                Vision:
+              </div>
+
+              <div class="profile-value">
+                Building stronger communities by supporting
+                vulnerable people and creating opportunities for
+                positive change.
+              </div>
+
+            </div>
+
+          </div>
+
+        </section>
+
+        <!-- CONCLUSION -->
+        <section class="conclusion">
+
+          <h2>CONCLUSION</h2>
+
+          <p>
+            Chief Dr. Uloko OJIJI represents a leadership philosophy
+            centred on service, compassion and the belief that people
+            can make a meaningful difference in the lives of others.
+          </p>
+
+          <p>
+            Through SOBOBO NATION, his vision is to create a community
+            of people who are willing to stand together, support those
+            in need and contribute towards a more compassionate and
+            inclusive society.
+          </p>
+
+          <p>
+            His message is simple but powerful:
+            <strong>
+              humanity is strongest when people care for one another.
+            </strong>
+          </p>
+
+        </section>
+
+        <!-- JOIN -->
+        <div class="join-area">
+
+          <a
+            href="membership.html"
+            class="join-btn">
+            🤝 JOIN SOBOBO NATION
+          </a>
+
         </div>
 
-        <h3>Community</h3>
-
-        <p>
-          Encouraging members to participate actively
-          in community activities and development.
-        </p>
-
       </div>
 
-    </section>
-
-    <!-- CTA -->
-    <section class="cta">
-
-      <h2>
-        Be Part of SOBOBO NATION
-      </h2>
-
-      <p>
-        Connect with the organisation, participate
-        in activities and contribute to building
-        stronger communities.
-      </p>
-
-      <a href="membership.html">
-        Become a Member
-      </a>
-
-    </section>
+    </article>
 
   </main>
 
   <!-- FOOTER -->
   <footer>
 
-    <p>
-      <strong>SOBOBO NATION</strong>
-    </p>
+    <h3>SOBOBO NATION</h3>
 
     <p>
       UNITY • PROGRESS • COMMUNITY
     </p>
 
     <p>
-      &copy;
-      <span id="year"></span>
-      SOBOBO NATION. All Rights Reserved.
+      Caring for People. Supporting Communities. Empowering Lives.
+    </p>
+
+    <p>
+      © <span id="year"></span> SOBOBO NATION. All Rights Reserved.
     </p>
 
   </footer>
@@ -649,14 +972,11 @@
 
       document
         .getElementById("navMenu")
-        .classList
-        .toggle("active");
+        .classList.toggle("active");
 
     }
 
-    document
-      .getElementById("year")
-      .textContent =
+    document.getElementById("year").textContent =
       new Date().getFullYear();
 
   </script>
