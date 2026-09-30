@@ -6,436 +6,630 @@
 
   <title>SOBOBO NATION | Unity • Progress • Community</title>
 
-  <meta
-    name="description"
-    content="Welcome to SOBOBO NATION — Unity, Progress and Community."
-  >
+  <meta name="description"
+        content="SOBOBO NATION is a movement and foundation dedicated to compassion, community support, empowerment and positive social development.">
 
   <meta name="theme-color" content="#087f23">
 
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
     }
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f5fff7;
-      color: #222;
-      line-height: 1.6;
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:Arial,Helvetica,sans-serif;
+      background:#f5fff7;
+      color:#222;
+      line-height:1.6;
+    }
+
+    a{
+      text-decoration:none;
     }
 
     /* TOP BAR */
-    .topbar {
-      background: #087f23;
-      color: white;
-      text-align: center;
-      padding: 8px 12px;
-      font-size: 13px;
-      font-weight: bold;
+    .topbar{
+      background:#066b1d;
+      color:white;
+      text-align:center;
+      padding:9px 15px;
+      font-size:13px;
+      font-weight:bold;
+      letter-spacing:.5px;
     }
 
     /* HEADER */
-    header {
-      background: white;
-      border-bottom: 1px solid #ddd;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+    header{
+      background:white;
+      position:sticky;
+      top:0;
+      z-index:1000;
+      box-shadow:0 2px 12px rgba(0,0,0,.08);
     }
 
-    .header-inner {
-      max-width: 1200px;
-      margin: auto;
-      padding: 15px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
+    .header-inner{
+      max-width:1200px;
+      margin:auto;
+      padding:15px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
     }
 
-    .logo-area {
-      display: flex;
-      flex-direction: column;
+    .logo{
+      color:#087f23;
+      font-size:24px;
+      font-weight:900;
+      letter-spacing:1px;
+      white-space:nowrap;
     }
 
-    .logo {
-      color: #087f23;
-      font-size: 24px;
-      font-weight: 900;
-      letter-spacing: 1px;
+    .logo span{
+      display:block;
+      color:#555;
+      font-size:10px;
+      letter-spacing:2px;
+      margin-top:-3px;
     }
 
-    .tagline {
-      color: #666;
-      font-size: 11px;
-      font-weight: bold;
-      letter-spacing: 1px;
+    nav{
+      display:flex;
+      align-items:center;
+      gap:4px;
     }
 
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 14px;
+    nav a{
+      color:#222;
+      padding:8px 10px;
+      border-radius:6px;
+      font-size:13px;
+      font-weight:bold;
     }
 
-    nav a {
-      text-decoration: none;
-      color: #222;
-      font-size: 13px;
-      font-weight: bold;
-      white-space: nowrap;
+    nav a:hover{
+      background:#087f23;
+      color:white;
     }
 
-    nav a:hover {
-      color: #087f23;
+    nav .admin-link{
+      background:#087f23;
+      color:white;
     }
 
-    .admin-link {
-      color: #087f23 !important;
-      border: 1px solid #087f23;
-      padding: 8px 11px;
-      border-radius: 6px;
-    }
-
-    .admin-link:hover {
-      background: #087f23;
-      color: white !important;
-    }
-
-    .menu-btn {
-      display: none;
-      border: none;
-      background: #087f23;
-      color: white;
-      font-size: 24px;
-      padding: 6px 11px;
-      border-radius: 6px;
-      cursor: pointer;
+    .menu-btn{
+      display:none;
+      border:0;
+      background:#087f23;
+      color:white;
+      padding:9px 12px;
+      border-radius:6px;
+      font-size:22px;
+      cursor:pointer;
     }
 
     /* TICKER */
-    .ticker {
-      overflow: hidden;
-      background: #066b1d;
-      color: white;
-      white-space: nowrap;
+    .ticker{
+      background:#087f23;
+      color:white;
+      overflow:hidden;
+      white-space:nowrap;
+      padding:8px 0;
+      font-size:13px;
+      font-weight:bold;
     }
 
-    .ticker-content {
-      display: inline-block;
-      padding: 8px 0;
-      padding-left: 100%;
-      animation: tickerMove 18s linear infinite;
-      font-size: 14px;
-      font-weight: bold;
+    .ticker-track{
+      display:inline-block;
+      padding-left:100%;
+      animation:tickerMove 18s linear infinite;
     }
 
-    @keyframes tickerMove {
-      from {
-        transform: translateX(0);
-      }
-
-      to {
-        transform: translateX(-100%);
-      }
+    @keyframes tickerMove{
+      from{transform:translateX(0);}
+      to{transform:translateX(-100%);}
     }
 
     /* HERO */
-    .hero {
-      min-height: 620px;
+    .hero{
+      min-height:650px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      color:white;
+      padding:70px 20px;
+      position:relative;
       background:
-        linear-gradient(
-          rgba(0, 80, 25, 0.72),
-          rgba(0, 0, 0, 0.55)
-        ),
+        linear-gradient(rgba(0,80,20,.72),rgba(0,40,10,.82)),
         url("https://i.ibb.co/MDFvTTJM/Screenshot-20260929-051314.jpg")
         center/cover no-repeat;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 60px 20px;
-      color: white;
     }
 
-    .hero-content {
-      max-width: 850px;
+    .hero-content{
+      max-width:900px;
+      position:relative;
+      z-index:2;
     }
 
-    .hero h1 {
-      font-size: 55px;
-      font-weight: 900;
-      margin-bottom: 15px;
-      letter-spacing: 2px;
+    .hero-badge{
+      display:inline-block;
+      background:rgba(255,255,255,.15);
+      border:1px solid rgba(255,255,255,.5);
+      padding:8px 18px;
+      border-radius:30px;
+      font-size:13px;
+      font-weight:bold;
+      margin-bottom:20px;
+      backdrop-filter:blur(5px);
     }
 
-    .hero h2 {
-      font-size: 25px;
-      margin-bottom: 18px;
+    .hero h1{
+      font-size:clamp(42px,8vw,78px);
+      line-height:1;
+      margin-bottom:18px;
+      font-weight:900;
+      letter-spacing:2px;
     }
 
-    .hero p {
-      font-size: 18px;
-      max-width: 700px;
-      margin: auto;
-      line-height: 1.7;
+    .hero h2{
+      font-size:clamp(20px,4vw,32px);
+      margin-bottom:18px;
     }
 
-    .hero-buttons {
-      margin-top: 28px;
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
+    .hero p{
+      max-width:760px;
+      margin:0 auto 30px;
+      font-size:18px;
     }
 
-    .btn {
-      display: inline-block;
-      padding: 13px 22px;
-      border-radius: 7px;
-      text-decoration: none;
-      font-weight: bold;
-      border: 2px solid white;
+    .buttons{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:12px;
     }
 
-    .btn-primary {
-      background: white;
-      color: #087f23;
+    .btn{
+      display:inline-block;
+      padding:13px 23px;
+      border-radius:7px;
+      font-weight:bold;
+      transition:.25s;
     }
 
-    .btn-primary:hover {
-      background: #e9f7ec;
+    .btn-green{
+      background:#087f23;
+      color:white;
     }
 
-    .btn-outline {
-      color: white;
-      background: transparent;
+    .btn-white{
+      background:white;
+      color:#087f23;
     }
 
-    .btn-outline:hover {
-      background: white;
-      color: #087f23;
+    .btn-outline{
+      border:2px solid white;
+      color:white;
     }
 
-    /* SECTION */
-    .container {
-      max-width: 1200px;
-      margin: auto;
-      padding: 55px 20px;
+    .btn:hover{
+      transform:translateY(-2px);
+      opacity:.92;
     }
 
-    .section-heading {
-      text-align: center;
-      margin-bottom: 35px;
+    /* GENERAL */
+    section{
+      padding:70px 20px;
     }
 
-    .section-heading h2 {
-      color: #087f23;
-      font-size: 32px;
-      margin-bottom: 10px;
+    .container{
+      max-width:1150px;
+      margin:auto;
     }
 
-    .section-heading p {
-      color: #666;
-      max-width: 700px;
-      margin: auto;
+    .section-title{
+      text-align:center;
+      margin-bottom:45px;
     }
 
-    /* CARDS */
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
+    .section-title h2{
+      color:#087f23;
+      font-size:32px;
+      margin-bottom:10px;
     }
 
-    .card {
-      background: white;
-      padding: 28px;
-      border-radius: 14px;
-      text-align: center;
-      box-shadow: 0 5px 18px rgba(0,0,0,0.07);
+    .section-title p{
+      max-width:700px;
+      margin:auto;
+      color:#666;
     }
 
-    .card-icon {
-      font-size: 40px;
-      margin-bottom: 15px;
+    /* INTRO */
+    .intro{
+      background:white;
     }
 
-    .card h3 {
-      color: #087f23;
-      margin-bottom: 10px;
+    .intro-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:45px;
+      align-items:center;
     }
 
-    .card p {
-      color: #666;
-      font-size: 14px;
+    .intro-image{
+      border-radius:15px;
+      overflow:hidden;
+      box-shadow:0 12px 30px rgba(0,0,0,.12);
     }
 
-    /* FOUNDER */
-    .founder {
-      background: white;
+    .intro-image img{
+      width:100%;
+      display:block;
     }
 
-    .founder-content {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 40px;
-      align-items: center;
+    .intro-text h2{
+      color:#087f23;
+      font-size:34px;
+      margin-bottom:15px;
     }
 
-    .founder-image {
-      width: 100%;
-      max-height: 500px;
-      object-fit: cover;
-      border-radius: 15px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    .intro-text p{
+      margin-bottom:15px;
+      color:#555;
     }
 
-    .founder-text h2 {
-      color: #087f23;
-      font-size: 32px;
-      margin-bottom: 8px;
+    .founder-label{
+      color:#087f23;
+      font-weight:bold;
+      margin-bottom:8px;
     }
 
-    .founder-text h3 {
-      color: #555;
-      margin-bottom: 18px;
+    /* IMPACT */
+    .impact{
+      background:#087f23;
+      color:white;
     }
 
-    .founder-text p {
-      color: #555;
-      margin-bottom: 15px;
+    .impact .section-title h2{
+      color:white;
+    }
+
+    .impact .section-title p{
+      color:#dff5e3;
+    }
+
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:20px;
+    }
+
+    .stat{
+      text-align:center;
+      padding:30px 15px;
+      background:rgba(255,255,255,.1);
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:12px;
+    }
+
+    .stat-number{
+      font-size:40px;
+      font-weight:900;
+    }
+
+    .stat-label{
+      font-size:14px;
+      margin-top:5px;
+      opacity:.9;
+    }
+
+    /* VALUES */
+    .values{
+      background:#f5fff7;
+    }
+
+    .value-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+
+    .value-card{
+      background:white;
+      padding:30px 22px;
+      border-radius:12px;
+      text-align:center;
+      box-shadow:0 5px 18px rgba(0,0,0,.06);
+      border-top:4px solid #087f23;
+      transition:.25s;
+    }
+
+    .value-card:hover{
+      transform:translateY(-5px);
+    }
+
+    .value-icon{
+      font-size:38px;
+      margin-bottom:10px;
+    }
+
+    .value-card h3{
+      color:#087f23;
+      margin-bottom:8px;
+    }
+
+    .value-card p{
+      color:#666;
+      font-size:14px;
+    }
+
+    /* PROGRAMMES */
+    .programme-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+
+    .programme-card{
+      background:white;
+      border-radius:12px;
+      padding:28px;
+      box-shadow:0 5px 18px rgba(0,0,0,.06);
+    }
+
+    .programme-card h3{
+      color:#087f23;
+      margin-bottom:10px;
+    }
+
+    .programme-card p{
+      color:#666;
+      font-size:14px;
+    }
+
+    /* NEWS/EVENTS */
+    .content-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:25px;
+    }
+
+    .content-card{
+      background:white;
+      padding:28px;
+      border-radius:12px;
+      box-shadow:0 5px 18px rgba(0,0,0,.06);
+    }
+
+    .content-card h3{
+      color:#087f23;
+      margin-bottom:12px;
+    }
+
+    .empty{
+      color:#777;
+      font-size:14px;
+      padding:15px 0;
+    }
+
+    .news-item,
+    .event-item{
+      padding:15px 0;
+      border-bottom:1px solid #eee;
+    }
+
+    .news-item:last-child,
+    .event-item:last-child{
+      border-bottom:0;
+    }
+
+    .news-item h4,
+    .event-item h4{
+      color:#222;
+      margin-bottom:4px;
+    }
+
+    .meta{
+      color:#087f23;
+      font-size:12px;
+      font-weight:bold;
+      margin-bottom:5px;
     }
 
     /* CTA */
-    .cta {
-      background: #087f23;
-      color: white;
-      text-align: center;
-      padding: 60px 20px;
+    .cta{
+      background:
+        linear-gradient(rgba(0,80,20,.9),rgba(0,50,10,.9)),
+        url("https://i.ibb.co/MDFvTTJM/Screenshot-20260929-051314.jpg")
+        center/cover no-repeat;
+      color:white;
+      text-align:center;
     }
 
-    .cta h2 {
-      font-size: 34px;
-      margin-bottom: 12px;
+    .cta h2{
+      font-size:36px;
+      margin-bottom:12px;
     }
 
-    .cta p {
-      max-width: 700px;
-      margin: auto auto 25px;
+    .cta p{
+      max-width:700px;
+      margin:0 auto 25px;
+    }
+
+    /* CONTACT */
+    .contact{
+      background:white;
+    }
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+
+    .contact-card{
+      text-align:center;
+      padding:25px;
+      background:#f5fff7;
+      border-radius:10px;
+    }
+
+    .contact-card h3{
+      color:#087f23;
+      margin-bottom:7px;
+    }
+
+    .contact-card a{
+      color:#333;
+      font-weight:bold;
     }
 
     /* FOOTER */
-    footer {
-      background: #111;
-      color: white;
-      text-align: center;
-      padding: 30px 20px;
+    footer{
+      background:#111;
+      color:white;
+      padding:50px 20px 20px;
     }
 
-    footer p {
-      margin: 5px 0;
-      font-size: 14px;
+    .footer-grid{
+      max-width:1150px;
+      margin:auto;
+      display:grid;
+      grid-template-columns:2fr 1fr 1fr 1fr;
+      gap:35px;
     }
 
-    footer strong {
-      color: #3dcc62;
+    footer h3{
+      color:#62d879;
+      margin-bottom:14px;
+    }
+
+    footer p{
+      color:#bbb;
+      font-size:14px;
+    }
+
+    footer a{
+      display:block;
+      color:#bbb;
+      font-size:14px;
+      margin-bottom:8px;
+    }
+
+    footer a:hover{
+      color:white;
+    }
+
+    .copyright{
+      max-width:1150px;
+      margin:35px auto 0;
+      padding-top:20px;
+      border-top:1px solid #333;
+      text-align:center;
+      color:#888;
+      font-size:13px;
     }
 
     /* MOBILE */
-    @media (max-width: 1050px) {
+    @media(max-width:900px){
 
-      nav {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: white;
-        flex-direction: column;
-        align-items: stretch;
-        padding: 12px 20px;
-        box-shadow: 0 8px 18px rgba(0,0,0,0.12);
-        max-height: 80vh;
-        overflow-y: auto;
+      nav{
+        display:none;
+        position:absolute;
+        top:68px;
+        left:0;
+        width:100%;
+        background:white;
+        padding:10px;
+        flex-direction:column;
+        align-items:stretch;
+        box-shadow:0 8px 15px rgba(0,0,0,.12);
       }
 
-      nav.active {
-        display: flex;
+      nav.active{
+        display:flex;
       }
 
-      nav a {
-        padding: 11px 0;
-        border-bottom: 1px solid #eee;
+      nav a{
+        padding:12px;
       }
 
-      .admin-link {
-        text-align: center;
-        margin-top: 5px;
-        margin-bottom: 5px;
+      .menu-btn{
+        display:block;
       }
 
-      .menu-btn {
-        display: block;
+      .intro-grid,
+      .content-grid{
+        grid-template-columns:1fr;
       }
 
-      .cards {
-        grid-template-columns: repeat(2, 1fr);
+      .stats{
+        grid-template-columns:repeat(2,1fr);
       }
 
-      .founder-content {
-        grid-template-columns: 1fr;
+      .value-grid,
+      .programme-grid{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .contact-grid{
+        grid-template-columns:1fr;
+      }
+
+      .footer-grid{
+        grid-template-columns:1fr 1fr;
       }
     }
 
-    @media (max-width: 600px) {
+    @media(max-width:600px){
 
-      .header-inner {
-        padding: 13px 15px;
+      section{
+        padding:55px 15px;
       }
 
-      .logo {
-        font-size: 20px;
+      .hero{
+        min-height:600px;
       }
 
-      .hero {
-        min-height: 560px;
+      .hero p{
+        font-size:15px;
       }
 
-      .hero h1 {
-        font-size: 38px;
+      .stats{
+        grid-template-columns:1fr 1fr;
+        gap:10px;
       }
 
-      .hero h2 {
-        font-size: 21px;
+      .stat{
+        padding:22px 10px;
       }
 
-      .hero p {
-        font-size: 16px;
+      .stat-number{
+        font-size:30px;
       }
 
-      .cards {
-        grid-template-columns: 1fr;
+      .value-grid,
+      .programme-grid{
+        grid-template-columns:1fr;
       }
 
-      .container {
-        padding: 40px 15px;
+      .footer-grid{
+        grid-template-columns:1fr;
       }
 
-      .section-heading h2 {
-        font-size: 27px;
+      .header-inner{
+        padding:13px 15px;
       }
 
-      .founder-text h2 {
-        font-size: 27px;
-      }
-
-      .cta h2 {
-        font-size: 27px;
+      .logo{
+        font-size:20px;
       }
     }
   </style>
@@ -443,120 +637,82 @@
 
 <body>
 
-  <!-- TOP BAR -->
   <div class="topbar">
     SOBOBO NATION • UNITY • PROGRESS • COMMUNITY
   </div>
 
-
-  <!-- HEADER -->
   <header>
-
     <div class="header-inner">
 
-      <div class="logo-area">
-        <div class="logo">SOBOBO NATION</div>
-        <div class="tagline">UNITY • PROGRESS • COMMUNITY</div>
-      </div>
+      <a href="index.html" class="logo">
+        SOBOBO NATION
+        <span>UNITY • PROGRESS • COMMUNITY</span>
+      </a>
 
-      <button
-        class="menu-btn"
-        onclick="toggleMenu()"
-        aria-label="Open Menu"
-      >
-        ☰
-      </button>
+      <button class="menu-btn" onclick="toggleMenu()">☰</button>
 
       <nav id="navMenu">
 
         <a href="index.html">Home</a>
-
         <a href="about.html">About</a>
-
         <a href="mission.html">Mission</a>
-
         <a href="leadership.html">Leadership</a>
-
         <a href="programmes.html">Programmes</a>
-
         <a href="membership.html">Membership</a>
-
         <a href="volunteer.html">Volunteer</a>
-
         <a href="news.html">News</a>
-
         <a href="events.html">Events</a>
-
         <a href="gallery.html">Gallery</a>
-
         <a href="video.html">Videos</a>
-
         <a href="resources.html">Resources</a>
-
         <a href="faq.html">FAQ</a>
-
         <a href="contact.html">Contact</a>
-
-        <!-- ADMIN LOGIN -->
-        <a
-          href="admin-login.html"
-          class="admin-link"
-        >
-          🔐 Admin Login
-        </a>
+        <a href="admin-login.html" class="admin-link">🔐 Admin Login</a>
 
       </nav>
-
     </div>
-
   </header>
 
-
-  <!-- MOVING MESSAGE -->
   <div class="ticker">
-
-    <div class="ticker-content">
-
-      Welcome to SOBOBO NATION • Unity • Progress • Community •
-      Stay Connected • Get Involved • Together We Build
-
+    <div class="ticker-track">
+      Welcome to SOBOBO NATION • Unity • Progress • Community • Stay Connected • Get Involved • Together We Build
     </div>
-
   </div>
 
-
   <!-- HERO -->
+
   <section class="hero">
 
     <div class="hero-content">
 
+      <div class="hero-badge">
+        A MOVEMENT OF CARE • A FOUNDATION OF SUPPORT
+      </div>
+
       <h1>SOBOBO NATION</h1>
 
-      <h2>UNITY • PROGRESS • COMMUNITY</h2>
+      <h2>Together, We Can Make a Difference</h2>
 
       <p>
-        A platform dedicated to bringing people together,
-        encouraging community participation and supporting
-        programmes that promote unity, progress and positive
-        community development.
+        A community-driven movement dedicated to compassion, humanitarian
+        service, empowerment, community support and creating opportunities
+        for positive change.
       </p>
 
-      <div class="hero-buttons">
+      <div class="buttons">
 
-        <a
-          href="about.html"
-          class="btn btn-primary"
-        >
+        <a href="membership.html" class="btn btn-green">
+          Join SOBOBO NATION
+        </a>
+
+        <a href="volunteer.html" class="btn btn-white">
+          Become a Volunteer
+        </a>
+
+        <a href="about.html" class="btn btn-outline">
           Learn More
         </a>
 
-        <a
-          href="membership.html"
-          class="btn btn-outline"
-        >
-          Join the Community
-        </a>
-
       </div>
 
     </div>
@@ -564,114 +720,42 @@
   </section>
 
 
-  <!-- ABOUT -->
-  <section class="container">
+  <!-- INTRODUCTION -->
 
-    <div class="section-heading">
-
-      <h2>Welcome to SOBOBO NATION</h2>
-
-      <p>
-        Discover our vision, programmes, activities and
-        opportunities to connect and participate.
-      </p>
-
-    </div>
-
-    <div class="cards">
-
-      <div class="card">
-
-        <div class="card-icon">🤝</div>
-
-        <h3>Unity</h3>
-
-        <p>
-          Bringing people together through cooperation,
-          understanding and community participation.
-        </p>
-
-      </div>
-
-
-      <div class="card">
-
-        <div class="card-icon">📈</div>
-
-        <h3>Progress</h3>
-
-        <p>
-          Supporting constructive programmes and initiatives
-          that contribute to community development.
-        </p>
-
-      </div>
-
-
-      <div class="card">
-
-        <div class="card-icon">🏘️</div>
-
-        <h3>Community</h3>
-
-        <p>
-          Creating opportunities for people to connect,
-          participate and contribute to their communities.
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- FOUNDER -->
-  <section class="founder">
+  <section class="intro">
 
     <div class="container">
 
-      <div class="founder-content">
+      <div class="intro-grid">
 
-        <img
-          src="https://i.ibb.co/MDFvTTJM/Screenshot-20260929-051314.jpg"
-          alt="Chief Dr. Uloko OJIJI"
-          class="founder-image"
-        >
+        <div class="intro-image">
+          <img
+            src="https://i.ibb.co/wG6jkr1/IMG-20260929-WA0241.jpg"
+            alt="Chief Dr. Uloko OJIJI">
+        </div>
 
-        <div class="founder-text">
+        <div class="intro-text">
+
+          <div class="founder-label">
+            FOUNDER & CHIEF EXECUTIVE OFFICER
+          </div>
 
           <h2>Chief Dr. Uloko OJIJI</h2>
 
-          <h3>
-            Initiator, Founder & CEO — SOBOBO NATION
-          </h3>
-
           <p>
-            SOBOBO NATION was initiated by
-            <strong>Chief Dr. Uloko OJIJI</strong>
-            as a platform focused on unity, progress
-            and community engagement.
+            Chief Dr. Uloko OJIJI is the Founder and Chief Executive Officer
+            of SOBOBO NATION, a movement established around the principles
+            of compassion, unity, service, empowerment and human dignity.
           </p>
 
           <p>
-            The platform provides opportunities for
-            people to connect, participate in programmes,
-            share information and contribute to community
-            activities.
+            Through SOBOBO NATION, the vision is to support vulnerable people,
+            strengthen communities and create opportunities that encourage
+            positive social development.
           </p>
 
-          <a
-            href="leadership.html"
-            class="btn"
-            style="
-              background:#087f23;
-              border-color:#087f23;
-              color:white;
-              margin-top:10px;
-            "
-          >
-            View Leadership
+          <a href="leadership.html" class="btn btn-green">
+            Read Founder’s Profile
           </a>
 
         </div>
@@ -683,101 +767,274 @@
   </section>
 
 
-  <!-- GET INVOLVED -->
-  <section class="container">
+  <!-- IMPACT -->
 
-    <div class="section-heading">
+  <section class="impact">
 
-      <h2>Get Involved</h2>
+    <div class="container">
 
-      <p>
-        Connect with SOBOBO NATION and participate
-        in our activities and programmes.
-      </p>
+      <div class="section-title">
+
+        <h2>Our Impact</h2>
+
+        <p>
+          Every act of service contributes to stronger communities and
+          better opportunities for people.
+        </p>
+
+      </div>
+
+      <div class="stats">
+
+        <div class="stat">
+          <div class="stat-number" id="memberCount">0</div>
+          <div class="stat-label">Registered Members</div>
+        </div>
+
+        <div class="stat">
+          <div class="stat-number" id="volunteerCount">0</div>
+          <div class="stat-label">Volunteers</div>
+        </div>
+
+        <div class="stat">
+          <div class="stat-number" id="programmeCount">0</div>
+          <div class="stat-label">Programmes</div>
+        </div>
+
+        <div class="stat">
+          <div class="stat-number" id="eventCount">0</div>
+          <div class="stat-label">Community Events</div>
+        </div>
+
+      </div>
 
     </div>
 
-    <div class="cards">
+  </section>
 
-      <div class="card">
 
-        <div class="card-icon">👥</div>
+  <!-- VALUES -->
 
-        <h3>Become a Member</h3>
+  <section class="values">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>Our Core Values</h2>
 
         <p>
-          Register your interest and become part
-          of the SOBOBO NATION community.
+          The principles that guide the work and vision of SOBOBO NATION.
         </p>
-
-        <a
-          href="membership.html"
-          class="btn"
-          style="
-            display:inline-block;
-            margin-top:18px;
-            background:#087f23;
-            border-color:#087f23;
-            color:white;
-          "
-        >
-          Membership
-        </a>
 
       </div>
 
+      <div class="value-grid">
 
-      <div class="card">
+        <div class="value-card">
+          <div class="value-icon">❤️</div>
+          <h3>Compassion</h3>
+          <p>
+            We believe every person deserves care, dignity and support.
+          </p>
+        </div>
 
-        <div class="card-icon">🤝</div>
+        <div class="value-card">
+          <div class="value-icon">🤝</div>
+          <h3>Unity</h3>
+          <p>
+            We bring people together to work toward stronger communities.
+          </p>
+        </div>
 
-        <h3>Volunteer</h3>
+        <div class="value-card">
+          <div class="value-icon">🌍</div>
+          <h3>Community</h3>
+          <p>
+            We support initiatives that create meaningful community development.
+          </p>
+        </div>
 
-        <p>
-          Share your skills, time and experience
-          by volunteering with SOBOBO NATION.
-        </p>
+        <div class="value-card">
+          <div class="value-icon">💡</div>
+          <h3>Empowerment</h3>
+          <p>
+            We encourage people by creating opportunities for growth and progress.
+          </p>
+        </div>
 
-        <a
-          href="volunteer.html"
-          class="btn"
-          style="
-            display:inline-block;
-            margin-top:18px;
-            background:#087f23;
-            border-color:#087f23;
-            color:white;
-          "
-        >
-          Volunteer
-        </a>
+        <div class="value-card">
+          <div class="value-icon">🙏</div>
+          <h3>Service</h3>
+          <p>
+            We believe leadership is strengthened through service to humanity.
+          </p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon">🌱</div>
+          <h3>Progress</h3>
+          <p>
+            We support sustainable initiatives that contribute to positive change.
+          </p>
+        </div>
 
       </div>
 
+    </div>
 
-      <div class="card">
+  </section>
 
-        <div class="card-icon">📸</div>
 
-        <h3>Explore Our Gallery</h3>
+  <!-- PROGRAMMES -->
+
+  <section>
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>What We Do</h2>
 
         <p>
-          View photographs from activities,
-          gatherings and community engagements.
+          Our areas of focus are centered around people, communities and
+          positive social development.
         </p>
 
-        <a
-          href="gallery.html"
-          class="btn"
-          style="
-            display:inline-block;
-            margin-top:18px;
-            background:#087f23;
-            border-color:#087f23;
-            color:white;
-          "
-        >
-          View Gallery
+      </div>
+
+      <div class="programme-grid">
+
+        <div class="programme-card">
+          <h3>Community Support</h3>
+          <p>
+            Supporting communities and people facing difficult circumstances
+            through practical humanitarian initiatives.
+          </p>
+        </div>
+
+        <div class="programme-card">
+          <h3>Humanitarian Service</h3>
+          <p>
+            Promoting compassion and assistance for vulnerable members of society.
+          </p>
+        </div>
+
+        <div class="programme-card">
+          <h3>Youth Empowerment</h3>
+          <p>
+            Encouraging young people to develop their potential and contribute
+            positively to their communities.
+          </p>
+        </div>
+
+        <div class="programme-card">
+          <h3>Women Empowerment</h3>
+          <p>
+            Supporting opportunities that promote dignity, participation and
+            economic empowerment.
+          </p>
+        </div>
+
+        <div class="programme-card">
+          <h3>Community Development</h3>
+          <p>
+            Supporting initiatives designed to strengthen communities and
+            improve quality of life.
+          </p>
+        </div>
+
+        <div class="programme-card">
+          <h3>Volunteer Service</h3>
+          <p>
+            Creating opportunities for individuals to contribute their time,
+            skills and resources toward community service.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- NEWS & EVENTS -->
+
+  <section class="values">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>Latest Updates</h2>
+
+        <p>
+          Stay connected with activities, programmes and important updates
+          from SOBOBO NATION.
+        </p>
+
+      </div>
+
+      <div class="content-grid">
+
+        <div class="content-card">
+
+          <h3>📰 Latest News</h3>
+
+          <div id="latestNews">
+            <div class="empty">No news has been published yet.</div>
+          </div>
+
+          <a href="news.html" class="btn btn-green">
+            View All News
+          </a>
+
+        </div>
+
+
+        <div class="content-card">
+
+          <h3>📅 Upcoming Events</h3>
+
+          <div id="latestEvents">
+            <div class="empty">No events have been published yet.</div>
+          </div>
+
+          <a href="events.html" class="btn btn-green">
+            View All Events
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CALL TO ACTION -->
+
+  <section class="cta">
+
+    <div class="container">
+
+      <h2>You Can Make a Difference</h2>
+
+      <p>
+        Whether through membership, volunteering, community service or
+        simply supporting someone in need, everyone has a role to play.
+      </p>
+
+      <div class="buttons">
+
+        <a href="membership.html" class="btn btn-green">
+          Join SOBOBO NATION
+        </a>
+
+        <a href="volunteer.html" class="btn btn-white">
+          Become a Volunteer
         </a>
 
       </div>
@@ -787,81 +1044,327 @@
   </section>
 
 
-  <!-- CTA -->
-  <section class="cta">
+  <!-- CONTACT -->
 
-    <h2>Stay Connected With SOBOBO NATION</h2>
+  <section class="contact">
 
-    <p>
-      Explore our latest news, upcoming events,
-      programmes and community activities.
-    </p>
+    <div class="container">
 
-    <a
-      href="news.html"
-      class="btn btn-primary"
-    >
-      Latest News
-    </a>
+      <div class="section-title">
 
-    <a
-      href="events.html"
-      class="btn btn-outline"
-    >
-      Upcoming Events
-    </a>
+        <h2>Connect With SOBOBO NATION</h2>
+
+        <p>
+          Get in touch with us, join the movement or learn more about
+          our activities.
+        </p>
+
+      </div>
+
+      <div class="contact-grid">
+
+        <div class="contact-card">
+          <h3>📞 Contact</h3>
+          <a href="tel:+2349151524655">
+            +234 915 152 4655
+          </a>
+        </div>
+
+        <div class="contact-card">
+          <h3>📞 Contact</h3>
+          <a href="tel:+2348130122985">
+            +234 813 012 2985
+          </a>
+        </div>
+
+        <div class="contact-card">
+          <h3>🤝 Get Involved</h3>
+          <a href="membership.html">
+            Join the Movement
+          </a>
+        </div>
+
+      </div>
+
+    </div>
 
   </section>
 
 
   <!-- FOOTER -->
+
   <footer>
 
-    <p>
-      <strong>SOBOBO NATION</strong>
-    </p>
+    <div class="footer-grid">
 
-    <p>
-      UNITY • PROGRESS • COMMUNITY
-    </p>
+      <div>
+        <h3>SOBOBO NATION</h3>
 
-    <p>
-      &copy;
-      <span id="year"></span>
-      SOBOBO NATION. All Rights Reserved.
-    </p>
+        <p>
+          A movement of care, a foundation of support and a community
+          committed to empowerment, humanity and positive change.
+        </p>
+
+        <br>
+
+        <p>
+          <strong>UNITY • PROGRESS • COMMUNITY</strong>
+        </p>
+      </div>
+
+
+      <div>
+
+        <h3>Quick Links</h3>
+
+        <a href="about.html">About Us</a>
+        <a href="mission.html">Mission & Vision</a>
+        <a href="leadership.html">Leadership</a>
+        <a href="programmes.html">Programmes</a>
+        <a href="membership.html">Membership</a>
+
+      </div>
+
+
+      <div>
+
+        <h3>Explore</h3>
+
+        <a href="news.html">News</a>
+        <a href="events.html">Events</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="video.html">Videos</a>
+        <a href="resources.html">Resources</a>
+
+      </div>
+
+
+      <div>
+
+        <h3>Support</h3>
+
+        <a href="volunteer.html">Volunteer</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+        <a href="admin-login.html">🔐 Admin Login</a>
+
+      </div>
+
+    </div>
+
+    <div class="copyright">
+
+      © <span id="year"></span> SOBOBO NATION.
+      All Rights Reserved.
+
+    </div>
 
   </footer>
 
 
   <script>
 
-    function toggleMenu() {
+    /* MOBILE MENU */
+
+    function toggleMenu(){
 
       document
         .getElementById("navMenu")
-        .classList.toggle("active");
+        .classList
+        .toggle("active");
 
     }
 
 
-    document
-      .querySelectorAll("#navMenu a")
-      .forEach(function(link) {
-
-        link.addEventListener("click", function() {
-
-          document
-            .getElementById("navMenu")
-            .classList.remove("active");
-
-        });
-
-      });
-
+    /* YEAR */
 
     document.getElementById("year").textContent =
       new Date().getFullYear();
+
+
+    /* IMPACT COUNTS */
+
+    function loadImpact(){
+
+      const members =
+        JSON.parse(
+          localStorage.getItem("soboboNationMembers") || "[]"
+        );
+
+      const volunteers =
+        JSON.parse(
+          localStorage.getItem("soboboNationVolunteers") || "[]"
+        );
+
+      const programmes =
+        JSON.parse(
+          localStorage.getItem("soboboNationProgrammes") || "[]"
+        );
+
+      const events =
+        JSON.parse(
+          localStorage.getItem("soboboNationEvents") || "[]"
+        );
+
+      document.getElementById("memberCount").textContent =
+        members.length;
+
+      document.getElementById("volunteerCount").textContent =
+        volunteers.length;
+
+      /*
+        If no programme data has been created in Local Storage,
+        the homepage uses the six main programme areas displayed
+        on this page.
+      */
+
+      document.getElementById("programmeCount").textContent =
+        programmes.length || 6;
+
+      document.getElementById("eventCount").textContent =
+        events.length;
+
+    }
+
+
+    /* LATEST NEWS */
+
+    function loadLatestNews(){
+
+      const container =
+        document.getElementById("latestNews");
+
+      const news =
+        JSON.parse(
+          localStorage.getItem("soboboNationNews") || "[]"
+        );
+
+      if(!news.length){
+
+        container.innerHTML =
+          '<div class="empty">No news has been published yet.</div>';
+
+        return;
+      }
+
+      news.sort(function(a,b){
+
+        return new Date(b.date || b.createdAt) -
+               new Date(a.date || a.createdAt);
+
+      });
+
+      const latest =
+        news.slice(0,3);
+
+      container.innerHTML =
+        latest.map(function(item){
+
+          return `
+            <div class="news-item">
+
+              <div class="meta">
+                ${escapeHTML(item.category || "News")}
+                •
+                ${escapeHTML(item.date || "")}
+              </div>
+
+              <h4>
+                ${escapeHTML(item.headline || "Untitled News")}
+              </h4>
+
+            </div>
+          `;
+
+        }).join("");
+
+    }
+
+
+    /* LATEST EVENTS */
+
+    function loadLatestEvents(){
+
+      const container =
+        document.getElementById("latestEvents");
+
+      const events =
+        JSON.parse(
+          localStorage.getItem("soboboNationEvents") || "[]"
+        );
+
+      if(!events.length){
+
+        container.innerHTML =
+          '<div class="empty">No events have been published yet.</div>';
+
+        return;
+      }
+
+      events.sort(function(a,b){
+
+        return new Date(a.date) -
+               new Date(b.date);
+
+      });
+
+      const latest =
+        events.slice(0,3);
+
+      container.innerHTML =
+        latest.map(function(item){
+
+          return `
+            <div class="event-item">
+
+              <div class="meta">
+                ${escapeHTML(item.date || "")}
+                ${item.time ? " • " + escapeHTML(item.time) : ""}
+              </div>
+
+              <h4>
+                ${escapeHTML(item.title || "Untitled Event")}
+              </h4>
+
+              ${
+                item.location
+                ?
+                `<div style="font-size:13px;color:#666;">
+                  📍 ${escapeHTML(item.location)}
+                </div>`
+                :
+                ""
+              }
+
+            </div>
+          `;
+
+        }).join("");
+
+    }
+
+
+    /* SECURITY */
+
+    function escapeHTML(value){
+
+      return String(value || "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+    }
+
+
+    /* LOAD */
+
+    loadImpact();
+    loadLatestNews();
+    loadLatestEvents();
 
   </script>
 
