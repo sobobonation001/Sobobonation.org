@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>About | SOBOBO NATION</title>
+  <title>About SOBOBO NATION | Movement & Foundation</title>
 
   <meta
     name="description"
-    content="Learn about SOBOBO NATION, its purpose, values, leadership and commitment to unity, progress and community."
+    content="Learn about SOBOBO NATION, a movement and foundation built on compassion, humanity, community service, support and empowerment."
   >
 
   <meta name="theme-color" content="#087f23">
@@ -16,74 +16,81 @@
   <style>
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      margin: 0;
       font-family: Arial, Helvetica, sans-serif;
       background: #f5fff7;
       color: #222;
-      line-height: 1.7;
+      line-height: 1.8;
     }
 
+    /* TOP BAR */
     .top-bar {
-      background: #087f23;
+      background: #066b1d;
       color: white;
       text-align: center;
       padding: 8px 10px;
-      font-size: 13px;
+      font-size: 14px;
       font-weight: bold;
+      letter-spacing: 1px;
     }
 
+    /* HEADER */
     header {
       background: white;
-      border-bottom: 1px solid #ddd;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       position: sticky;
       top: 0;
       z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
 
-    .header-inner {
-      max-width: 1150px;
-      margin: auto;
-      padding: 18px 20px;
+    .logo-area {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 15px;
+      flex-direction: column;
     }
 
     .logo {
       color: #087f23;
       font-size: 24px;
-      font-weight: bold;
-      text-decoration: none;
+      font-weight: 900;
+      letter-spacing: 1px;
     }
 
     .tagline {
       font-size: 11px;
       color: #555;
-      margin-top: 2px;
       font-weight: bold;
+      letter-spacing: 1px;
     }
 
     nav {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      gap: 8px;
+      align-items: center;
+      gap: 4px;
     }
 
     nav a {
       text-decoration: none;
       color: #222;
-      font-size: 14px;
       font-weight: bold;
-      padding: 7px 9px;
+      font-size: 13px;
+      padding: 9px 8px;
       border-radius: 5px;
     }
 
     nav a:hover {
+      background: #087f23;
+      color: white;
+    }
+
+    nav a.admin-link {
       background: #087f23;
       color: white;
     }
@@ -93,231 +100,290 @@
       background: #087f23;
       color: white;
       border: none;
-      padding: 10px 15px;
+      font-size: 25px;
+      padding: 5px 11px;
       border-radius: 5px;
-      font-size: 15px;
       cursor: pointer;
     }
 
+    /* TICKER */
     .ticker {
-      background: #066b1d;
+      background: #087f23;
       color: white;
       overflow: hidden;
       white-space: nowrap;
-      padding: 9px 0;
-      font-size: 14px;
+      padding: 10px 0;
       font-weight: bold;
     }
 
-    .ticker span {
+    .ticker-content {
       display: inline-block;
       padding-left: 100%;
       animation: moveTicker 18s linear infinite;
     }
 
     @keyframes moveTicker {
-      from {
+      0% {
         transform: translateX(0);
       }
 
-      to {
+      100% {
         transform: translateX(-100%);
       }
     }
 
-    .hero {
-      background: #087f23;
+    /* PAGE HERO */
+    .page-hero {
+      background:
+        linear-gradient(
+          rgba(0, 90, 25, 0.90),
+          rgba(8, 127, 35, 0.90)
+        ),
+        url("https://i.ibb.co/MDFvTTJM/Screenshot-20260929-051314.jpg");
+
+      background-size: cover;
+      background-position: center;
+
       color: white;
       text-align: center;
-      padding: 65px 20px;
+      padding: 80px 20px;
     }
 
-    .hero h1 {
-      margin: 0 0 10px;
-      font-size: 42px;
-    }
-
-    .hero p {
-      margin: 0;
-      font-size: 18px;
-    }
-
-    .container {
-      max-width: 1050px;
-      margin: auto;
-      padding: 50px 20px;
-    }
-
-    .intro {
-      text-align: center;
-      max-width: 850px;
-      margin: 0 auto 45px;
-    }
-
-    .intro h2 {
-      color: #087f23;
-      font-size: 30px;
+    .page-hero h1 {
+      font-size: 44px;
       margin-bottom: 12px;
     }
 
-    .intro p {
-      color: #555;
-      font-size: 16px;
+    .page-hero p {
+      max-width: 850px;
+      margin: auto;
+      font-size: 18px;
     }
 
-    /* FOUNDER PHOTO */
+    /* MAIN */
+    main {
+      max-width: 1150px;
+      margin: auto;
+      padding: 45px 20px 70px;
+    }
 
-    .founder-card {
+    /* INTRO */
+    .intro-card {
       background: white;
-      max-width: 800px;
-      margin: 0 auto 45px;
-      padding: 35px 25px;
-      border-radius: 12px;
+      padding: 35px;
+      border-radius: 14px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      border-left: 6px solid #087f23;
+      margin-bottom: 30px;
+    }
+
+    .intro-card h2 {
+      color: #087f23;
+      font-size: 30px;
+      margin-bottom: 15px;
+    }
+
+    .intro-card p {
+      margin-bottom: 15px;
+    }
+
+    /* CONTENT CARDS */
+    .content-card {
+      background: white;
+      padding: 32px;
+      border-radius: 14px;
+      margin-bottom: 28px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+      border: 1px solid #e0eee3;
+    }
+
+    .content-card h2 {
+      color: #087f23;
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    .content-card h3 {
+      color: #066b1d;
+      margin-top: 18px;
+      margin-bottom: 8px;
+    }
+
+    .content-card p {
+      margin-bottom: 14px;
+    }
+
+    /* PURPOSE */
+    .purpose-box {
+      background: #e9f8ed;
+      border-left: 6px solid #087f23;
+      padding: 25px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    .purpose-box strong {
+      color: #066b1d;
+    }
+
+    /* LIST */
+    .role-list {
+      list-style: none;
+      margin-top: 15px;
+    }
+
+    .role-list li {
+      background: #f5fff7;
+      margin-bottom: 12px;
+      padding: 15px 18px;
+      border-radius: 8px;
+      border-left: 4px solid #087f23;
+    }
+
+    .role-list li strong {
+      color: #087f23;
+    }
+
+    /* QUOTE */
+    .quote-box {
+      background: #087f23;
+      color: white;
+      padding: 35px;
+      border-radius: 14px;
       text-align: center;
-      box-shadow: 0 5px 18px rgba(0,0,0,0.10);
+      margin: 35px 0;
+    }
+
+    .quote-box p {
+      font-size: 23px;
+      font-weight: bold;
+      line-height: 1.6;
+    }
+
+    /* JOIN */
+    .join-section {
+      background: linear-gradient(
+        135deg,
+        #066b1d,
+        #087f23
+      );
+      color: white;
+      text-align: center;
+      padding: 50px 25px;
+      border-radius: 16px;
+      margin-top: 35px;
+    }
+
+    .join-section h2 {
+      font-size: 34px;
+      margin-bottom: 15px;
+    }
+
+    .join-section p {
+      max-width: 850px;
+      margin: 0 auto 15px;
+      font-size: 17px;
+    }
+
+    .join-btn {
+      display: inline-block;
+      background: white;
+      color: #087f23;
+      text-decoration: none;
+      padding: 13px 25px;
+      border-radius: 7px;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    .join-btn:hover {
+      background: #f0f0f0;
+    }
+
+    /* CONTACT */
+    .contact-box {
+      background: white;
+      padding: 30px;
+      text-align: center;
+      border-radius: 14px;
+      margin-top: 30px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
       border-top: 5px solid #087f23;
     }
 
-    .founder-photo {
-      width: 250px;
-      height: 250px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 6px solid #087f23;
-      display: block;
-      margin: 0 auto 25px;
-      box-shadow: 0 5px 18px rgba(0,0,0,0.15);
-    }
-
-    .founder-card h2 {
+    .contact-box h2 {
       color: #087f23;
-      font-size: 28px;
-      margin: 5px 0;
+      margin-bottom: 15px;
     }
 
-    .founder-title {
-      color: #555;
-      font-weight: bold;
-      margin-bottom: 20px;
-    }
-
-    .founder-card p {
-      color: #444;
-      max-width: 700px;
-      margin: auto;
-    }
-
-    .section {
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      margin-bottom: 25px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.07);
-    }
-
-    .section h2 {
-      color: #087f23;
-      margin-top: 0;
-      font-size: 26px;
-    }
-
-    .section p {
-      color: #555;
-      margin-bottom: 0;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-      margin-top: 25px;
-    }
-
-    .card {
-      background: white;
-      padding: 25px;
-      border-radius: 10px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.07);
-    }
-
-    .card h3 {
-      color: #087f23;
-      margin-top: 0;
-      font-size: 20px;
-    }
-
-    .card p {
-      color: #555;
-      margin-bottom: 0;
-    }
-
-    .info-box {
-      margin-top: 35px;
-      background: #eaffef;
-      border-left: 5px solid #087f23;
-      padding: 25px;
-      border-radius: 8px;
-    }
-
-    .info-box h3 {
-      color: #087f23;
-      margin-top: 0;
-    }
-
-    .cta {
-      text-align: center;
-      margin-top: 40px;
-    }
-
-    .cta a {
+    .phone {
       display: inline-block;
+      margin: 7px;
+      padding: 11px 18px;
       background: #087f23;
       color: white;
-      text-decoration: none;
-      padding: 13px 25px;
       border-radius: 6px;
+      text-decoration: none;
       font-weight: bold;
     }
 
-    .cta a:hover {
+    .phone:hover {
       background: #066b1d;
     }
 
+    /* FINAL SLOGAN */
+    .slogan {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .slogan h2 {
+      color: #087f23;
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .slogan p {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    /* FOOTER */
     footer {
-      background: #111;
+      background: #000;
       color: white;
       text-align: center;
       padding: 30px 20px;
-      margin-top: 30px;
+    }
+
+    footer h3 {
+      margin-bottom: 8px;
     }
 
     footer p {
-      margin: 7px 0;
+      color: #ccc;
       font-size: 14px;
+      margin: 5px 0;
     }
 
-    footer a {
-      color: #8cffaa;
-      text-decoration: none;
-    }
-
-    @media (max-width: 850px) {
-
-      .header-inner {
-        flex-wrap: wrap;
-      }
+    /* MOBILE */
+    @media (max-width: 1000px) {
 
       .menu-btn {
         display: block;
-        margin-left: auto;
       }
 
       nav {
         display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
         width: 100%;
-        flex-direction: column;
         background: white;
-        padding: 10px 0;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 10px;
+        box-shadow: 0 5px 12px rgba(0,0,0,0.12);
       }
 
       nav.active {
@@ -326,40 +392,62 @@
 
       nav a {
         width: 100%;
-        padding: 10px;
-        border-bottom: 1px solid #eee;
-      }
-
-      .grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero h1 {
-        font-size: 34px;
+        padding: 12px;
       }
     }
 
-    @media (max-width: 500px) {
+    @media (max-width: 600px) {
 
-      .founder-photo {
-        width: 210px;
-        height: 210px;
+      .logo {
+        font-size: 20px;
       }
 
-      .hero {
-        padding: 50px 15px;
+      .tagline {
+        font-size: 9px;
       }
 
-      .hero h1 {
-        font-size: 30px;
+      .page-hero {
+        padding: 60px 18px;
       }
 
-      .container {
-        padding: 40px 15px;
+      .page-hero h1 {
+        font-size: 32px;
       }
 
-      .section {
-        padding: 25px 20px;
+      .page-hero p {
+        font-size: 15px;
+      }
+
+      main {
+        padding: 30px 12px 50px;
+      }
+
+      .intro-card,
+      .content-card {
+        padding: 23px 18px;
+      }
+
+      .intro-card h2,
+      .content-card h2 {
+        font-size: 24px;
+      }
+
+      .quote-box {
+        padding: 25px 18px;
+      }
+
+      .quote-box p {
+        font-size: 19px;
+      }
+
+      .join-section h2 {
+        font-size: 27px;
+      }
+
+      .phone {
+        display: block;
+        margin: 10px auto;
+        max-width: 250px;
       }
     }
   </style>
@@ -367,212 +455,650 @@
 
 <body>
 
+  <!-- TOP BAR -->
   <div class="top-bar">
     SOBOBO NATION • UNITY • PROGRESS • COMMUNITY
   </div>
 
+  <!-- HEADER -->
   <header>
-    <div class="header-inner">
 
-      <div>
-        <a href="index.html" class="logo">SOBOBO NATION</a>
-
-        <div class="tagline">
-          UNITY • PROGRESS • COMMUNITY
-        </div>
+    <div class="logo-area">
+      <div class="logo">SOBOBO NATION</div>
+      <div class="tagline">
+        UNITY • PROGRESS • COMMUNITY
       </div>
-
-      <button class="menu-btn" onclick="toggleMenu()">
-        ☰ Menu
-      </button>
-
-      <nav id="navMenu">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="mission.html">Mission</a>
-        <a href="leadership.html">Leadership</a>
-        <a href="programmes.html">Programmes</a>
-        <a href="membership.html">Membership</a>
-        <a href="volunteer.html">Volunteer</a>
-        <a href="news.html">News</a>
-        <a href="events.html">Events</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="video.html">Videos</a>
-        <a href="resources.html">Resources</a>
-        <a href="faq.html">FAQ</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-
     </div>
+
+    <button
+      class="menu-btn"
+      onclick="toggleMenu()">
+      ☰
+    </button>
+
+    <nav id="navMenu">
+
+      <a href="index.html">Home</a>
+
+      <a href="about.html">About</a>
+
+      <a href="mission.html">Mission</a>
+
+      <a href="leadership.html">Leadership</a>
+
+      <a href="programmes.html">Programmes</a>
+
+      <a href="membership.html">Membership</a>
+
+      <a href="volunteer.html">Volunteer</a>
+
+      <a href="news.html">News</a>
+
+      <a href="events.html">Events</a>
+
+      <a href="gallery.html">Gallery</a>
+
+      <a href="video.html">Videos</a>
+
+      <a href="resources.html">Resources</a>
+
+      <a href="faq.html">FAQ</a>
+
+      <a href="contact.html">Contact</a>
+
+      <a
+        href="admin-login.html"
+        class="admin-link">
+        🔐 Admin Login
+      </a>
+
+    </nav>
+
   </header>
 
+  <!-- MOVING WELCOME -->
   <div class="ticker">
-    <span>
+
+    <div class="ticker-content">
+
       Welcome to SOBOBO NATION • Unity • Progress • Community • Stay Connected • Get Involved • Together We Build
-    </span>
-  </div>
 
-  <section class="hero">
-    <h1>About SOBOBO NATION</h1>
-    <p>Unity, progress and community engagement</p>
-  </section>
-
-  <main class="container">
-
-    <div class="intro">
-      <h2>Who We Are</h2>
-
-      <p>
-        SOBOBO NATION is a community-focused organisation built around
-        unity, progress, participation and positive engagement.
-      </p>
     </div>
 
-    <!-- FOUNDER -->
+  </div>
 
-    <div class="founder-card">
+  <!-- PAGE HERO -->
+  <section class="page-hero">
 
-      <img
-        class="founder-photo"
-        src="https://i.ibb.co/MDFvTTJM/Screenshot-20260929-051314.jpg"
-        alt="Chief Dr. Uloko OJIJI"
-      >
+    <h1>JOIN SOBOBO NATION</h1>
 
-      <h2>Chief Dr. Uloko OJIJI</h2>
+    <p>
+      Together, We Can Make a Difference
+    </p>
 
-      <div class="founder-title">
-        Initiator, Founder & CEO — SOBOBO NATION
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <main>
+
+    <!-- INTRODUCTION -->
+    <section class="intro-card">
+
+      <h2>❤️ Together, We Can Make a Difference</h2>
+
+      <p>
+        In every community, there are people who need a helping hand,
+        a word of encouragement, an opportunity, or simply someone who
+        cares enough to listen. Some families struggle to meet their
+        basic needs. Some children grow up without the support they
+        deserve. Some elderly people are left without adequate care,
+        while young people with dreams and abilities lack the
+        opportunities and resources needed to achieve their potential.
+      </p>
+
+      <p>
+        It is because of these realities that
+        <strong>SOBOBO NATION</strong> exists.
+      </p>
+
+      <p>
+        <strong>
+          SOBOBO NATION is a movement and foundation built on
+          compassion, humanity, community service, support, and
+          empowerment.
+        </strong>
+        Our mission is to identify people and communities facing
+        difficulties and contribute, in whatever meaningful ways we can,
+        toward improving their lives.
+      </p>
+
+      <p>
+        We believe that caring for humanity should not be the
+        responsibility of one person or one organization alone.
+        It is a collective responsibility. When individuals come
+        together with a common purpose, even small acts of kindness
+        can create significant change.
+      </p>
+
+    </section>
+
+    <!-- PURPOSE -->
+    <section class="content-card">
+
+      <h2>❤️ OUR PURPOSE</h2>
+
+      <div class="purpose-box">
+
+        <p>
+          At SOBOBO NATION, we believe that
+          <strong>
+            every human being deserves dignity, respect, hope,
+            and the opportunity to live a meaningful life.
+          </strong>
+        </p>
+
       </div>
 
       <p>
-        Chief Dr. Uloko OJIJI is the initiator, founder and CEO of
-        SOBOBO NATION. His vision provides the foundation for the
-        organisation's commitment to unity, progress, community
-        participation and constructive engagement.
+        Our purpose is to support vulnerable and less-privileged people
+        while encouraging individuals and communities to participate
+        in humanitarian and developmental activities.
       </p>
 
-    </div>
-
-    <!-- ABOUT -->
-
-    <div class="section">
-
-      <h2>About SOBOBO NATION</h2>
-
       <p>
-        SOBOBO NATION provides a platform for people to connect,
-        participate, exchange ideas and support constructive
-        community activities. The organisation promotes cooperation
-        and encourages people to contribute positively to their
+        We want to create a platform where people can come together
+        to help those who are struggling, support families in difficult
+        circumstances, encourage young people, assist vulnerable
+        individuals, and contribute to the development of our
         communities.
       </p>
 
-    </div>
+      <p>
+        We may not be able to solve every problem overnight, but we
+        believe that
+        <strong>
+          every problem becomes easier to address when caring people
+          decide to work together.
+        </strong>
+      </p>
 
-    <!-- PURPOSE -->
+    </section>
 
-    <div class="section">
+    <!-- WHY JOIN -->
+    <section class="content-card">
 
-      <h2>Our Purpose</h2>
+      <h2>🤝 WHY YOU SHOULD JOIN SOBOBO NATION</h2>
 
       <p>
-        The purpose of SOBOBO NATION is to encourage unity,
-        community participation, information sharing and initiatives
-        that support positive development.
+        Joining SOBOBO NATION is more than simply becoming a member
+        of an organization.
+      </p>
+
+      <p>
+        It means becoming part of a community of people who believe
+        that <strong>humanity matters.</strong>
+      </p>
+
+      <p>
+        It means choosing to be a voice for people who may not have
+        the opportunity to speak for themselves.
+      </p>
+
+      <p>
+        It means being willing to contribute your time, knowledge,
+        skills, ideas, resources, connections, or encouragement toward
+        making someone's life better.
+      </p>
+
+      <p>
+        You do not have to be wealthy to make a difference.
+      </p>
+
+      <p>
+        You do not have to hold a political position.
+      </p>
+
+      <p>
+        You do not need a large organization behind you.
+      </p>
+
+      <p>
+        Sometimes, a simple act of kindness can mean everything to
+        someone going through a difficult period.
+      </p>
+
+      <ul class="role-list">
+
+        <li>
+          <strong>❤️ A phone call</strong> to encourage someone.
+        </li>
+
+        <li>
+          <strong>🤝 A visit</strong> to a vulnerable family.
+        </li>
+
+        <li>
+          <strong>🍲 Food support</strong> provided to a household in need.
+        </li>
+
+        <li>
+          <strong>📚 Educational support</strong> for a child.
+        </li>
+
+        <li>
+          <strong>🌱 Skills and opportunities</strong> provided to a young person.
+        </li>
+
+        <li>
+          <strong>👴 Assistance</strong> to an elderly person.
+        </li>
+
+        <li>
+          <strong>💙 Support</strong> for someone facing hardship.
+        </li>
+
+        <li>
+          <strong>🙏 Encouragement</strong> to someone who has lost hope.
+        </li>
+
+      </ul>
+
+      <p>
+        These actions may appear small, but to the person receiving
+        them, they can be life-changing.
+      </p>
+
+    </section>
+
+    <!-- VISION -->
+    <section class="content-card">
+
+      <h2>🌍 OUR VISION</h2>
+
+      <p>
+        Our vision is to build a strong and compassionate network
+        of people who are committed to supporting vulnerable
+        individuals, empowering communities, encouraging responsible
+        citizenship, and promoting a culture where people look out
+        for one another.
+      </p>
+
+      <p>
+        We envision communities where people do not feel forgotten.
+      </p>
+
+      <ul class="role-list">
+
+        <li>
+          Communities where the vulnerable are treated with dignity.
+        </li>
+
+        <li>
+          Communities where young people are encouraged to develop
+          their talents.
+        </li>
+
+        <li>
+          Communities where people are willing to support one another
+          during difficult times.
+        </li>
+
+        <li>
+          Communities where compassion is transformed into practical
+          action.
+        </li>
+
+      </ul>
+
+    </section>
+
+    <!-- SUPPORTING VULNERABLE PEOPLE -->
+    <section class="content-card">
+
+      <h2>💙 SUPPORTING THE VULNERABLE</h2>
+
+      <p>
+        One of the important areas of our work is supporting vulnerable
+        and less-privileged people.
+      </p>
+
+      <p>
+        Many people experience challenges that are beyond their
+        immediate control. Economic difficulties, family circumstances,
+        unemployment, lack of opportunities, disability, old age,
+        and other challenges can make life extremely difficult.
+      </p>
+
+      <p>
+        <strong>
+          SOBOBO NATION believes that vulnerable people should not
+          be ignored or forgotten.
+        </strong>
+      </p>
+
+      <p>
+        We are committed to creating opportunities for members and
+        supporters to participate in initiatives that provide
+        meaningful assistance to people who need it.
+      </p>
+
+      <p>
+        Our goal is not only to provide temporary assistance where
+        possible, but also to encourage solutions that can help
+        individuals and families become stronger and more self-reliant.
+      </p>
+
+    </section>
+
+    <!-- EMPOWERMENT -->
+    <section class="content-card">
+
+      <h2>🌱 EMPOWERING PEOPLE</h2>
+
+      <p>
+        True support goes beyond giving.
+      </p>
+
+      <p>
+        Where possible, we believe in <strong>empowerment.</strong>
+      </p>
+
+      <p>
+        Empowerment means helping people discover their abilities,
+        develop useful skills, access opportunities, and become more
+        capable of building a better future.
+      </p>
+
+      <p>
+        Through community initiatives, partnerships, volunteering,
+        mentorship, skills development, educational support, and other
+        appropriate programmes, SOBOBO NATION seeks to encourage
+        people to believe in their potential.
+      </p>
+
+      <p>
+        We believe that when you empower one person, you can positively
+        influence an entire family.
+      </p>
+
+      <p>
+        When you empower a family, you can strengthen a community.
+      </p>
+
+      <p>
+        And when communities become stronger, society becomes stronger.
+      </p>
+
+    </section>
+
+    <!-- EVERYONE HAS A ROLE -->
+    <section class="content-card">
+
+      <h2>👨‍👩‍👧‍👦 EVERYONE HAS A ROLE TO PLAY</h2>
+
+      <p>
+        SOBOBO NATION is for everyone who believes in making a
+        positive contribution to humanity.
+      </p>
+
+      <ul class="role-list">
+
+        <li>
+          <strong>Volunteer</strong> – Give your time and skills to
+          humanitarian and community activities.
+        </li>
+
+        <li>
+          <strong>Supporter</strong> – Help spread our message and
+          encourage others to participate.
+        </li>
+
+        <li>
+          <strong>Donor</strong> – Where possible, provide resources
+          to support approved humanitarian initiatives.
+        </li>
+
+        <li>
+          <strong>Professional</strong> – Contribute your expertise,
+          knowledge, or professional services.
+        </li>
+
+        <li>
+          <strong>Community Member</strong> – Help identify genuine
+          needs within your community and connect people with
+          appropriate support.
+        </li>
+
+        <li>
+          <strong>Partner</strong> – Work with SOBOBO NATION on
+          initiatives that can positively impact communities.
+        </li>
+
+      </ul>
+
+      <p>
+        <strong>
+          There is no contribution too small when it comes from a
+          sincere desire to help.
+        </strong>
+      </p>
+
+    </section>
+
+    <!-- BE THE REASON -->
+    <div class="quote-box">
+
+      <p>
+        🙏 BE THE REASON SOMEONE SMILES
+      </p>
+
+      <p style="font-size:17px; font-weight:normal; margin-top:15px;">
+        Imagine a person going through a difficult period and
+        receiving unexpected support.
+      </p>
+
+      <p style="font-size:17px; font-weight:normal;">
+        Imagine an elderly person realizing that someone still cares.
+      </p>
+
+      <p style="font-size:17px; font-weight:normal;">
+        Imagine a young person receiving encouragement when they are
+        about to give up.
+      </p>
+
+      <p style="font-size:17px; font-weight:normal;">
+        Imagine a family receiving assistance at a time when they
+        desperately need it.
+      </p>
+
+      <p style="font-size:17px; font-weight:normal;">
+        Imagine a community coming together to support its most
+        vulnerable members.
       </p>
 
     </div>
 
-    <h2
-      style="
-        text-align:center;
-        color:#087f23;
-        margin:45px 0 25px;
-      "
-    >
-      Our Core Values
-    </h2>
+    <!-- JOIN MOVEMENT -->
+    <section class="join-section">
 
-    <div class="grid">
-
-      <div class="card">
-        <h3>Unity</h3>
-        <p>
-          Bringing people together through cooperation,
-          understanding and shared community interests.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Progress</h3>
-        <p>
-          Supporting constructive ideas and initiatives that
-          contribute to positive development.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Community</h3>
-        <p>
-          Encouraging participation and engagement in activities
-          that strengthen communities.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Responsibility</h3>
-        <p>
-          Promoting responsible communication, cooperation and
-          constructive participation.
-        </p>
-      </div>
-
-    </div>
-
-    <div class="info-box">
-
-      <h3>Our Vision</h3>
+      <h2>❤️ JOIN THE MOVEMENT</h2>
 
       <p>
-        To build a connected and active community where people
-        work together, share ideas and contribute to positive
-        progress.
+        Today, we invite you to become part of
+        <strong>SOBOBO NATION.</strong>
       </p>
 
-    </div>
+      <p>
+        Join us not because you are perfect, but because you care.
+      </p>
 
-    <div class="cta">
+      <p>
+        Join us not because you have everything, but because you
+        believe that what you have can be useful to someone else.
+      </p>
 
-      <a href="membership.html">
-        Join SOBOBO NATION
+      <p>
+        Join us because you believe that communities become better
+        when people stand together.
+      </p>
+
+      <p>
+        Join us because you believe that vulnerable people deserve
+        attention, dignity, and support.
+      </p>
+
+      <p>
+        Join us because you believe that compassion should not remain
+        an idea—it should become action.
+      </p>
+
+      <a href="membership.html" class="join-btn">
+        🤝 JOIN SOBOBO NATION
       </a>
 
-    </div>
+    </section>
+
+    <!-- TOGETHER WE CAN -->
+    <section class="content-card" style="margin-top:30px; text-align:center;">
+
+      <h2>🌟 TOGETHER, WE CAN DO MORE</h2>
+
+      <p>
+        One person can help one person.
+      </p>
+
+      <p>
+        A group can help many.
+      </p>
+
+      <p>
+        A united movement can reach communities.
+      </p>
+
+      <p>
+        When people with good intentions come together, their
+        collective effort can create opportunities, bring hope,
+        and inspire positive change.
+      </p>
+
+      <p>
+        <strong>
+          SOBOBO NATION is calling on compassionate individuals,
+          volunteers, community leaders, professionals, entrepreneurs,
+          youths, families, organizations, and everyone who believes
+          in humanity to join us.
+        </strong>
+      </p>
+
+      <p>
+        Let us build a community where nobody feels completely
+        forgotten.
+      </p>
+
+      <p>
+        Let us support those who need support.
+      </p>
+
+      <p>
+        Let us encourage those who have lost hope.
+      </p>
+
+      <p>
+        Let us empower those who need opportunities.
+      </p>
+
+      <p>
+        Let us give our time, talents, resources, and voices to causes
+        that improve lives.
+      </p>
+
+      <p>
+        <strong>Let us make compassion a way of life.</strong>
+      </p>
+
+    </section>
+
+    <!-- SOBOBO NATION STATEMENT -->
+    <section class="slogan">
+
+      <h2>🌍 SOBOBO NATION</h2>
+
+      <p>
+        A Movement of Care.
+        A Foundation of Support.
+        A Community of Hope.
+        A Platform for Empowerment.
+      </p>
+
+      <p style="margin-top:20px; font-weight:normal;">
+        The journey toward positive change begins with people who
+        are willing to take the first step.
+      </p>
+
+      <p style="margin-top:10px;">
+        <strong>Be part of that step.</strong>
+      </p>
+
+      <p>
+        <strong>Join SOBOBO NATION today.</strong>
+      </p>
+
+      <p style="margin-top:15px;">
+        Together, we can care.<br>
+        Together, we can support.<br>
+        Together, we can empower.<br>
+        Together, we can make a difference.
+      </p>
+
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact-box">
+
+      <h2>📞 GET IN TOUCH</h2>
+
+      <p>
+        For membership, volunteering, partnership, humanitarian
+        initiatives, or general enquiries, contact SOBOBO NATION:
+      </p>
+
+      <a
+        href="tel:+2349151524655"
+        class="phone">
+        📞 +234 915 152 4655
+      </a>
+
+      <a
+        href="tel:+2348130122985"
+        class="phone">
+        📞 +234 813 012 2985
+      </a>
+
+      <p style="margin-top:20px; font-weight:bold; color:#087f23;">
+        SOBOBO NATION — Caring for People.
+        Supporting Communities.
+        Empowering Lives.
+      </p>
+
+    </section>
 
   </main>
 
+  <!-- FOOTER -->
   <footer>
 
-    <p>
-      <strong>SOBOBO NATION</strong>
-    </p>
+    <h3>SOBOBO NATION</h3>
 
     <p>
       UNITY • PROGRESS • COMMUNITY
     </p>
 
     <p>
-      Initiator, Founder & CEO: Chief Dr. Uloko OJIJI
+      Caring for People. Supporting Communities. Empowering Lives.
     </p>
 
     <p>
       © <span id="year"></span> SOBOBO NATION. All Rights Reserved.
-    </p>
-
-    <p>
-      <a href="privacy.html">Privacy Policy</a>
-      &nbsp; | &nbsp;
-      <a href="terms.html">Terms & Conditions</a>
     </p>
 
   </footer>
@@ -580,9 +1106,11 @@
   <script>
 
     function toggleMenu() {
+
       document
         .getElementById("navMenu")
         .classList.toggle("active");
+
     }
 
     document.getElementById("year").textContent =
